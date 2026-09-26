@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEBULA // GitHub Pages VPN Gateway</title>
+  <meta name="description" content="Бесплатный автоматический шлюз VPN-подписок для v2rayNG, Hiddify, V2Box, Clash и Sing-Box на GitHub Pages.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="qrcode.min.js"></script>
+  <style>
+    :root {
+      --bg: #070a12;
+      --card-bg: rgba(15, 23, 42, 0.72);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover-border: rgba(99, 102, 241, 0.4);
+      --primary: #6366f1;
+      --primary-hover: #4f46e5;
+      --cyan: #06b6d4;
+      --emerald: #10b981;
+      --amber: #f59e0b;
+      --purple: #a855f7;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --code-bg: rgba(0, 0, 0, 0.45);
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 25%, rgba(6, 182, 212, 0.10) 0%, transparent 40%),
+        radial-gradient(circle at 50% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 10, 18, 0.85);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--primary), var(--cyan));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 18px rgba(99, 102, 241, 0.45);
+    }
+
+    .brand-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: white;
+    }
+
+    .badge-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--emerald);
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .badge-live .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--emerald);
+      box-shadow: 0 0 10px var(--emerald);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.2); }
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 4rem 0 3rem;
+      text-align: center;
+    }
+
+    .hero-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 1rem;
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      border-radius: 9999px;
+      color: #a5b4fc;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+      background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, #818cf8, #38bdf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 2.5rem;
+    }
+
+    /* Main Subscription Card */
+    .sub-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
+      margin-bottom: 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sub-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--cyan), var(--purple));
+    }
+
+    .sub-url-box {
+      display: flex;
+      align-items: center;
+      background: var(--code-bg);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 0.5rem 0.6rem 0.5rem 1.25rem;
+      margin-bottom: 1.75rem;
+      transition: all 0.2s ease;
+    }
+
+    .sub-url-box:focus-within {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.25);
+    }
+
+    .sub-url-input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #38bdf8;
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      width: 100%;
+      user-select: all;
+    }
+
+    .btn-copy {
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0.75rem 1.4rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-copy:hover {
+      background: var(--primary-hover);
+      box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .btn-copy.copied {
+      background: var(--emerald);
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+    }
+
+    /* Fast Import Buttons */
+    .import-section-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+      margin-bottom: 0.9rem;
+      font-weight: 700;
+    }
+
+    .import-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .btn-app {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-app:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(99, 102, 241, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .btn-app svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Secondary Action Buttons */
+    .action-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
+      border-radius: 8px;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      color: var(--text);
+      border-color: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    /* Stats Bar */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 1.25rem;
+      text-align: center;
+      backdrop-filter: blur(12px);
+    }
+
+    .stat-value {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: #fff;
+      font-family: var(--font-mono);
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 0.25rem;
+    }
+
+    /* Tabs & Section Titles */
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .filter-group {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      padding: 0.4rem 0.85rem;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* Node Cards Grid */
+    .nodes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1rem;
+      margin-bottom: 4rem;
+    }
+
+    .node-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.15rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.9rem;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .node-card:hover {
+      border-color: var(--card-hover-border);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .node-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .node-title-group {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      overflow: hidden;
+    }
+
+    .node-flag {
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .node-name {
+      font-weight: 600;
+      font-size: 0.92rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .proto-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .proto-vless { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .proto-vmess { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+    .proto-trojan { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .proto-shadowsocks { background: rgba(6, 182, 212, 0.15); color: #38bdf8; border: 1px solid rgba(6, 182, 212, 0.3); }
+
+    .node-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      background: rgba(0, 0, 0, 0.25);
+      padding: 0.4rem 0.65rem;
+      border-radius: 6px;
+    }
+
+    .node-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .node-btn {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      border-radius: 6px;
+      padding: 0.45rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      transition: all 0.15s;
+    }
+
+    .node-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    /* Client Instruction Guide */
+    .guide-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 2.25rem;
+      backdrop-filter: blur(16px);
+      margin-bottom: 4rem;
+    }
+
+    .guide-tabs {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      overflow-x: auto;
+    }
+
+    .guide-tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.5rem 1.25rem;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .guide-tab-btn.active {
+      background: rgba(99, 102, 241, 0.15);
+      color: #a5b4fc;
+    }
+
+    .guide-step {
+      display: flex;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .step-number {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.88rem;
+      flex-shrink: 0;
+    }
+
+    .step-text h4 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+      color: #fff;
+    }
+
+    .step-text p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* QR Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 1rem;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: #0f172a;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 18px;
+      padding: 2rem;
+      max-width: 380px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1.25rem;
+    }
+
+    .qr-container {
+      background: #ffffff;
+      padding: 1rem;
+      border-radius: 12px;
+      display: inline-block;
+      margin: 1.25rem 0;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #1e293b;
+      border: 1px solid var(--emerald);
+      color: #fff;
+      padding: 0.85rem 1.4rem;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 2000;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 2.5rem 0;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .sub-card { padding: 1.5rem; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .sub-url-box { flex-direction: column; align-items: stretch; gap: 0.5rem; }
+      .btn-copy { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+      <a href="#" class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <span>NEBULA // VPN</span>
+      </a>
+      <div class="badge-live">
+        <div class="dot"></div>
+        <span id="statusBadgeText">ПОДПИСКА АКТИВНА</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="container">
+    <section class="hero">
+      <div class="hero-chip">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>GitHub Pages Hosted • Автообновление каждые 6 часов</span>
+      </div>
+      <h1>Шлюз рабочих VPN-конфигов<br><span>без собственного сервера</span></h1>
+      <p>Единая ссылка подписки с автоматической ротацией проверенных VLESS, VMess, Trojan и Shadowsocks узлов. Полный обход блокировок для всех устройств.</p>
+
+      <!-- Subscription Card -->
+      <div class="sub-card">
+        <div class="sub-url-box">
+          <input type="text" id="subUrlInput" class="sub-url-input" readonly value="Загрузка ссылки подписки...">
+          <button id="btnCopySub" class="btn-copy">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span id="btnCopyText">Скопировать подписку</span>
+          </button>
+        </div>
+
+        <div class="import-section-title">Импорт в 1 клик прямо в приложение</div>
+        <div class="import-grid">
+          <a id="btnHiddify" href="#" class="btn-app">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            Hiddify
+          </a>
+          <a id="btnV2rayNG" href="#" class="btn-app">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m10 15 5-3-5-3v6z"/></svg>
+            v2rayNG
+          </a>
+          <a id="btnV2Box" href="#" class="btn-app">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M12 8v8M8 12h8"/></svg>
+            V2Box (iOS)
+          </a>
+          <a id="btnClash" href="#" class="btn-app">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            Clash Meta
+          </a>
+          <a id="btnSingBox" href="#" class="btn-app">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+            Sing-box
+          </a>
+          <button id="btnShowQr" class="btn-app" style="color:#a5b4fc;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            QR-код
+          </button>
+        </div>
+
+        <div class="action-row">
+          <a id="dlSubTxt" href="sub.txt" download="sub.txt" class="btn-secondary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Скачать sub.txt (Base64)
+          </a>
+          <a id="dlClash" href="clash.yaml" download="clash.yaml" class="btn-secondary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Скачать clash.yaml
+          </a>
+          <a id="dlSingBox" href="sing-box.json" download="sing-box.json" class="btn-secondary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Скачать sing-box.json
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <div id="statTotal" class="stat-value">--</div>
+        <div class="stat-label">Всего серверов</div>
+      </div>
+      <div class="stat-card">
+        <div id="statVless" class="stat-value" style="color:#34d399;">--</div>
+        <div class="stat-label">VLESS / Reality</div>
+      </div>
+      <div class="stat-card">
+        <div id="statVmess" class="stat-value" style="color:#c084fc;">--</div>
+        <div class="stat-label">VMess</div>
+      </div>
+      <div class="stat-card">
+        <div id="statOther" class="stat-value" style="color:#38bdf8;">--</div>
+        <div class="stat-label">Trojan / SS</div>
+      </div>
+    </div>
+
+    <!-- Node Explorer Section -->
+    <section>
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Доступные узлы</h2>
+          <p style="color:var(--text-muted); font-size:0.9rem;" id="syncTime">Синхронизация с облаком...</p>
+        </div>
+        <div class="filter-group">
+          <button class="filter-btn active" data-filter="all">Все</button>
+          <button class="filter-btn" data-filter="VLESS">VLESS</button>
+          <button class="filter-btn" data-filter="VMess">VMess</button>
+          <button class="filter-btn" data-filter="Trojan">Trojan</button>
+          <button class="filter-btn" data-filter="Shadowsocks">Shadowsocks</button>
+        </div>
+      </div>
+
+      <div id="nodesGrid" class="nodes-grid">
+        <!-- Rendered dynamically via JavaScript -->
+      </div>
+    </section>
+
+    <!-- Instructions Guide Section -->
+    <section class="guide-card">
+      <h2 style="font-size:1.4rem; margin-bottom:1.25rem;">Как подключиться за 1 минуту</h2>
+      <div class="guide-tabs">
+        <button class="guide-tab-btn active" onclick="switchGuide('ios')">🍏 iOS (iPhone / iPad)</button>
+        <button class="guide-tab-btn" onclick="switchGuide('android')">🤖 Android</button>
+        <button class="guide-tab-btn" onclick="switchGuide('windows')">💻 Windows</button>
+        <button class="guide-tab-btn" onclick="switchGuide('macos')">🍎 macOS</button>
+      </div>
+
+      <div id="guideContent">
+        <!-- iOS Guide Default -->
+        <div class="guide-step">
+          <div class="step-number">1</div>
+          <div class="step-text">
+            <h4>Установите бесплатный клиент</h4>
+            <p>Установите <strong>V2Box</strong>, <strong>Streisand</strong> или <strong>FoXray</strong> из App Store.</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-number">2</div>
+          <div class="step-text">
+            <h4>Скопируйте ссылку подписки</h4>
+            <p>Нажмите большую кнопку <strong>«Скопировать подписку»</strong> вверху этой страницы или отсканируйте QR-код через камеру.</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-number">3</div>
+          <div class="step-text">
+            <h4>Добавьте подписку в приложение</h4>
+            <p>В приложении V2Box перейдите во вкладку <strong>Configs</strong> → нажмите <strong>«+»</strong> в правом верхнем углу → выберите <strong>Add Subscription</strong> → вставьте ссылку и сохраните.</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-number">4</div>
+          <div class="step-text">
+            <h4>Подключитесь</h4>
+            <p>Выберите сервер с наименьшим пингом и нажмите переключатель <strong>Connect</strong>!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- QR Code Modal -->
+  <div id="qrModal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeQrModal()">&times;</button>
+      <h3 id="qrModalTitle" style="color:#fff; font-size:1.15rem;">QR-код подписки</h3>
+      <p style="color:var(--text-muted); font-size:0.85rem; margin-top:0.3rem;">Отсканируйте камерой в приложении</p>
+      <div id="qrcodeWrapper" class="qr-container"></div>
+      <div style="display:flex; justify-content:center; gap:0.5rem;">
+        <button class="btn-copy" style="font-size:0.8rem; padding:0.5rem 1rem;" onclick="copyQrData()">Скопировать ссылку</button>
+        <button class="btn-secondary" style="font-size:0.8rem; padding:0.5rem 1rem;" onclick="closeQrModal()">Закрыть</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    <span id="toastMsg">Ссылка скопирована в буфер!</span>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>NEBULA // Automated GitHub Pages VPN Gateway</p>
+      <p style="margin-top:0.4rem; font-size:0.75rem;">Конфигурации генерируются в ознакомительных целях для тестирования сетевой связности.</p>
+    </div>
+  </footer>
+
+  <script>
+    // 1. Calculate dynamic absolute URLs for GitHub Pages
+    const baseUrl = window.location.origin + window.location.pathname.replace(/\/(index\.html)?$/, '');
+    const subUrl = baseUrl + '/sub.txt';
+    const clashUrl = baseUrl + '/clash.yaml';
+    const singBoxUrl = baseUrl + '/sing-box.json';
+
+    // Populate Input Box
+    document.getElementById('subUrlInput').value = subUrl;
+
+    // Fast Deep Links
+    document.getElementById('btnHiddify').href = `hiddify://install-sub?url=${encodeURIComponent(subUrl)}&name=NebulaVPN`;
+    document.getElementById('btnV2rayNG').href = `v2rayng://install-sub?url=${encodeURIComponent(subUrl)}#NebulaVPN`;
+    document.getElementById('btnV2Box').href = `v2box://install-sub?url=${encodeURIComponent(subUrl)}&name=NebulaVPN`;
+    document.getElementById('btnClash').href = `clash://install-config?url=${encodeURIComponent(clashUrl)}&name=NebulaVPN`;
+    document.getElementById('btnSingBox').href = `sing-box://import-remote-profile?url=${encodeURIComponent(singBoxUrl)}#NebulaVPN`;
+
+    // Copy Toast Helper
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMsg').innerText = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2600);
+    }
+
+    // Copy Subscription URL
+    const btnCopySub = document.getElementById('btnCopySub');
+    btnCopySub.addEventListener('click', () => {
+      navigator.clipboard.writeText(subUrl).then(() => {
+        btnCopySub.classList.add('copied');
+        document.getElementById('btnCopyText').innerText = 'Скопировано!';
+        showToast('Ссылка на подписку скопирована!');
+        setTimeout(() => {
+          btnCopySub.classList.remove('copied');
+          document.getElementById('btnCopyText').innerText = 'Скопировать подписку';
+        }, 2200);
+      });
+    });
+
+    // QR Code Modal Logic
+    let currentQrText = subUrl;
+    function openQrModal(title, text) {
+      currentQrText = text;
+      document.getElementById('qrModalTitle').innerText = title;
+      const wrapper = document.getElementById('qrcodeWrapper');
+      wrapper.innerHTML = '';
+      if (typeof QRCode !== 'undefined') {
+        new QRCode(wrapper, {
+          text: text,
+          width: 220,
+          height: 220,
+          colorDark: "#000000",
+          colorLight: "#ffffff",
+          correctLevel: QRCode.CorrectLevel.M
+        });
+      }
+      document.getElementById('qrModal').classList.add('active');
+    }
+
+    function closeQrModal() {
+      document.getElementById('qrModal').classList.remove('active');
+    }
+
+    function copyQrData() {
+      navigator.clipboard.writeText(currentQrText).then(() => {
+        showToast('Ключ скопирован в буфер!');
+      });
+    }
+
+    document.getElementById('btnShowQr').addEventListener('click', () => {
+      openQrModal('QR-код подписки', subUrl);
+    });
+
+    document.getElementById('qrModal').addEventListener('click', (e) => {
+      if (e.target.id === 'qrModal') closeQrModal();
+    });
+
+    // 2. Load and Render Nodes from nodes.json
+    let allNodes = [];
+    fetch('nodes.json')
+      .then(res => res.json())
+      .then(data => {
+        allNodes = data.nodes || [];
+        document.getElementById('statTotal').innerText = data.total_nodes || allNodes.length;
+        document.getElementById('statVless').innerText = data.protocols?.vless || 0;
+        document.getElementById('statVmess').innerText = data.protocols?.vmess || 0;
+        document.getElementById('statOther').innerText = (data.protocols?.trojan || 0) + (data.protocols?.shadowsocks || 0);
+        document.getElementById('syncTime').innerText = `Последнее обновление в облаке: ${data.updated_at || 'Сегодня'}`;
+        renderNodes(allNodes);
+      })
+      .catch(err => {
+        console.warn('Could not load nodes.json:', err);
+        document.getElementById('syncTime').innerText = 'Используются встроенные узлы';
+      });
+
+    function renderNodes(nodes) {
+      const grid = document.getElementById('nodesGrid');
+      grid.innerHTML = '';
+      if (!nodes.length) {
+        grid.innerHTML = '<div style="grid-column: 1/-1; text-align:center; color:var(--text-muted); padding:3rem;">Узлы не найдены</div>';
+        return;
+      }
+
+      nodes.forEach((n, idx) => {
+        const protoClass = `proto-${n.protocol.toLowerCase()}`;
+        const card = document.createElement('div');
+        card.className = 'node-card';
+        card.innerHTML = `
+          <div>
+            <div class="node-header">
+              <div class="node-title-group">
+                <span class="node-flag">${n.flag || '🌐'}</span>
+                <span class="node-name" title="${n.name}">${n.name}</span>
+              </div>
+              <span class="proto-badge ${protoClass}">${n.protocol}</span>
+            </div>
+            <div class="node-meta" style="margin-top:0.75rem;">
+              <span>${n.host || 'proxy-edge'}</span>
+              <span>:${n.port || 443}</span>
+            </div>
+          </div>
+          <div class="node-actions">
+            <button class="node-btn" onclick="copyNodeLink(${idx})">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              Ключ
+            </button>
+            <button class="node-btn" onclick="showNodeQr(${idx})">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              QR
+            </button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    window.copyNodeLink = function(idx) {
+      if (allNodes[idx] && allNodes[idx].raw) {
+        navigator.clipboard.writeText(allNodes[idx].raw).then(() => {
+          showToast(`Ключ ${allNodes[idx].protocol} скопирован!`);
+        });
+      }
+    };
+
+    window.showNodeQr = function(idx) {
+      if (allNodes[idx] && allNodes[idx].raw) {
+        openQrModal(allNodes[idx].name || allNodes[idx].protocol, allNodes[idx].raw);
+      }
+    };
+
+    // Filter Buttons Logic
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        if (filter === 'all') {
+          renderNodes(allNodes);
+        } else {
+          renderNodes(allNodes.filter(n => n.protocol.toLowerCase() === filter.toLowerCase()));
+        }
+      });
+    });
+
+    // 3. Instruction Tabs
+    const guides = {
+      ios: `
+        <div class="guide-step">
+          <div class="step-number">1</div>
+          <div class="step-text">
+            <h4>Установите бесплатный клиент</h4>
+            <p>Установите <strong>V2Box</strong>, <strong>Streisand</strong> или <strong>FoXray</strong> из App Store.</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-number">2</div>
+          <div class="step-text">
+            <h4>Скопируйте ссылку подписки</h4>
+            <p>Нажмите большую кнопку <strong>«Скопировать подписку»</strong> вверху этой страницы или отсканируйте QR-код.</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-number">3</div>
+          <div class="step-text">
+            <h4>Добавьте подписку</h4>
+            <p>В приложении V2Box перейдите в <strong>Configs</strong> → нажмите <strong>«+»</strong> → <strong>Add Subscription</strong> → вставьте ссылку и сохраните.</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-number">4</div>
+          <div class="step-text">
+            <h4>Подключитесь</h4>
+            <p>Нажмите <strong>«Ping All»</strong>, выберите самый быстрый узел и включите VPN тумблером!</p>
+          </div>
+        </div>
+      `,
+      android: `
+        <div class="guide-step">
+          <div class="step-number">1</div>
+          <div class="step-text">
+            <h4>Установите клиент</h4>
+            <p>Скачайте <strong>v2rayNG</strong> или <strong>Hiddify</strong> из Google Play или GitHub Releases.</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-number">2</div>
+          <div class="step-text">
+            <h4>Импорт в 1 клик</h4>
+            <p>Нажмите кнопку <strong>«Hiddify»</strong> или <strong>«v2rayNG»</strong> выше — приложение откроется само и загрузит все узлы!</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-number">3</div>
+          <div class="step-text">
+            <h4>Или вставьте вручную</h4>
+            <p>В v2rayNG: боковое меню (три полоски) → <strong>Группы подписки</strong> → «+» → вставьте ссылку в URL подписки → вернитесь на главный экран и нажмите три точки → <strong>Обновить подписку</strong>.</p>
+          </div>
+        </div>
+      `,
+      windows: `
+        <div class="guide-step">
+          <div class="step-number">1</div>
+          <div class="step-text">
+            <h4>Скачайте приложение для Windows</h4>
+            <p>Рекомендуем <strong>Hiddify Next</strong> или <strong>Clash Verge Rev</strong> (поддерживают системный TUN-режим).</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-number">2</div>
+          <div class="step-text">
+            <h4>Добавьте подписку</h4>
+            <p>В Hiddify нажмите <strong>Новый профиль</strong> → <strong>Добавить из буфера</strong> (предварительно скопировав ссылку выше). В Clash Verge: раздел <strong>Profiles</strong> → вставьте URL → нажмите <strong>Import</strong>.</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-number">3</div>
+          <div class="step-text">
+            <h4>Включите TUN Mode</h4>
+            <p>Активируйте переключатель <strong>TUN Mode</strong> (чтобы проксировать все игры и программы) и нажмите <strong>Connect</strong>.</p>
+          </div>
+        </div>
+      `,
+      macos: `
+        <div class="guide-step">
+          <div class="step-number">1</div>
+          <div class="step-text">
+            <h4>Скачайте клиент для Mac</h4>
+            <p>Используйте <strong>Clash Verge Rev</strong>, <strong>FoXray</strong> или <strong>Hiddify</strong>.</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-number">2</div>
+          <div class="step-text">
+            <h4>Вставьте ссылку</h4>
+            <p>Скопируйте ссылку подписки или скачайте готовый файл <strong>clash.yaml</strong> и перетащите в Clash Verge.</p>
+          </div>
+        </div>
+      `
+    };
+
+    window.switchGuide = function(platform) {
+      document.querySelectorAll('.guide-tab-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+      document.getElementById('guideContent').innerHTML = guides[platform] || '';
+    };
+  </script>
+</body>
+</html>

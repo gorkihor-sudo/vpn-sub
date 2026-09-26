@@ -1,0 +1,338 @@
+{
+  "log": {
+    "level": "info"
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "dns-remote",
+        "address": "https://1.1.1.1/dns-query",
+        "detour": "select"
+      },
+      {
+        "tag": "dns-direct",
+        "address": "local",
+        "detour": "direct"
+      }
+    ]
+  },
+  "inbounds": [
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 2080
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "direct",
+        "node-0",
+        "node-1",
+        "node-2",
+        "node-3",
+        "node-4",
+        "node-5",
+        "node-6",
+        "node-7",
+        "node-8",
+        "node-9",
+        "node-10",
+        "node-11",
+        "node-12",
+        "node-13",
+        "node-14",
+        "node-15",
+        "node-16",
+        "node-17",
+        "node-18",
+        "node-19"
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "node-0",
+        "node-1",
+        "node-2",
+        "node-3",
+        "node-4",
+        "node-5",
+        "node-6",
+        "node-7",
+        "node-8",
+        "node-9",
+        "node-10",
+        "node-11",
+        "node-12",
+        "node-13",
+        "node-14",
+        "node-15",
+        "node-16",
+        "node-17",
+        "node-18",
+        "node-19"
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "3m"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
+      "type": "vless",
+      "tag": "node-0",
+      "server": "172.67.132.85",
+      "server_port": 8080,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": false,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-1",
+      "server": "172.66.170.53",
+      "server_port": 8880,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": false,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-2",
+      "server": "104.21.37.55",
+      "server_port": 443,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-3",
+      "server": "104.21.70.21",
+      "server_port": 8080,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": false,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-4",
+      "server": "104.17.21.32",
+      "server_port": 8880,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": false,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-5",
+      "server": "104.21.55.229",
+      "server_port": 8880,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": false,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "node-6",
+      "server": "104.17.111.1",
+      "server_port": 443,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "node-7",
+      "server": "104.16.174.101",
+      "server_port": 443,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "node-8",
+      "server": "ip.myip2.qzz.io",
+      "server_port": 443,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "node-9",
+      "server": "104.16.174.109",
+      "server_port": 443,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "node-10",
+      "server": "172.67.188.109",
+      "server_port": 443,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "node-11",
+      "server": "104.18.152.230",
+      "server_port": 443,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "node-12",
+      "server": "104.17.148.22",
+      "server_port": 443,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-13",
+      "server": "104.16.132.229",
+      "server_port": 443,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-14",
+      "server": "172.67.182.111",
+      "server_port": 443,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-15",
+      "server": "162.159.193.1",
+      "server_port": 443,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-16",
+      "server": "43.174.195.1",
+      "server_port": 443,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-17",
+      "server": "103.71.23.244",
+      "server_port": 443,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-18",
+      "server": "46.28.69.53",
+      "server_port": 443,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-19",
+      "server": "177.3.213.112",
+      "server_port": 443,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "dns-out"
+      },
+      {
+        "geoip": [
+          "private"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "geosite": [
+          "category-ads-all"
+        ],
+        "outbound": "block"
+      }
+    ],
+    "auto_detect_interface": true
+  }
+}
