@@ -94,9 +94,9 @@
       "tag": "dns-out"
     },
     {
-      "type": "vless",
+      "type": "vmess",
       "tag": "node-0",
-      "server": "104.21.90.161",
+      "server": "104.18.152.103",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -107,7 +107,7 @@
     {
       "type": "vmess",
       "tag": "node-1",
-      "server": "104.16.174.34",
+      "server": "104.18.152.77",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -118,7 +118,7 @@
     {
       "type": "vmess",
       "tag": "node-2",
-      "server": "104.18.152.149",
+      "server": "104.18.152.155",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -129,7 +129,7 @@
     {
       "type": "vmess",
       "tag": "node-3",
-      "server": "104.16.174.101",
+      "server": "104.18.152.144",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -140,7 +140,7 @@
     {
       "type": "vmess",
       "tag": "node-4",
-      "server": "172.67.221.242",
+      "server": "ip.myip2.qzz.io",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -151,28 +151,6 @@
     {
       "type": "vmess",
       "tag": "node-5",
-      "server": "162.159.254.191",
-      "server_port": 443,
-      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
-      "tls": {
-        "enabled": true,
-        "insecure": true
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "node-6",
-      "server": "104.18.152.152",
-      "server_port": 443,
-      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
-      "tls": {
-        "enabled": true,
-        "insecure": true
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "node-7",
       "server": "141.101.90.101",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
@@ -183,8 +161,30 @@
     },
     {
       "type": "vmess",
+      "tag": "node-6",
+      "server": "104.18.152.210",
+      "server_port": 443,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "node-7",
+      "server": "104.21.8.107",
+      "server_port": 443,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vmess",
       "tag": "node-8",
-      "server": "104.16.174.71",
+      "server": "172.67.221.242",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -195,7 +195,7 @@
     {
       "type": "vmess",
       "tag": "node-9",
-      "server": "172.67.149.60",
+      "server": "104.18.152.219",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -206,7 +206,7 @@
     {
       "type": "vmess",
       "tag": "node-10",
-      "server": "104.16.174.124",
+      "server": "104.17.177.143",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -217,7 +217,7 @@
     {
       "type": "vmess",
       "tag": "node-11",
-      "server": "104.18.152.113",
+      "server": "www.ignitelimit.com",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -228,7 +228,7 @@
     {
       "type": "vmess",
       "tag": "node-12",
-      "server": "104.18.152.230",
+      "server": "104.26.14.137",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -239,7 +239,7 @@
     {
       "type": "vmess",
       "tag": "node-13",
-      "server": "104.16.174.117",
+      "server": "104.17.111.1",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -250,18 +250,7 @@
     {
       "type": "vmess",
       "tag": "node-14",
-      "server": "104.17.111.3",
-      "server_port": 443,
-      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
-      "tls": {
-        "enabled": true,
-        "insecure": true
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "node-15",
-      "server": "104.26.14.137",
+      "server": "104.18.152.152",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -271,7 +260,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-16",
+      "tag": "node-15",
       "server": "104.16.132.229",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
@@ -282,7 +271,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-17",
+      "tag": "node-16",
       "server": "172.67.182.111",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
@@ -293,7 +282,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-18",
+      "tag": "node-17",
       "server": "162.159.193.1",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
@@ -304,8 +293,19 @@
     },
     {
       "type": "vless",
+      "tag": "node-18",
+      "server": "151.241.138.151",
+      "server_port": 8444,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
       "tag": "node-19",
-      "server": "217.60.177.195",
+      "server": "fbsv6.guardora.pro",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
