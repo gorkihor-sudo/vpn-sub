@@ -94,31 +94,31 @@
       "tag": "dns-out"
     },
     {
-      "type": "vless",
+      "type": "vmess",
       "tag": "node-0",
-      "server": "172.66.170.53",
-      "server_port": 8880,
+      "server": "104.18.22.63",
+      "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
-        "enabled": false,
+        "enabled": true,
         "insecure": true
       }
     },
     {
-      "type": "vless",
+      "type": "vmess",
       "tag": "node-1",
-      "server": "skk.moe",
-      "server_port": 8880,
+      "server": "104.19.229.21",
+      "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
-        "enabled": false,
+        "enabled": true,
         "insecure": true
       }
     },
     {
       "type": "vmess",
       "tag": "node-2",
-      "server": "ip.myip2.qzz.io",
+      "server": "104.17.111.3",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -129,7 +129,7 @@
     {
       "type": "vmess",
       "tag": "node-3",
-      "server": "104.17.177.143",
+      "server": "104.18.32.87",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -140,7 +140,7 @@
     {
       "type": "vmess",
       "tag": "node-4",
-      "server": "104.16.174.72",
+      "server": "ip.myip2.qzz.io",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -151,7 +151,7 @@
     {
       "type": "vmess",
       "tag": "node-5",
-      "server": "188.114.97.7",
+      "server": "104.18.152.97",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -162,7 +162,7 @@
     {
       "type": "vmess",
       "tag": "node-6",
-      "server": "104.18.152.149",
+      "server": "104.18.152.204",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -173,7 +173,7 @@
     {
       "type": "vmess",
       "tag": "node-7",
-      "server": "104.18.23.63",
+      "server": "104.16.174.34",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -184,7 +184,7 @@
     {
       "type": "vmess",
       "tag": "node-8",
-      "server": "104.18.152.73",
+      "server": "104.16.174.14",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -195,7 +195,7 @@
     {
       "type": "vmess",
       "tag": "node-9",
-      "server": "104.16.174.109",
+      "server": "104.26.14.137",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -206,7 +206,7 @@
     {
       "type": "vmess",
       "tag": "node-10",
-      "server": "104.20.6.134",
+      "server": "104.16.7.70",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -217,7 +217,7 @@
     {
       "type": "vmess",
       "tag": "node-11",
-      "server": "www.speedtest.net",
+      "server": "104.21.8.107",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -228,7 +228,7 @@
     {
       "type": "vmess",
       "tag": "node-12",
-      "server": "104.18.152.244",
+      "server": "104.18.152.77",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -239,40 +239,7 @@
     {
       "type": "vmess",
       "tag": "node-13",
-      "server": "104.16.174.12",
-      "server_port": 443,
-      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
-      "tls": {
-        "enabled": true,
-        "insecure": true
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "node-14",
-      "server": "104.17.148.22",
-      "server_port": 443,
-      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
-      "tls": {
-        "enabled": true,
-        "insecure": true
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "node-15",
-      "server": "104.16.174.71",
-      "server_port": 443,
-      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
-      "tls": {
-        "enabled": true,
-        "insecure": true
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "node-16",
-      "server": "104.17.111.1",
+      "server": "104.16.174.46",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -282,7 +249,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-17",
+      "tag": "node-14",
       "server": "104.16.132.229",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
@@ -293,7 +260,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-18",
+      "tag": "node-15",
       "server": "172.67.182.111",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
@@ -304,12 +271,45 @@
     },
     {
       "type": "vless",
-      "tag": "node-19",
+      "tag": "node-16",
       "server": "162.159.193.1",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
         "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-17",
+      "server": "13.143.193.156",
+      "server_port": 443,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-18",
+      "server": "nl2.gursub.com",
+      "server_port": 443,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "node-19",
+      "server": "ss-proxy",
+      "server_port": 8388,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": false,
         "insecure": true
       }
     }
