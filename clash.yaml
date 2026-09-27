@@ -1,5 +1,5 @@
 # Nebula Clash Meta / Mihomo Configuration
-# Generated: 2026-09-26 20:23:28 UTC
+# Generated: 2026-09-27 02:36:51 UTC
 port: 7890
 socks-port: 7891
 allow-lan: false
@@ -17,183 +17,183 @@ dns:
     - https://dns.cloudflare.com/dns-query
 
 proxies:
-  - name: "⚡ CF-1 Trojan"
-    type: trojan
-    server: "104.18.152.103"
-    port: 443
+  - name: "⚡ CF-1 VLESS"
+    type: vless
+    server: "104.17.21.32"
+    port: 8880
     uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
-    tls: true
+    tls: false
     skip-cert-verify: true
-  - name: "⚡ CF-2 Trojan"
-    type: trojan
-    server: "104.18.152.77"
-    port: 443
+  - name: "⚡ CF-2 VLESS"
+    type: vless
+    server: "172.67.132.85"
+    port: 8080
     uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
-    tls: true
+    tls: false
     skip-cert-verify: true
-  - name: "⚡ CF-3 Trojan"
-    type: trojan
-    server: "104.18.152.155"
-    port: 443
+  - name: "⚡ CF-3 VLESS"
+    type: vless
+    server: "www.glassdoor.com"
+    port: 8880
     uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
-    tls: true
+    tls: false
     skip-cert-verify: true
   - name: "⚡ CF-4 Trojan"
     type: trojan
-    server: "104.18.152.144"
+    server: "104.18.152.225"
     port: 443
     uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
     tls: true
     skip-cert-verify: true
   - name: "⚡ CF-5 Trojan"
     type: trojan
-    server: "ip.myip2.qzz.io"
+    server: "104.16.174.33"
     port: 443
     uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
     tls: true
     skip-cert-verify: true
   - name: "⚡ CF-6 Trojan"
     type: trojan
-    server: "141.101.90.101"
+    server: "104.18.152.144"
     port: 443
     uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
     tls: true
     skip-cert-verify: true
   - name: "⚡ CF-7 Trojan"
     type: trojan
-    server: "104.18.152.210"
+    server: "104.16.174.101"
     port: 443
     uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
     tls: true
     skip-cert-verify: true
   - name: "⚡ CF-8 Trojan"
     type: trojan
-    server: "104.21.8.107"
+    server: "162.159.136.234"
     port: 443
     uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
     tls: true
     skip-cert-verify: true
   - name: "⚡ CF-9 Trojan"
     type: trojan
-    server: "172.67.221.242"
+    server: "104.18.152.204"
     port: 443
     uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
     tls: true
     skip-cert-verify: true
   - name: "⚡ CF-10 Trojan"
     type: trojan
-    server: "104.18.152.219"
+    server: "104.18.152.77"
     port: 443
     uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
     tls: true
     skip-cert-verify: true
   - name: "⚡ CF-11 Trojan"
     type: trojan
-    server: "104.17.177.143"
+    server: "104.17.111.1"
     port: 443
     uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
     tls: true
     skip-cert-verify: true
   - name: "⚡ CF-12 Trojan"
     type: trojan
-    server: "www.ignitelimit.com"
+    server: "104.18.152.113"
     port: 443
     uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
     tls: true
     skip-cert-verify: true
   - name: "⚡ CF-13 Trojan"
     type: trojan
-    server: "104.26.14.137"
+    server: "104.16.174.185"
     port: 443
     uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
     tls: true
     skip-cert-verify: true
-  - name: "⚡ CF-14 Trojan"
-    type: trojan
-    server: "104.17.111.1"
-    port: 443
-    uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
-    tls: true
-    skip-cert-verify: true
-  - name: "⚡ CF-15 Trojan"
-    type: trojan
-    server: "104.18.152.152"
-    port: 443
-    uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
-    tls: true
-    skip-cert-verify: true
-  - name: "🌐 GLOBAL-16 VLESS"
+  - name: "🌐 GLOBAL-14 VLESS"
     type: vless
     server: "104.16.132.229"
     port: 443
     uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
     tls: true
     skip-cert-verify: true
-  - name: "🌐 GLOBAL-17 VLESS"
+  - name: "🌐 GLOBAL-15 VLESS"
     type: vless
     server: "172.67.182.111"
     port: 443
     uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
     tls: true
     skip-cert-verify: true
-  - name: "🇺🇸 US-18 VLESS"
+  - name: "🇺🇸 US-16 VLESS"
     type: vless
     server: "162.159.193.1"
     port: 443
     uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
     tls: true
     skip-cert-verify: true
+  - name: "🇩🇪 DE-17 VLESS"
+    type: vless
+    server: "deepl.com"
+    port: 8880
+    uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
+    tls: false
+    skip-cert-verify: true
+  - name: "🌐 GL-18 VLESS"
+    type: vless
+    server: "107.149.159.190"
+    port: 4433
+    uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
+    tls: true
+    skip-cert-verify: true
   - name: "🌐 GL-19 VLESS"
     type: vless
-    server: "151.241.138.151"
-    port: 8444
+    server: "139.185.44.42"
+    port: 8443
     uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
     tls: true
     skip-cert-verify: true
   - name: "🌐 GL-20 VLESS"
     type: vless
-    server: "fbsv6.guardora.pro"
-    port: 443
+    server: "72.56.41.33"
+    port: 40443
     uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
     tls: true
     skip-cert-verify: true
-  - name: "🇳🇱 NL-21 Shadowsocks"
+  - name: "🌐 GL-21 VLESS"
+    type: vless
+    server: "31.77.13.19"
+    port: 2063
+    uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
+    tls: true
+    skip-cert-verify: true
+  - name: "🇳🇱 NL-22 Shadowsocks"
     type: ss
     server: "ss-proxy"
     port: 8388
     cipher: chacha20-ietf-poly1305
     password: "password"
-  - name: "🇹🇷 TR-22 Trojan"
+  - name: "🇹🇷 TR-23 Trojan"
     type: trojan
     server: "104.21.64.12"
     port: 443
     uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
     tls: true
     skip-cert-verify: true
-  - name: "🇩🇪 DE-23 VMess"
+  - name: "🇩🇪 DE-24 VMess"
     type: vmess
     server: "speed.cloudflare.com"
     port: 443
     uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
     tls: true
     skip-cert-verify: true
-  - name: "🌐 GL-24 VMess"
-    type: vmess
-    server: "5.45.97.147"
-    port: 10803
-    uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
-    tls: false
-    skip-cert-verify: true
-  - name: "🇩🇪 DE-25 Trojan"
+  - name: "🇫🇷 FR-25 Trojan"
     type: trojan
-    server: "render.com"
+    server: "join-telegram-channel-tirexnet.trex.kdns.fr"
     port: 443
     uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
     tls: true
     skip-cert-verify: true
-  - name: "🇫🇷 FR-26 Trojan"
+  - name: "🌐 GL-26 Trojan"
     type: trojan
-    server: "join-telegram-channel-tirexnet.trex.kdns.fr"
+    server: "45.130.125.158"
     port: 443
     uuid: "de305d54-75b3-431b-a0ce-b8724def4f6b"
     tls: true
@@ -307,14 +307,14 @@ proxy-groups:
     tolerance: 50
     proxies:
       
-"⚡ CF-1 Trojan"      "⚡ CF-2 Trojan"      "⚡ CF-3 Trojan"      "⚡ CF-4 Trojan"      "⚡ CF-5 Trojan"      "⚡ CF-6 Trojan"      "⚡ CF-7 Trojan"      "⚡ CF-8 Trojan"      "⚡ CF-9 Trojan"      "⚡ CF-10 Trojan"      "⚡ CF-11 Trojan"      "⚡ CF-12 Trojan"      "⚡ CF-13 Trojan"      "⚡ CF-14 Trojan"      "⚡ CF-15 Trojan"      "🌐 GLOBAL-16 VLESS"      "🌐 GLOBAL-17 VLESS"      "🇺🇸 US-18 VLESS"      "🌐 GL-19 VLESS"      "🌐 GL-20 VLESS"      "🇳🇱 NL-21 Shadowsocks"      "🇹🇷 TR-22 Trojan"      "🇩🇪 DE-23 VMess"      "🌐 GL-24 VMess"      "🇩🇪 DE-25 Trojan"      "🇫🇷 FR-26 Trojan"      "🌐 GL-27 VMess"      "🇫🇷 FR-28 Shadowsocks"      "🇫🇷 FR-29 VMess"      "🇫🇷 FR-30 VMess"      "🇫🇷 FR-31 VMess"      "🇫🇷 FR-32 Shadowsocks"      "🇫🇷 FR-33 VMess"      "🇺🇸 US-34 VMess"      "🇫🇷 FR-35 Shadowsocks"      "🇫🇷 FR-36 VMess"      "🇫🇷 FR-37 VMess"      "🇫🇷 FR-38 Shadowsocks"      "🇫🇷 FR-39 Shadowsocks"      "🇫🇷 FR-40 VMess"      "🇫🇷 FR-41 VMess"
+"⚡ CF-1 VLESS"      "⚡ CF-2 VLESS"      "⚡ CF-3 VLESS"      "⚡ CF-4 Trojan"      "⚡ CF-5 Trojan"      "⚡ CF-6 Trojan"      "⚡ CF-7 Trojan"      "⚡ CF-8 Trojan"      "⚡ CF-9 Trojan"      "⚡ CF-10 Trojan"      "⚡ CF-11 Trojan"      "⚡ CF-12 Trojan"      "⚡ CF-13 Trojan"      "🌐 GLOBAL-14 VLESS"      "🌐 GLOBAL-15 VLESS"      "🇺🇸 US-16 VLESS"      "🇩🇪 DE-17 VLESS"      "🌐 GL-18 VLESS"      "🌐 GL-19 VLESS"      "🌐 GL-20 VLESS"      "🌐 GL-21 VLESS"      "🇳🇱 NL-22 Shadowsocks"      "🇹🇷 TR-23 Trojan"      "🇩🇪 DE-24 VMess"      "🇫🇷 FR-25 Trojan"      "🌐 GL-26 Trojan"      "🌐 GL-27 VMess"      "🇫🇷 FR-28 Shadowsocks"      "🇫🇷 FR-29 VMess"      "🇫🇷 FR-30 VMess"      "🇫🇷 FR-31 VMess"      "🇫🇷 FR-32 Shadowsocks"      "🇫🇷 FR-33 VMess"      "🇺🇸 US-34 VMess"      "🇫🇷 FR-35 Shadowsocks"      "🇫🇷 FR-36 VMess"      "🇫🇷 FR-37 VMess"      "🇫🇷 FR-38 Shadowsocks"      "🇫🇷 FR-39 Shadowsocks"      "🇫🇷 FR-40 VMess"      "🇫🇷 FR-41 VMess"
 
   - name: "🚀 Select Proxy"
     type: select
     proxies:
       - "⚡ Auto Best Latency"
       
-"⚡ CF-1 Trojan"      "⚡ CF-2 Trojan"      "⚡ CF-3 Trojan"      "⚡ CF-4 Trojan"      "⚡ CF-5 Trojan"      "⚡ CF-6 Trojan"      "⚡ CF-7 Trojan"      "⚡ CF-8 Trojan"      "⚡ CF-9 Trojan"      "⚡ CF-10 Trojan"      "⚡ CF-11 Trojan"      "⚡ CF-12 Trojan"      "⚡ CF-13 Trojan"      "⚡ CF-14 Trojan"      "⚡ CF-15 Trojan"      "🌐 GLOBAL-16 VLESS"      "🌐 GLOBAL-17 VLESS"      "🇺🇸 US-18 VLESS"      "🌐 GL-19 VLESS"      "🌐 GL-20 VLESS"      "🇳🇱 NL-21 Shadowsocks"      "🇹🇷 TR-22 Trojan"      "🇩🇪 DE-23 VMess"      "🌐 GL-24 VMess"      "🇩🇪 DE-25 Trojan"      "🇫🇷 FR-26 Trojan"      "🌐 GL-27 VMess"      "🇫🇷 FR-28 Shadowsocks"      "🇫🇷 FR-29 VMess"      "🇫🇷 FR-30 VMess"      "🇫🇷 FR-31 VMess"      "🇫🇷 FR-32 Shadowsocks"      "🇫🇷 FR-33 VMess"      "🇺🇸 US-34 VMess"      "🇫🇷 FR-35 Shadowsocks"      "🇫🇷 FR-36 VMess"      "🇫🇷 FR-37 VMess"      "🇫🇷 FR-38 Shadowsocks"      "🇫🇷 FR-39 Shadowsocks"      "🇫🇷 FR-40 VMess"      "🇫🇷 FR-41 VMess"
+"⚡ CF-1 VLESS"      "⚡ CF-2 VLESS"      "⚡ CF-3 VLESS"      "⚡ CF-4 Trojan"      "⚡ CF-5 Trojan"      "⚡ CF-6 Trojan"      "⚡ CF-7 Trojan"      "⚡ CF-8 Trojan"      "⚡ CF-9 Trojan"      "⚡ CF-10 Trojan"      "⚡ CF-11 Trojan"      "⚡ CF-12 Trojan"      "⚡ CF-13 Trojan"      "🌐 GLOBAL-14 VLESS"      "🌐 GLOBAL-15 VLESS"      "🇺🇸 US-16 VLESS"      "🇩🇪 DE-17 VLESS"      "🌐 GL-18 VLESS"      "🌐 GL-19 VLESS"      "🌐 GL-20 VLESS"      "🌐 GL-21 VLESS"      "🇳🇱 NL-22 Shadowsocks"      "🇹🇷 TR-23 Trojan"      "🇩🇪 DE-24 VMess"      "🇫🇷 FR-25 Trojan"      "🌐 GL-26 Trojan"      "🌐 GL-27 VMess"      "🇫🇷 FR-28 Shadowsocks"      "🇫🇷 FR-29 VMess"      "🇫🇷 FR-30 VMess"      "🇫🇷 FR-31 VMess"      "🇫🇷 FR-32 Shadowsocks"      "🇫🇷 FR-33 VMess"      "🇺🇸 US-34 VMess"      "🇫🇷 FR-35 Shadowsocks"      "🇫🇷 FR-36 VMess"      "🇫🇷 FR-37 VMess"      "🇫🇷 FR-38 Shadowsocks"      "🇫🇷 FR-39 Shadowsocks"      "🇫🇷 FR-40 VMess"      "🇫🇷 FR-41 VMess"
       - DIRECT
 
 rules:

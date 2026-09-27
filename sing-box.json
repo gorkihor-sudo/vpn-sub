@@ -94,42 +94,42 @@
       "tag": "dns-out"
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "node-0",
-      "server": "104.18.152.103",
-      "server_port": 443,
+      "server": "104.17.21.32",
+      "server_port": 8880,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
-        "enabled": true,
+        "enabled": false,
         "insecure": true
       }
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "node-1",
-      "server": "104.18.152.77",
-      "server_port": 443,
+      "server": "172.67.132.85",
+      "server_port": 8080,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
-        "enabled": true,
+        "enabled": false,
         "insecure": true
       }
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "node-2",
-      "server": "104.18.152.155",
-      "server_port": 443,
+      "server": "www.glassdoor.com",
+      "server_port": 8880,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
-        "enabled": true,
+        "enabled": false,
         "insecure": true
       }
     },
     {
       "type": "vmess",
       "tag": "node-3",
-      "server": "104.18.152.144",
+      "server": "104.18.152.225",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -140,7 +140,7 @@
     {
       "type": "vmess",
       "tag": "node-4",
-      "server": "ip.myip2.qzz.io",
+      "server": "104.16.174.33",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -151,7 +151,7 @@
     {
       "type": "vmess",
       "tag": "node-5",
-      "server": "141.101.90.101",
+      "server": "104.18.152.144",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -162,7 +162,7 @@
     {
       "type": "vmess",
       "tag": "node-6",
-      "server": "104.18.152.210",
+      "server": "104.16.174.101",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -173,7 +173,7 @@
     {
       "type": "vmess",
       "tag": "node-7",
-      "server": "104.21.8.107",
+      "server": "162.159.136.234",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -184,7 +184,7 @@
     {
       "type": "vmess",
       "tag": "node-8",
-      "server": "172.67.221.242",
+      "server": "104.18.152.204",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -195,7 +195,7 @@
     {
       "type": "vmess",
       "tag": "node-9",
-      "server": "104.18.152.219",
+      "server": "104.18.152.77",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -206,39 +206,6 @@
     {
       "type": "vmess",
       "tag": "node-10",
-      "server": "104.17.177.143",
-      "server_port": 443,
-      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
-      "tls": {
-        "enabled": true,
-        "insecure": true
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "node-11",
-      "server": "www.ignitelimit.com",
-      "server_port": 443,
-      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
-      "tls": {
-        "enabled": true,
-        "insecure": true
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "node-12",
-      "server": "104.26.14.137",
-      "server_port": 443,
-      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
-      "tls": {
-        "enabled": true,
-        "insecure": true
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "node-13",
       "server": "104.17.111.1",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
@@ -249,8 +216,19 @@
     },
     {
       "type": "vmess",
-      "tag": "node-14",
-      "server": "104.18.152.152",
+      "tag": "node-11",
+      "server": "104.18.152.113",
+      "server_port": 443,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "node-12",
+      "server": "104.16.174.185",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -260,7 +238,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-15",
+      "tag": "node-13",
       "server": "104.16.132.229",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
@@ -271,7 +249,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-16",
+      "tag": "node-14",
       "server": "172.67.182.111",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
@@ -282,7 +260,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-17",
+      "tag": "node-15",
       "server": "162.159.193.1",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
@@ -293,9 +271,31 @@
     },
     {
       "type": "vless",
+      "tag": "node-16",
+      "server": "deepl.com",
+      "server_port": 8880,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": false,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-17",
+      "server": "107.149.159.190",
+      "server_port": 4433,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
       "tag": "node-18",
-      "server": "151.241.138.151",
-      "server_port": 8444,
+      "server": "139.185.44.42",
+      "server_port": 8443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
         "enabled": true,
@@ -305,8 +305,8 @@
     {
       "type": "vless",
       "tag": "node-19",
-      "server": "fbsv6.guardora.pro",
-      "server_port": 443,
+      "server": "72.56.41.33",
+      "server_port": 40443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
         "enabled": true,
