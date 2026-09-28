@@ -94,20 +94,20 @@
       "tag": "dns-out"
     },
     {
-      "type": "vless",
+      "type": "vmess",
       "tag": "node-0",
-      "server": "104.21.11.152",
-      "server_port": 8080,
+      "server": "104.16.174.121",
+      "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
-        "enabled": false,
+        "enabled": true,
         "insecure": true
       }
     },
     {
       "type": "vmess",
       "tag": "node-1",
-      "server": "104.16.174.44",
+      "server": "104.16.174.14",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -118,7 +118,7 @@
     {
       "type": "vmess",
       "tag": "node-2",
-      "server": "104.16.174.33",
+      "server": "ip.myip2.qzz.io",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -129,7 +129,7 @@
     {
       "type": "vmess",
       "tag": "node-3",
-      "server": "104.18.152.103",
+      "server": "104.18.152.204",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -140,7 +140,7 @@
     {
       "type": "vmess",
       "tag": "node-4",
-      "server": "104.16.174.185",
+      "server": "104.18.152.133",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -151,7 +151,7 @@
     {
       "type": "vmess",
       "tag": "node-5",
-      "server": "104.18.12.149",
+      "server": "104.17.111.1",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -162,7 +162,7 @@
     {
       "type": "vmess",
       "tag": "node-6",
-      "server": "104.16.7.70",
+      "server": "104.18.23.63",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -173,7 +173,7 @@
     {
       "type": "vmess",
       "tag": "node-7",
-      "server": "104.16.174.101",
+      "server": "104.16.174.22",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -184,7 +184,7 @@
     {
       "type": "vmess",
       "tag": "node-8",
-      "server": "104.18.152.149",
+      "server": "104.18.152.73",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -195,7 +195,7 @@
     {
       "type": "vmess",
       "tag": "node-9",
-      "server": "104.17.111.4",
+      "server": "104.18.152.155",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -206,62 +206,7 @@
     {
       "type": "vmess",
       "tag": "node-10",
-      "server": "162.159.254.191",
-      "server_port": 443,
-      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
-      "tls": {
-        "enabled": true,
-        "insecure": true
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "node-11",
-      "server": "www.speedtest.org",
-      "server_port": 443,
-      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
-      "tls": {
-        "enabled": true,
-        "insecure": true
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "node-12",
-      "server": "188.114.97.7",
-      "server_port": 443,
-      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
-      "tls": {
-        "enabled": true,
-        "insecure": true
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "node-13",
-      "server": "104.16.174.148",
-      "server_port": 443,
-      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
-      "tls": {
-        "enabled": true,
-        "insecure": true
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "node-14",
-      "server": "104.18.22.63",
-      "server_port": 443,
-      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
-      "tls": {
-        "enabled": true,
-        "insecure": true
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "node-15",
-      "server": "104.18.152.204",
+      "server": "104.18.152.152",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
@@ -271,7 +216,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-16",
+      "tag": "node-11",
       "server": "104.16.132.229",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
@@ -282,7 +227,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-17",
+      "tag": "node-12",
       "server": "172.67.182.111",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
@@ -293,7 +238,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-18",
+      "tag": "node-13",
       "server": "162.159.193.1",
       "server_port": 443,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
@@ -304,12 +249,67 @@
     },
     {
       "type": "vless",
-      "tag": "node-19",
-      "server": "31.77.13.19",
+      "tag": "node-14",
+      "server": "172.104.237.173",
+      "server_port": 20855,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-15",
+      "server": "tickets.betust.net",
+      "server_port": 443,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-16",
+      "server": "18.136.119.69",
+      "server_port": 20975,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-17",
+      "server": "72.56.41.33",
+      "server_port": 40443,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-18",
+      "server": "pl-waw.dontblockmepls.com",
       "server_port": 2063,
       "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
       "tls": {
         "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "node-19",
+      "server": "ss-proxy",
+      "server_port": 8388,
+      "uuid": "de305d54-75b3-431b-a0ce-b8724def4f6b",
+      "tls": {
+        "enabled": false,
         "insecure": true
       }
     }
