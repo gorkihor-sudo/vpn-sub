@@ -1,68 +1,13 @@
 {
-  "updated_at": "2026-09-29 11:49:53 UTC",
-  "total_nodes": 41,
+  "updated_at": "2026-09-29 17:18:45 UTC",
+  "total_nodes": 36,
   "protocols": {
-    "vless": 11,
+    "vless": 6,
     "vmess": 11,
-    "shadowsocks": 7,
-    "trojan": 12
+    "shadowsocks": 6,
+    "trojan": 13
   },
   "nodes": [
-    {
-      "raw": "trojan://humanity@162.159.136.234:443?security=tls&sni=www.ignitelimit.com&fp=chrome&type=ws&path=%2Fassignment#%E7%BE%8E%E5%9B%BD+CloudFlare%E8%8A%82%E7%82%B9",
-      "protocol": "Trojan",
-      "name": "美国+CloudFlare节点",
-      "host": "162.159.136.234",
-      "port": 443,
-      "country": "CF",
-      "flag": "⚡",
-      "tls": true,
-      "type": "tcp"
-    },
-    {
-      "raw": "trojan://humanity@104.17.111.3:443?security=tls&sni=www.ignitelimit.com&type=ws&host=www.ignitelimit.com&path=%2Fassignment#%E7%BE%8E%E5%9B%BD+CloudFlare%E8%8A%82%E7%82%B9",
-      "protocol": "Trojan",
-      "name": "美国+CloudFlare节点",
-      "host": "104.17.111.3",
-      "port": 443,
-      "country": "CF",
-      "flag": "⚡",
-      "tls": true,
-      "type": "tcp"
-    },
-    {
-      "raw": "trojan://humanity@104.18.152.229:443?security=tls&sni=www.ignitelimit.com&type=ws&host=www.ignitelimit.com&path=%2Fassignment#%E7%BE%8E%E5%9B%BD+CloudFlare%E8%8A%82%E7%82%B9",
-      "protocol": "Trojan",
-      "name": "美国+CloudFlare节点",
-      "host": "104.18.152.229",
-      "port": 443,
-      "country": "CF",
-      "flag": "⚡",
-      "tls": true,
-      "type": "tcp"
-    },
-    {
-      "raw": "trojan://humanity@104.18.152.210:443?fp=chrome&path=%2Fassignment&security=tls&sni=www.ignitelimit.com&type=ws#%E7%BE%8E%E5%9B%BD+CloudFlare%E8%8A%82%E7%82%B9",
-      "protocol": "Trojan",
-      "name": "美国+CloudFlare节点",
-      "host": "104.18.152.210",
-      "port": 443,
-      "country": "CF",
-      "flag": "⚡",
-      "tls": true,
-      "type": "tcp"
-    },
-    {
-      "raw": "trojan://humanity@104.18.152.149:443?security=tls&sni=www.ignitelimit.com&fp=chrome&type=ws&path=%2Fassignment#%E7%BE%8E%E5%9B%BD+CloudFlare%E8%8A%82%E7%82%B9",
-      "protocol": "Trojan",
-      "name": "美国+CloudFlare节点",
-      "host": "104.18.152.149",
-      "port": 443,
-      "country": "CF",
-      "flag": "⚡",
-      "tls": true,
-      "type": "tcp"
-    },
     {
       "raw": "trojan://humanity@104.16.174.117:443?security=tls&sni=www.ignitelimit.com&fp=chrome&type=ws&path=%2Fassignment#%E7%BE%8E%E5%9B%BD+CloudFlare%E8%8A%82%E7%82%B9",
       "protocol": "Trojan",
@@ -75,10 +20,10 @@
       "type": "tcp"
     },
     {
-      "raw": "trojan://humanity@104.18.15.230:443?security=tls&sni=www.ignitelimit.com&type=ws&path=/assignment&Host=www.ignitelimit.com#%E7%BE%8E%E5%9B%BD+CloudFlare%E8%8A%82%E7%82%B9",
+      "raw": "trojan://humanity@188.114.97.7:443?security=tls&sni=www.ignitelimit.com&type=ws&path=/assignment&Host=www.ignitelimit.com#%E5%B7%B4%E8%A5%BF%E5%9C%A3%E4%BF%9D%E7%BD%97+CloudFlare%E8%8A%82%E7%82%B9",
       "protocol": "Trojan",
-      "name": "美国+CloudFlare节点",
-      "host": "104.18.15.230",
+      "name": "巴西圣保罗+CloudFlare节点",
+      "host": "188.114.97.7",
       "port": 443,
       "country": "CF",
       "flag": "⚡",
@@ -86,10 +31,10 @@
       "type": "tcp"
     },
     {
-      "raw": "trojan://humanity@104.18.152.204:443?security=tls&sni=www.ignitelimit.com&type=ws&host=www.ignitelimit.com&path=%2Fassignment#%E7%BE%8E%E5%9B%BD+CloudFlare%E8%8A%82%E7%82%B9",
+      "raw": "trojan://humanity@172.67.221.242:443?security=tls&sni=www.ignitelimit.com&fp=chrome&type=ws&path=%2Fassignment#%E7%BE%8E%E5%9B%BD+CloudFlare%E8%8A%82%E7%82%B9",
       "protocol": "Trojan",
       "name": "美国+CloudFlare节点",
-      "host": "104.18.152.204",
+      "host": "172.67.221.242",
       "port": 443,
       "country": "CF",
       "flag": "⚡",
@@ -97,10 +42,76 @@
       "type": "tcp"
     },
     {
-      "raw": "trojan://humanity@104.18.152.207:443?security=tls&sni=www.ignitelimit.com&type=ws&host=www.ignitelimit.com&path=%2Fassignment#%E7%BE%8E%E5%9B%BD+CloudFlare%E8%8A%82%E7%82%B9",
+      "raw": "trojan://humanity@104.18.152.246:443?fp=chrome&path=%2Fassignment&security=tls&sni=www.ignitelimit.com&type=ws#%E7%BE%8E%E5%9B%BD+CloudFlare%E8%8A%82%E7%82%B9",
       "protocol": "Trojan",
       "name": "美国+CloudFlare节点",
-      "host": "104.18.152.207",
+      "host": "104.18.152.246",
+      "port": 443,
+      "country": "CF",
+      "flag": "⚡",
+      "tls": true,
+      "type": "tcp"
+    },
+    {
+      "raw": "trojan://humanity@104.16.174.148:443?security=tls&sni=www.ignitelimit.com&type=ws&path=/assignment&Host=www.ignitelimit.com#%E7%BE%8E%E5%9B%BD+CloudFlare%E8%8A%82%E7%82%B9",
+      "protocol": "Trojan",
+      "name": "美国+CloudFlare节点",
+      "host": "104.16.174.148",
+      "port": 443,
+      "country": "CF",
+      "flag": "⚡",
+      "tls": true,
+      "type": "tcp"
+    },
+    {
+      "raw": "trojan://humanity@104.16.174.14:443?security=tls&sni=www.ignitelimit.com&fp=chrome&type=ws&path=%2Fassignment#%E7%BE%8E%E5%9B%BD+CloudFlare%E8%8A%82%E7%82%B9",
+      "protocol": "Trojan",
+      "name": "美国+CloudFlare节点",
+      "host": "104.16.174.14",
+      "port": 443,
+      "country": "CF",
+      "flag": "⚡",
+      "tls": true,
+      "type": "tcp"
+    },
+    {
+      "raw": "trojan://humanity@104.16.174.33:443?fp=chrome&path=%2Fassignment&security=tls&sni=www.ignitelimit.com&type=ws#%E7%BE%8E%E5%9B%BD+CloudFlare%E8%8A%82%E7%82%B9",
+      "protocol": "Trojan",
+      "name": "美国+CloudFlare节点",
+      "host": "104.16.174.33",
+      "port": 443,
+      "country": "CF",
+      "flag": "⚡",
+      "tls": true,
+      "type": "tcp"
+    },
+    {
+      "raw": "trojan://humanity@104.18.23.63:443?security=tls&sni=www.ignitelimit.com&type=ws&path=%2Fassignment#%E7%BE%8E%E5%9B%BD+CloudFlare%E8%8A%82%E7%82%B9",
+      "protocol": "Trojan",
+      "name": "美国+CloudFlare节点",
+      "host": "104.18.23.63",
+      "port": 443,
+      "country": "CF",
+      "flag": "⚡",
+      "tls": true,
+      "type": "tcp"
+    },
+    {
+      "raw": "trojan://humanity@104.18.152.133:443?security=tls&sni=www.ignitelimit.com&fp=chrome&type=ws&path=%2Fassignment#%E7%BE%8E%E5%9B%BD+CloudFlare%E8%8A%82%E7%82%B9",
+      "protocol": "Trojan",
+      "name": "美国+CloudFlare节点",
+      "host": "104.18.152.133",
+      "port": 443,
+      "country": "CF",
+      "flag": "⚡",
+      "tls": true,
+      "type": "tcp"
+    },
+    {
+      "raw": "trojan://humanity@104.16.7.70:443?security=tls&sni=www.ignitelimit.com&type=ws&host=www.ignitelimit.com&path=%2Fassignment#%E7%BE%8E%E5%9B%BD+CloudFlare%E8%8A%82%E7%82%B9",
+      "protocol": "Trojan",
+      "name": "美国+CloudFlare节点",
+      "host": "104.16.7.70",
       "port": 443,
       "country": "CF",
       "flag": "⚡",
@@ -141,10 +152,10 @@
       "type": "ws"
     },
     {
-      "raw": "vless://3e2591b2-4739-4c59-b540-344f0b6505ac@13.143.186.29:443?security=reality&encryption=none&pbk=YTO2eLUPj_pLJijheLCvxg3d53o5BTNSjRSpJKCAa3k&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=st2.megabitvpn.org&sid=f54ec8b46381247f#%E7%BE%8E%E5%9B%BD+Xerox",
+      "raw": "vless://80f72027-2201-4541-9abb-7070c9b0869e@13.143.184.226:443?security=reality&encryption=none&pbk=qPh1iuwpELosLWTxOXyfCiMghs_sjSzCOGbkiF0gdkk&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=msc1.serverslocal.ru&sid=f7e66e308136e1a1#%E7%BE%8E%E5%9B%BD+Xerox",
       "protocol": "VLESS",
       "name": "美国+Xerox",
-      "host": "13.143.186.29",
+      "host": "13.143.184.226",
       "port": 443,
       "country": "GL",
       "flag": "🌐",
@@ -152,32 +163,10 @@
       "type": "tcp"
     },
     {
-      "raw": "vless://0250424c-ae75-4b6b-890f-3fe26fae36c3@85.149.211.28:8443?&security=tls&fp=edge&sni=hk.152568.xyz&type=ws&headerType=none&host=hk.152568.xyz&path=%2Fcdn%2Fpackages%2Fruntime-core.tar.gz#%E8%8D%B7%E5%85%B0+V2CROSS.COM",
+      "raw": "vless://4bdeee92-97e8-414d-bef6-ec1d5e2ab73b@46.28.71.154:443?security=reality&encryption=none&pbk=bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=spanish67.kovsh.lol&sid=ff776ff77be48b88#%E4%B9%8C%E5%85%8B%E5%85%B0+V2CROSS.COM",
       "protocol": "VLESS",
-      "name": "荷兰+V2CROSS.COM",
-      "host": "85.149.211.28",
-      "port": 8443,
-      "country": "GL",
-      "flag": "🌐",
-      "tls": true,
-      "type": "ws"
-    },
-    {
-      "raw": "vless://6e59d5c5-7aa3-4c36-a4c4-e3b899525ed2@91.193.58.15:2096?security=tls&type=ws&path=/free-server.techsonic.dev&host=free-server.techsonic.dev&packetEncoding=xudp&sni=free-server.techsonic.dev&fp=firefox#%E4%BF%84%E7%BD%97%E6%96%AF+V2CROSS.COM",
-      "protocol": "VLESS",
-      "name": "俄罗斯+V2CROSS.COM",
-      "host": "91.193.58.15",
-      "port": 2096,
-      "country": "GL",
-      "flag": "🌐",
-      "tls": true,
-      "type": "ws"
-    },
-    {
-      "raw": "vless://3aaa8219-d891-4ab4-b953-f681392cc598@85.193.94.217:443?security=reality&encryption=none&pbk=Nb9IwEEhUHEbHSc6e5uYTjxDgN4ZExhDckM3OgYhj2o&headerType=none&fp=chrome&spx=/&type=tcp&flow=xtls-rprx-vision&sni=api8.eaglors.com&sid=52ccb3687fe0b7ec#%E4%BF%84%E7%BD%97%E6%96%AF+V2CROSS.COM",
-      "protocol": "VLESS",
-      "name": "俄罗斯+V2CROSS.COM",
-      "host": "85.193.94.217",
+      "name": "乌克兰+V2CROSS.COM",
+      "host": "46.28.71.154",
       "port": 443,
       "country": "GL",
       "flag": "🌐",
@@ -185,48 +174,15 @@
       "type": "tcp"
     },
     {
-      "raw": "vless://6e59d5c5-7aa3-4c36-a4c4-e3b899525ed2@91.193.58.218:2096?security=tls&type=ws&path=/free-server.techsonic.dev&host=free-server.techsonic.dev&packetEncoding=xudp&sni=free-server.techsonic.dev&fp=chrome#%E4%BF%84%E7%BD%97%E6%96%AF+V2CROSS.COM",
+      "raw": "vless://bc5ec86c-3e65-4272-994c-59a924c72a68@fbsv6.guardora.pro:443?security=tls&type=ws&path=/ws&host=fbsv6.guardora.pro&packetEncoding=xudp&alpn=http/1.1&sni=fbsv6.guardora.pro&fp=chrome&encryption=none#%E4%BF%84%E7%BD%97%E6%96%AF+V2CROSS.COM",
       "protocol": "VLESS",
       "name": "俄罗斯+V2CROSS.COM",
-      "host": "91.193.58.218",
-      "port": 2096,
-      "country": "GL",
-      "flag": "🌐",
-      "tls": true,
-      "type": "ws"
-    },
-    {
-      "raw": "vless://0afc6426-606c-48e7-bd70-3c424a416842@us22.sofast.live:58011?encryption=none&type=tcp#%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%B9%BF%E5%B7%9E%E5%B8%82+%E5%8D%8E%E4%B8%BA%E4%BA%91",
-      "protocol": "VLESS",
-      "name": "广东省广州市+华为云",
-      "host": "us22.sofast.live",
-      "port": 58011,
-      "country": "US",
-      "flag": "🇺🇸",
-      "tls": false,
-      "type": "tcp"
-    },
-    {
-      "raw": "vless://4b9063e0-3288-44e9-9aac-80fbfce323a0@83.222.23.81:38065?security=reality&type=tcp&packetEncoding=xudp&sni=yahoo.com&fp=chrome&sid=fa&pbk=dSSDPTK6AHfAdRAXD9i4rzqcNIY65RxlF25UyCKdiyo&encryption=none#%E4%BF%84%E7%BD%97%E6%96%AF+V2CROSS.COM",
-      "protocol": "VLESS",
-      "name": "俄罗斯+V2CROSS.COM",
-      "host": "83.222.23.81",
-      "port": 38065,
-      "country": "GL",
-      "flag": "🌐",
-      "tls": true,
-      "type": "tcp"
-    },
-    {
-      "raw": "vless://55b237c9-02d3-44a8-a61c-033455da3fa8@179.254.108.151:443?security=reality&encryption=none&pbk=xweejWIAaEbPuyKn4UpPWe9eEaEx2y-DgGCS1Egtlk4&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=update.web-assets.cfd&sid=1b2a3f#%E5%B7%B4%E8%A5%BF+V2CROSS.COM",
-      "protocol": "VLESS",
-      "name": "巴西+V2CROSS.COM",
-      "host": "179.254.108.151",
+      "host": "fbsv6.guardora.pro",
       "port": 443,
       "country": "GL",
       "flag": "🌐",
       "tls": true,
-      "type": "tcp"
+      "type": "ws"
     },
     {
       "raw": "ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTozNlpDSGVhYlVTZktqZlFFdko=@202.78.162.5:8388#%F0%9F%87%B3%F0%9F%87%B1+Netherlands+Fast+Relay",
@@ -262,10 +218,10 @@
       "type": "ws"
     },
     {
-      "raw": "trojan://humanity@165.215.250.14:443?path=/assignment&security=tls&insecure=1&host=www.ignitelimit.com&fp=chrome&type=ws&allowInsecure=1&sni=www.ignitelimit.com#%E7%BE%8E%E5%9B%BD+V2CROSS.COM",
+      "raw": "trojan://humanity@45.130.125.158:443?security=tls&sni=www.ignitelimit.com&type=ws&path=%2Fassignment#%E7%BE%8E%E5%9B%BD+V2CROSS.COM",
       "protocol": "Trojan",
       "name": "美国+V2CROSS.COM",
-      "host": "165.215.250.14",
+      "host": "45.130.125.158",
       "port": 443,
       "country": "GL",
       "flag": "🌐",
@@ -273,24 +229,13 @@
       "type": "tcp"
     },
     {
-      "raw": "ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB@82.38.31.35:8080#%E8%8B%B1%E5%9B%BD+V2CROSS.COM",
-      "protocol": "Shadowsocks",
-      "name": "英国+V2CROSS.COM",
-      "host": "ss-proxy",
-      "port": 8388,
-      "country": "GL",
-      "flag": "🌐",
-      "tls": false,
-      "type": "tcp"
-    },
-    {
-      "raw": "trojan://humanity@join-telegram-channel.tirexnet.kdns.fr:443?security=tls&sni=www.ignitelimit.com&type=ws&host=www.ignitelimit.com&path=%2Fassignment#%E7%BE%8E%E5%9B%BD+CloudFlare%E8%8A%82%E7%82%B9",
+      "raw": "trojan://humanity@render.com:443?security=tls&sni=www.ignitelimit.com&fp=chrome&type=ws&path=%2Fassignment#%E7%BE%8E%E5%9B%BD+%E5%8A%A0%E5%B7%9E",
       "protocol": "Trojan",
-      "name": "美国+CloudFlare节点",
-      "host": "join-telegram-channel.tirexnet.kdns.fr",
+      "name": "美国+加州",
+      "host": "render.com",
       "port": 443,
-      "country": "FR",
-      "flag": "🇫🇷",
+      "country": "DE",
+      "flag": "🇩🇪",
       "tls": true,
       "type": "tcp"
     },
