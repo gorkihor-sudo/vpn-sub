@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-09-30 17:16:11 UTC",
-  "total_nodes": 27,
+  "updated_at": "2026-09-30 21:40:49 UTC",
+  "total_nodes": 28,
   "protocols": {
-    "vless": 7,
+    "vless": 9,
     "vmess": 12,
     "shadowsocks": 6,
-    "trojan": 2
+    "trojan": 1
   },
   "nodes": [
     {
@@ -42,32 +42,10 @@
       "type": "ws"
     },
     {
-      "raw": "vless://d90087c3-54f5-4283-a13f-615260c8b0c7@139.84.177.239:443?security=reality&type=tcp&packetEncoding=xudp&sni=googleapis.com&fp=chrome&flow=xtls-rprx-vision&pbk=hTweFDvbSucrGERtiiwDfoqD3vo_Z9cuaqboff3FTXQ#%E7%BE%8E%E5%9B%BD+Lasalle%E5%A4%A7%E5%AD%A6",
+      "raw": "vless://bc5ec86c-3e65-4272-994c-59a924c72a68@fbsv6.guardora.pro:443?path=/ws&security=tls&alpn=http/1.1&encryption=none&insecure=0&host=fbsv6.guardora.pro&fp=chrome&type=ws&allowInsecure=0&sni=fbsv6.guardora.pro#%E4%BF%84%E7%BD%97%E6%96%AF+V2CROSS.COM",
       "protocol": "VLESS",
-      "name": "美国+Lasalle大学",
-      "host": "139.84.177.239",
-      "port": 443,
-      "country": "GL",
-      "flag": "🌐",
-      "tls": true,
-      "type": "tcp"
-    },
-    {
-      "raw": "vless://0afc6426-606c-48e7-bd70-3c424a416842@us22.sofast.live:58011?encryption=none&security=&type=tcp#%E5%8C%97%E4%BA%AC%E5%B8%82+%E6%83%9F%E8%AF%91%E5%A4%A9%E5%88%9B%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8",
-      "protocol": "VLESS",
-      "name": "北京市+惟译天创信息技术有限公司",
-      "host": "us22.sofast.live",
-      "port": 58011,
-      "country": "US",
-      "flag": "🇺🇸",
-      "tls": false,
-      "type": "tcp"
-    },
-    {
-      "raw": "vless://fdc48be3-a615-41ac-8bd1-ed844c931048@45.141.234.138:443?encryption=none&fp=chrome&host=edgetunnel-4uw.pages.dev&path=/&security=tls&sni=edgetunnel-4uw.pages.dev&type=ws#%E7%BE%8E%E5%9B%BD+V2CROSS.COM",
-      "protocol": "VLESS",
-      "name": "美国+V2CROSS.COM",
-      "host": "45.141.234.138",
+      "name": "俄罗斯+V2CROSS.COM",
+      "host": "fbsv6.guardora.pro",
       "port": 443,
       "country": "GL",
       "flag": "🌐",
@@ -75,15 +53,59 @@
       "type": "ws"
     },
     {
-      "raw": "vless://80f72027-2201-4541-9abb-7070c9b0869e@94.183.253.211:443?security=reality&encryption=none&pbk=uLuPk7Ee7W9BcvjgM2FJHYG2NJxEeEkP7QVL8jYudhI&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=germ2.serverslocal.ru&sid=aa9bfaebd76d8b95#%E4%BC%8A%E6%9C%97+V2CROSS.COM",
+      "raw": "vless://80f72027-2201-4541-9abb-7070c9b0869e@151.241.166.83:443?security=reality&encryption=none&pbk=FdnIXseNFtVqgGO7-GyAFgQ4GUqzuWz5jywOmuZM6To&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=pol2.serverslocal.ru&sid=dd6a0fb60cd7b2fc#%E4%BC%8A%E6%9C%97+V2CROSS.COM",
       "protocol": "VLESS",
       "name": "伊朗+V2CROSS.COM",
-      "host": "94.183.253.211",
+      "host": "151.241.166.83",
       "port": 443,
       "country": "GL",
       "flag": "🌐",
       "tls": true,
       "type": "tcp"
+    },
+    {
+      "raw": "vless://fdc48be3-a615-41ac-8bd1-ed844c931048@185.112.249.201:2053?security=tls&type=ws&path=/&host=edgetunnel-4uw.pages.dev&packetEncoding=xudp&sni=edgetunnel-4uw.pages.dev&fp=chrome&encryption=none#%E8%8D%B7%E5%85%B0+V2CROSS.COM",
+      "protocol": "VLESS",
+      "name": "荷兰+V2CROSS.COM",
+      "host": "185.112.249.201",
+      "port": 2053,
+      "country": "GL",
+      "flag": "🌐",
+      "tls": true,
+      "type": "ws"
+    },
+    {
+      "raw": "vless://4bdeee92-97e8-414d-bef6-ec1d5e2ab73b@yaruss.stopingiphatered.shop:443?security=reality&encryption=none&pbk=bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk&headerType=none&fp=chrome&spx=/&type=tcp&flow=xtls-rprx-vision&sni=yaruss.stopingiphatered.shop&sid=ff776ff77be48b88#%E8%8B%B1%E5%9B%BD+V2CROSS.COM",
+      "protocol": "VLESS",
+      "name": "英国+V2CROSS.COM",
+      "host": "yaruss.stopingiphatered.shop",
+      "port": 443,
+      "country": "US",
+      "flag": "🇺🇸",
+      "tls": true,
+      "type": "tcp"
+    },
+    {
+      "raw": "vless://24b84bd3-baa3-4192-9625-23c9690ae6f6@31.77.59.225:443?security=reality&encryption=none&pbk=D-Kt4_vBDB11deWnNmsK1OqF5Tt8tNcyuUPPXI0Y1yQ&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=pl.jokervpn.space&sid=f43f3666afdec470#%E8%8B%B1%E5%9B%BD+V2CROSS.COM",
+      "protocol": "VLESS",
+      "name": "英国+V2CROSS.COM",
+      "host": "31.77.59.225",
+      "port": 443,
+      "country": "GL",
+      "flag": "🌐",
+      "tls": true,
+      "type": "tcp"
+    },
+    {
+      "raw": "vless://9e3132b8-b595-444a-833a-2de44789f9d7@212.135.211.79:443?security=tls&type=ws&path=/&host=shephe.dpdns.org&packetEncoding=xudp&sni=shephe.dpdns.org&fp=chrome#%E8%8B%B1%E5%9B%BD+V2CROSS.COM",
+      "protocol": "VLESS",
+      "name": "英国+V2CROSS.COM",
+      "host": "212.135.211.79",
+      "port": 443,
+      "country": "GL",
+      "flag": "🌐",
+      "tls": true,
+      "type": "ws"
     },
     {
       "raw": "ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTozNlpDSGVhYlVTZktqZlFFdko=@202.78.162.5:8388#%F0%9F%87%B3%F0%9F%87%B1+Netherlands+Fast+Relay",
@@ -119,7 +141,7 @@
       "type": "ws"
     },
     {
-      "raw": "vmess://eyJhZGQiOiAiMzEuNzcuOC45NyIsICJhaWQiOiAiMCIsICJhbHBuIjogIiIsICJmcCI6ICIiLCAiaG9zdCI6ICIiLCAiaWQiOiAiZDJkODYwMWItYzE0Yi00MmM2LWI4ZWEtMzM4ODliY2UxNTJhIiwgImluc2VjdXJlIjogIjAiLCAibmV0IjogInRjcCIsICJwYXRoIjogIiIsICJwY3MiOiAiIiwgInBvcnQiOiAiMTEwIiwgInBzIjogIlx1ODJmMVx1NTZmZCBWMkNST1NTLkNPTSIsICJzY3kiOiAiYXV0byIsICJzZWN1cml0eSI6ICJhdXRvIiwgInNuaSI6ICIiLCAidGxzIjogIiIsICJ0eXBlIjogIm5vbmUiLCAidiI6ICIyIiwgInZjbiI6ICIifQ==",
+      "raw": "vmess://eyJhZGQiOiAiMzEuNzcuOC45NyIsICJhaWQiOiAiMCIsICJhbHBuIjogIiIsICJmcCI6ICIiLCAiaG9zdCI6ICIiLCAiaWQiOiAiZDJkODYwMWItYzE0Yi00MmM2LWI4ZWEtMzM4ODliY2UxNTJhIiwgImluc2VjdXJlIjogIjAiLCAibmV0IjogInRjcCIsICJwYXRoIjogIiIsICJwY3MiOiAiIiwgInBvcnQiOiAiMTEwIiwgInBzIjogIlx1ODJmMVx1NTZmZCBWMkNST1NTLkNPTSIsICJzY3kiOiAiYXV0byIsICJzZWN1cml0eSI6ICJhdXRvIiwgInNraXAtY2VydC12ZXJpZnkiOiB0cnVlLCAic25pIjogIiIsICJ0bHMiOiAiIiwgInR5cGUiOiAibm9uZSIsICJ2IjogIjIiLCAidmNuIjogIiJ9",
       "protocol": "VMess",
       "name": "英国 V2CROSS.COM",
       "host": "31.77.8.97",
@@ -127,17 +149,6 @@
       "country": "GL",
       "flag": "🌐",
       "tls": false,
-      "type": "tcp"
-    },
-    {
-      "raw": "trojan://d050aca3-9df2-4461-90ec-92373c1d7636@v2jp.k1.ssnss.live:44184?security=tls#%E6%97%A5%E6%9C%AC+%E4%B8%9C%E4%BA%ACAmazon%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83",
-      "protocol": "Trojan",
-      "name": "日本+东京Amazon数据中心",
-      "host": "v2jp.k1.ssnss.live",
-      "port": 44184,
-      "country": "JP",
-      "flag": "🇯🇵",
-      "tls": true,
       "type": "tcp"
     },
     {
