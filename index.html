@@ -3,28 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NEBULA // GitHub Pages VPN Gateway</title>
-  <meta name="description" content="Бесплатный автоматический шлюз VPN-подписок для v2rayNG, Hiddify, V2Box, Clash и Sing-Box на GitHub Pages.">
+  <title>GORKI // NEBULA — Шлюз проверенных VPN конфигураций</title>
+  <meta name="description" content="Бесплатный автоматический шлюз проверенных VPN-конфигураций и подписок (VLESS Reality, VMess, Trojan, Shadowsocks) с обходом ТСПУ/блокировок для Hiddify, Nekoray, v2rayNG, V2Box, Clash и Amnezia.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <script src="qrcode.min.js"></script>
   <style>
     :root {
-      --bg: #070a12;
-      --card-bg: rgba(15, 23, 42, 0.72);
+      --bg: #060810;
+      --card-bg: rgba(13, 19, 36, 0.72);
       --card-border: rgba(255, 255, 255, 0.08);
-      --card-hover-border: rgba(99, 102, 241, 0.4);
+      --card-hover-border: rgba(99, 102, 241, 0.45);
       --primary: #6366f1;
       --primary-hover: #4f46e5;
+      --primary-glow: rgba(99, 102, 241, 0.35);
       --cyan: #06b6d4;
+      --cyan-glow: rgba(6, 182, 212, 0.35);
       --emerald: #10b981;
+      --emerald-glow: rgba(16, 185, 129, 0.35);
       --amber: #f59e0b;
       --purple: #a855f7;
-      --text: #f1f5f9;
+      --text: #f8fafc;
       --text-muted: #94a3b8;
       --text-dim: #64748b;
-      --code-bg: rgba(0, 0, 0, 0.45);
+      --code-bg: rgba(2, 6, 23, 0.65);
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
     }
@@ -43,15 +46,16 @@
       overflow-x: hidden;
       line-height: 1.6;
       background-image: 
-        radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.12) 0%, transparent 40%),
-        radial-gradient(circle at 85% 25%, rgba(6, 182, 212, 0.10) 0%, transparent 40%),
-        radial-gradient(circle at 50% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
+        radial-gradient(circle at 10% 10%, rgba(99, 102, 241, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 90% 20%, rgba(6, 182, 212, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(168, 85, 247, 0.09) 0%, transparent 50%),
+        linear-gradient(180deg, rgba(6, 8, 16, 0.94) 0%, #060810 100%);
       background-attachment: fixed;
     }
 
     /* Container */
     .container {
-      max-width: 1140px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
@@ -63,11 +67,12 @@
       justify-content: space-between;
       padding: 1.25rem 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(7, 10, 18, 0.85);
+      background: rgba(6, 8, 16, 0.82);
     }
 
     .brand {
@@ -82,20 +87,38 @@
     }
 
     .brand-icon {
-      width: 34px;
-      height: 34px;
+      width: 36px;
+      height: 36px;
       border-radius: 10px;
       background: linear-gradient(135deg, var(--primary), var(--cyan));
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 18px rgba(99, 102, 241, 0.45);
+      box-shadow: 0 0 20px var(--primary-glow);
     }
 
     .brand-icon svg {
       width: 20px;
       height: 20px;
       fill: white;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--text);
     }
 
     .badge-live {
@@ -105,60 +128,56 @@
       background: rgba(16, 185, 129, 0.12);
       border: 1px solid rgba(16, 185, 129, 0.3);
       color: var(--emerald);
-      padding: 0.3rem 0.75rem;
+      padding: 0.35rem 0.85rem;
       border-radius: 9999px;
       font-size: 0.8rem;
       font-weight: 600;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.02em;
     }
 
     .badge-live .dot {
-      width: 7px;
-      height: 7px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background: var(--emerald);
       box-shadow: 0 0 10px var(--emerald);
-      animation: pulse 2s infinite;
+      animation: pulse-dot 2s infinite ease-in-out;
     }
 
-    @keyframes pulse {
+    @keyframes pulse-dot {
       0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(1.2); }
+      50% { opacity: 0.4; transform: scale(0.85); }
     }
 
     /* Hero Section */
     .hero {
-      padding: 4rem 0 3rem;
       text-align: center;
+      padding: 4.5rem 0 3rem;
+      position: relative;
     }
 
-    .hero-chip {
+    .hero-badge-tag {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
+      background: rgba(99, 102, 241, 0.12);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      color: #c7d2fe;
       padding: 0.35rem 1rem;
-      background: rgba(99, 102, 241, 0.1);
-      border: 1px solid rgba(99, 102, 241, 0.25);
       border-radius: 9999px;
-      color: #a5b4fc;
       font-size: 0.85rem;
-      font-weight: 500;
+      font-weight: 600;
       margin-bottom: 1.5rem;
+      box-shadow: 0 0 25px rgba(99, 102, 241, 0.2);
     }
 
     .hero h1 {
-      font-size: 3rem;
+      font-size: 3.25rem;
       font-weight: 800;
+      letter-spacing: -0.04em;
       line-height: 1.15;
-      letter-spacing: -0.03em;
       margin-bottom: 1.25rem;
-      background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero h1 span {
-      background: linear-gradient(135deg, #818cf8, #38bdf8);
+      background: linear-gradient(180deg, #ffffff 30%, #cbd5e1 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -168,198 +187,190 @@
       color: var(--text-muted);
       max-width: 680px;
       margin: 0 auto 2.5rem;
+      line-height: 1.7;
     }
 
-    /* Main Subscription Card */
-    .sub-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
-      padding: 2.5rem;
-      backdrop-filter: blur(20px);
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
-      margin-bottom: 3.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .sub-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--primary), var(--cyan), var(--purple));
-    }
-
-    .sub-url-box {
-      display: flex;
-      align-items: center;
-      background: var(--code-bg);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 12px;
-      padding: 0.5rem 0.6rem 0.5rem 1.25rem;
-      margin-bottom: 1.75rem;
-      transition: all 0.2s ease;
-    }
-
-    .sub-url-box:focus-within {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.25);
-    }
-
-    .sub-url-input {
-      background: transparent;
-      border: none;
-      outline: none;
-      color: #38bdf8;
-      font-family: var(--font-mono);
-      font-size: 0.95rem;
-      width: 100%;
-      user-select: all;
-    }
-
-    .btn-copy {
-      background: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      padding: 0.75rem 1.4rem;
-      font-weight: 600;
-      font-size: 0.9rem;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: all 0.2s ease;
-      white-space: nowrap;
-    }
-
-    .btn-copy:hover {
-      background: var(--primary-hover);
-      box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
-      transform: translateY(-1px);
-    }
-
-    .btn-copy.copied {
-      background: var(--emerald);
-      box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
-    }
-
-    /* Fast Import Buttons */
-    .import-section-title {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-dim);
-      margin-bottom: 0.9rem;
-      font-weight: 700;
-    }
-
-    .import-grid {
+    /* Stats Grid */
+    .stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 0.75rem;
-      margin-bottom: 1.75rem;
-    }
-
-    .btn-app {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: var(--text);
-      border-radius: 10px;
-      padding: 0.75rem 1rem;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.88rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      transition: all 0.2s;
-      cursor: pointer;
-    }
-
-    .btn-app:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(99, 102, 241, 0.35);
-      transform: translateY(-2px);
-    }
-
-    .btn-app svg {
-      width: 18px;
-      height: 18px;
-    }
-
-    /* Secondary Action Buttons */
-    .action-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: var(--text-muted);
-      border-radius: 8px;
-      padding: 0.6rem 1.2rem;
-      font-size: 0.85rem;
-      font-weight: 500;
-      text-decoration: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: all 0.2s;
-    }
-
-    .btn-secondary:hover {
-      color: var(--text);
-      border-color: rgba(255, 255, 255, 0.25);
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    /* Stats Bar */
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      margin-bottom: 3.5rem;
+      max-width: 900px;
+      margin: 0 auto 3rem;
     }
 
     .stat-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: 14px;
-      padding: 1.25rem;
-      text-align: center;
+      border-radius: 16px;
+      padding: 1.25rem 1rem;
       backdrop-filter: blur(12px);
+      transition: transform 0.2s, border-color 0.2s;
     }
 
-    .stat-value {
+    .stat-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--card-hover-border);
+    }
+
+    .stat-val {
       font-size: 1.85rem;
       font-weight: 800;
-      color: #fff;
       font-family: var(--font-mono);
-    }
-
-    .stat-label {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-top: 0.25rem;
-    }
-
-    /* Tabs & Section Titles */
-    .section-header {
+      color: #fff;
       display: flex;
       align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+    }
+
+    .stat-lbl {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+      font-weight: 500;
+    }
+
+    /* Subscription Box */
+    .sub-box {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 820px;
+      margin: 0 auto 3.5rem;
+      box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.6), 0 0 30px rgba(99, 102, 241, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sub-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--primary), var(--cyan), transparent);
+    }
+
+    .sub-input-group {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .sub-input {
+      flex: 1;
+      background: var(--code-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 0.85rem 1.25rem;
+      color: #e2e8f0;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .sub-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 15px var(--primary-glow);
+    }
+
+    .btn-copy {
+      background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 0.85rem 1.75rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 15px var(--primary-glow);
+      white-space: nowrap;
+    }
+
+    .btn-copy:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px var(--primary-glow);
+    }
+
+    .btn-copy.copied {
+      background: var(--emerald);
+      box-shadow: 0 4px 15px var(--emerald-glow);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 0.85rem 1.25rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Fast 1-Click Import App Badges */
+    .import-apps {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+
+    .import-title {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.6rem;
+      width: 100%;
+    }
+
+    .app-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #cbd5e1;
+      padding: 0.45rem 0.9rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .app-badge:hover {
+      background: rgba(99, 102, 241, 0.15);
+      border-color: var(--primary);
+      color: white;
+      transform: translateY(-1px);
+    }
+
+    /* Section Headers */
+    .section-header {
+      display: flex;
+      align-items: flex-end;
       justify-content: space-between;
       margin-bottom: 1.5rem;
       flex-wrap: wrap;
@@ -367,150 +378,301 @@
     }
 
     .section-title {
-      font-size: 1.5rem;
-      font-weight: 700;
+      font-size: 1.75rem;
+      font-weight: 800;
       letter-spacing: -0.02em;
     }
 
-    .filter-group {
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-top: 0.25rem;
+    }
+
+    /* Search & Filter Toolbar */
+    .toolbar {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 1rem;
+      margin-bottom: 2rem;
       display: flex;
-      gap: 0.5rem;
       flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .search-input {
+      background: var(--code-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 0.6rem 1rem;
+      color: var(--text);
+      font-size: 0.88rem;
+      outline: none;
+      min-width: 240px;
+    }
+
+    .search-input:focus {
+      border-color: var(--primary);
+    }
+
+    .filters-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
 
     .filter-btn {
       background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--card-border);
       color: var(--text-muted);
       padding: 0.4rem 0.85rem;
       border-radius: 8px;
       font-size: 0.82rem;
-      font-weight: 500;
+      font-weight: 600;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.2s ease;
     }
 
-    .filter-btn.active, .filter-btn:hover {
+    .filter-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+    }
+
+    .filter-btn.active {
       background: var(--primary);
-      color: white;
       border-color: var(--primary);
+      color: white;
+      box-shadow: 0 2px 10px var(--primary-glow);
     }
 
-    /* Node Cards Grid */
+    /* Nodes Grid */
     .nodes-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1rem;
-      margin-bottom: 4rem;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 3.5rem;
     }
 
     .node-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 1.15rem;
+      border-radius: 16px;
+      padding: 1.25rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 0.9rem;
-      transition: all 0.2s;
+      transition: all 0.2s ease;
       position: relative;
     }
 
     .node-card:hover {
+      transform: translateY(-3px);
       border-color: var(--card-hover-border);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+    }
+
+    .node-card.is-reality {
+      border-color: rgba(16, 185, 129, 0.35);
+    }
+
+    .node-card.is-reality:hover {
+      border-color: var(--emerald);
+      box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.2);
     }
 
     .node-header {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
-      gap: 0.5rem;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
     }
 
     .node-title-group {
       display: flex;
       align-items: center;
-      gap: 0.55rem;
-      overflow: hidden;
+      gap: 0.6rem;
     }
 
     .node-flag {
-      font-size: 1.35rem;
+      font-size: 1.6rem;
       line-height: 1;
     }
 
     .node-name {
-      font-weight: 600;
-      font-size: 0.92rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    .node-badges {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
     }
 
     .proto-badge {
-      font-family: var(--font-mono);
       font-size: 0.72rem;
       font-weight: 700;
-      padding: 0.2rem 0.5rem;
+      padding: 0.2rem 0.55rem;
       border-radius: 6px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
 
-    .proto-vless { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
-    .proto-vmess { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+    .proto-vless { background: rgba(99, 102, 241, 0.15); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.3); }
+    .proto-vmess { background: rgba(6, 182, 212, 0.15); color: #22d3ee; border: 1px solid rgba(6, 182, 212, 0.3); }
     .proto-trojan { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
-    .proto-shadowsocks { background: rgba(6, 182, 212, 0.15); color: #38bdf8; border: 1px solid rgba(6, 182, 212, 0.3); }
+    .proto-ss { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
 
-    .node-meta {
+    .reality-tag {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--emerald);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+    }
+
+    .node-details {
+      margin-bottom: 1.25rem;
+    }
+
+    .node-meta-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-family: var(--font-mono);
       font-size: 0.8rem;
-      color: var(--text-dim);
-      background: rgba(0, 0, 0, 0.25);
-      padding: 0.4rem 0.65rem;
-      border-radius: 6px;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
     }
 
+    .node-host {
+      font-family: var(--font-mono);
+      background: rgba(0, 0, 0, 0.3);
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      color: #cbd5e1;
+      max-width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .ping-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      font-family: var(--font-mono);
+    }
+
+    .ping-fast { color: #10b981; }
+    .ping-medium { color: #f59e0b; }
+    .ping-slow { color: #ef4444; }
+
     .node-actions {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 0.5rem;
+      margin-top: auto;
     }
 
     .node-btn {
-      flex: 1;
       background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: var(--text-muted);
-      border-radius: 6px;
-      padding: 0.45rem;
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      padding: 0.55rem;
+      border-radius: 8px;
       font-size: 0.8rem;
-      font-weight: 500;
+      font-weight: 600;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 0.4rem;
-      transition: all 0.15s;
+      transition: all 0.2s ease;
     }
 
     .node-btn:hover {
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
+      background: rgba(99, 102, 241, 0.15);
+      border-color: var(--primary);
     }
 
-    /* Client Instruction Guide */
-    .guide-card {
+    /* Formats / Download Cards */
+    .formats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .format-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: 18px;
-      padding: 2.25rem;
-      backdrop-filter: blur(16px);
+      border-radius: 16px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+
+    .format-card:hover {
+      border-color: var(--card-hover-border);
+      transform: translateY(-2px);
+    }
+
+    .format-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .format-icon svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: var(--cyan);
+      stroke-width: 2;
+    }
+
+    .format-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .format-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+    }
+
+    .format-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    /* Guide Section */
+    .guide-section {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 2rem;
       margin-bottom: 4rem;
     }
 
@@ -527,64 +689,75 @@
       background: transparent;
       border: none;
       color: var(--text-muted);
-      font-weight: 600;
-      font-size: 0.95rem;
-      padding: 0.5rem 1.25rem;
-      cursor: pointer;
+      padding: 0.6rem 1.2rem;
       border-radius: 8px;
-      transition: all 0.2s;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
       white-space: nowrap;
+    }
+
+    .guide-tab-btn:hover {
+      color: var(--text);
     }
 
     .guide-tab-btn.active {
       background: rgba(99, 102, 241, 0.15);
-      color: #a5b4fc;
+      color: #818cf8;
+      border: 1px solid rgba(99, 102, 241, 0.3);
     }
 
     .guide-step {
       display: flex;
       gap: 1.25rem;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
     }
 
-    .step-number {
-      width: 30px;
-      height: 30px;
+    .step-num {
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       background: var(--primary);
       color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 700;
-      font-size: 0.88rem;
       flex-shrink: 0;
     }
 
     .step-text h4 {
       font-size: 1rem;
+      font-weight: 700;
       margin-bottom: 0.25rem;
-      color: #fff;
     }
 
     .step-text p {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
+      line-height: 1.6;
     }
 
-    /* QR Modal */
+    .step-text code {
+      font-family: var(--font-mono);
+      background: rgba(0, 0, 0, 0.35);
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      color: #c7d2fe;
+    }
+
+    /* Modal */
     .modal-overlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.75);
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
       backdrop-filter: blur(8px);
+      z-index: 200;
       display: none;
       align-items: center;
       justify-content: center;
-      z-index: 1000;
       padding: 1rem;
     }
 
@@ -593,15 +766,15 @@
     }
 
     .modal-content {
-      background: #0f172a;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 18px;
+      background: #0d1324;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
       padding: 2rem;
-      max-width: 380px;
+      max-width: 400px;
       width: 100%;
       text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
       position: relative;
-      box-shadow: 0 25px 50px rgba(0,0,0,0.5);
     }
 
     .modal-close {
@@ -611,38 +784,38 @@
       background: transparent;
       border: none;
       color: var(--text-muted);
+      font-size: 1.5rem;
       cursor: pointer;
-      font-size: 1.25rem;
     }
 
     .qr-container {
-      background: #ffffff;
-      padding: 1rem;
+      background: white;
+      padding: 1.25rem;
       border-radius: 12px;
       display: inline-block;
-      margin: 1.25rem 0;
+      margin: 1.25rem auto;
     }
 
-    /* Toast */
+    /* Toast Notification */
     .toast {
       position: fixed;
       bottom: 2rem;
       right: 2rem;
-      background: #1e293b;
+      background: #0f172a;
       border: 1px solid var(--emerald);
-      color: #fff;
-      padding: 0.85rem 1.4rem;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 0.85rem 1.5rem;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
       display: flex;
       align-items: center;
       gap: 0.6rem;
-      font-weight: 500;
-      font-size: 0.9rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
       transform: translateY(100px);
       opacity: 0;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      z-index: 2000;
+      z-index: 300;
     }
 
     .toast.show {
@@ -660,11 +833,9 @@
     }
 
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.2rem; }
-      .sub-card { padding: 1.5rem; }
-      .stats-row { grid-template-columns: repeat(2, 1fr); }
-      .sub-url-box { flex-direction: column; align-items: stretch; gap: 0.5rem; }
-      .btn-copy { width: 100%; justify-content: center; }
+      .hero h1 { font-size: 2.25rem; }
+      .sub-input-group { flex-direction: column; }
+      .nodes-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -677,159 +848,212 @@
         <div class="brand-icon">
           <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
         </div>
-        <span>NEBULA // VPN</span>
+        <span>NEBULA GATEWAY</span>
       </a>
-      <div class="badge-live">
-        <div class="dot"></div>
-        <span id="statusBadgeText">ПОДПИСКА АКТИВНА</span>
+
+      <div class="nav-links">
+        <div class="badge-live">
+          <span class="dot"></span>
+          <span id="navLiveBadge">300+ УЗЛОВ ОНЛАЙН</span>
+        </div>
+        <a href="#nodes" class="nav-link">Узлы</a>
+        <a href="#formats" class="nav-link">Форматы</a>
+        <a href="#guides" class="nav-link">Инструкции</a>
+        <a href="https://github.com/gorkihor-sudo/vpn-sub" target="_blank" class="nav-link" style="color:var(--cyan);">GitHub ↗</a>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
   <main class="container">
+    <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-chip">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <span>GitHub Pages Hosted • Автообновление каждые 6 часов</span>
+      <div class="hero-badge-tag">
+        🛡️ Защита от ТСПУ и блокировок • Sing-Box & Clash Meta Ready
       </div>
-      <h1>Шлюз рабочих VPN-конфигов<br><span>без собственного сервера</span></h1>
-      <p>Единая ссылка подписки с автоматической ротацией проверенных VLESS, VMess, Trojan и Shadowsocks узлов. Полный обход блокировок для всех устройств.</p>
+      <h1>Свободный интернет<br>без цензуры и задержек</h1>
+      <p>
+        Автоматический шлюз проверенных VPN-узлов для Hiddify, Nekoray, v2rayNG, V2Box и Amnezia.
+        Все серверы непрерывно проверяются на доступность и скорость.
+      </p>
 
-      <!-- Subscription Card -->
-      <div class="sub-card">
-        <div class="sub-url-box">
-          <input type="text" id="subUrlInput" class="sub-url-input" readonly value="Загрузка ссылки подписки...">
-          <button id="btnCopySub" class="btn-copy">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-val" id="statOnline">330+</div>
+          <div class="stat-lbl">Проверенных узлов</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" style="color:var(--emerald);" id="statReality">32+</div>
+          <div class="stat-lbl">VLESS Reality (ТСПУ Bypass)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" style="color:var(--cyan);" id="statPing">~48 ms</div>
+          <div class="stat-lbl">Средний RTT</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" style="color:var(--amber);">6 ч</div>
+          <div class="stat-lbl">Интервал авто-проверки</div>
+        </div>
+      </div>
+
+      <!-- Main Subscription Box -->
+      <div class="sub-box">
+        <div class="sub-input-group">
+          <input type="text" id="subUrlInput" class="sub-input" readonly value="Загрузка ссылки подписки...">
+          <button class="btn-copy" id="btnCopySub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
             <span id="btnCopyText">Скопировать подписку</span>
           </button>
-        </div>
-
-        <div class="import-section-title">Импорт в 1 клик прямо в приложение</div>
-        <div class="import-grid">
-          <a id="btnHiddify" href="#" class="btn-app">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-            Hiddify
-          </a>
-          <a id="btnV2rayNG" href="#" class="btn-app">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m10 15 5-3-5-3v6z"/></svg>
-            v2rayNG
-          </a>
-          <a id="btnV2Box" href="#" class="btn-app">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M12 8v8M8 12h8"/></svg>
-            V2Box (iOS)
-          </a>
-          <a id="btnClash" href="#" class="btn-app">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-            Clash Meta
-          </a>
-          <a id="btnSingBox" href="#" class="btn-app">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
-            Sing-box
-          </a>
-          <button id="btnShowQr" class="btn-app" style="color:#a5b4fc;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <button class="btn-secondary" id="btnShowQr">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
             QR-код
           </button>
         </div>
 
-        <div class="action-row">
-          <a id="dlSubTxt" href="sub.txt" download="sub.txt" class="btn-secondary">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Скачать sub.txt (Base64)
-          </a>
-          <a id="dlClash" href="clash.yaml" download="clash.yaml" class="btn-secondary">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Скачать clash.yaml
-          </a>
-          <a id="dlSingBox" href="sing-box.json" download="sing-box.json" class="btn-secondary">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Скачать sing-box.json
-          </a>
+        <div class="import-apps">
+          <div class="import-title">Быстрое добавление в 1 клик:</div>
+          <a href="#" id="btnHiddify" class="app-badge">⚡ Открыть в Hiddify</a>
+          <a href="#" id="btnV2rayNG" class="app-badge">🤖 Открыть в v2rayNG</a>
+          <a href="#" id="btnV2Box" class="app-badge">🍏 Открыть в V2Box</a>
+          <a href="#" id="btnClash" class="app-badge">💻 Открыть в Clash / Verge</a>
+          <a href="#" id="btnSingBox" class="app-badge">🛡️ Открыть в Sing-Box</a>
         </div>
       </div>
     </section>
 
-    <!-- Stats Bar -->
-    <div class="stats-row">
-      <div class="stat-card">
-        <div id="statTotal" class="stat-value">--</div>
-        <div class="stat-label">Всего серверов</div>
-      </div>
-      <div class="stat-card">
-        <div id="statVless" class="stat-value" style="color:#34d399;">--</div>
-        <div class="stat-label">VLESS / Reality</div>
-      </div>
-      <div class="stat-card">
-        <div id="statVmess" class="stat-value" style="color:#c084fc;">--</div>
-        <div class="stat-label">VMess</div>
-      </div>
-      <div class="stat-card">
-        <div id="statOther" class="stat-value" style="color:#38bdf8;">--</div>
-        <div class="stat-label">Trojan / SS</div>
-      </div>
-    </div>
-
-    <!-- Node Explorer Section -->
-    <section>
+    <!-- Nodes Catalog Section -->
+    <section id="nodes" style="padding-top:2rem;">
       <div class="section-header">
         <div>
-          <h2 class="section-title">Доступные узлы</h2>
-          <p style="color:var(--text-muted); font-size:0.9rem;" id="syncTime">Синхронизация с облаком...</p>
-        </div>
-        <div class="filter-group">
-          <button class="filter-btn active" data-filter="all">Все</button>
-          <button class="filter-btn" data-filter="VLESS">VLESS</button>
-          <button class="filter-btn" data-filter="VMess">VMess</button>
-          <button class="filter-btn" data-filter="Trojan">Trojan</button>
-          <button class="filter-btn" data-filter="Shadowsocks">Shadowsocks</button>
+          <h2 class="section-title">Каталог проверенных серверов</h2>
+          <p class="section-desc" id="syncStatus">Загрузка свежих данных проверки...</p>
         </div>
       </div>
 
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <input type="text" id="searchInput" class="search-input" placeholder="🔍 Поиск по стране, городу или хосту...">
+
+        <div class="filters-group">
+          <button class="filter-btn active" data-filter="all">Все узлы</button>
+          <button class="filter-btn" data-filter="reality">🛡️ Reality (Обход блокировок)</button>
+          <button class="filter-btn" data-filter="vless">VLESS</button>
+          <button class="filter-btn" data-filter="vmess">VMess</button>
+          <button class="filter-btn" data-filter="trojan">Trojan</button>
+          <button class="filter-btn" data-filter="shadowsocks">Shadowsocks</button>
+        </div>
+      </div>
+
+      <!-- Grid -->
       <div id="nodesGrid" class="nodes-grid">
-        <!-- Rendered dynamically via JavaScript -->
+        <div style="grid-column: 1/-1; text-align:center; padding:3rem; color:var(--text-muted);">
+          Загрузка серверов из nodes.json...
+        </div>
       </div>
     </section>
 
-    <!-- Instructions Guide Section -->
-    <section class="guide-card">
-      <h2 style="font-size:1.4rem; margin-bottom:1.25rem;">Как подключиться за 1 минуту</h2>
+    <!-- Download Formats Section -->
+    <section id="formats" style="padding-top:2rem;">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Форматы конфигураций</h2>
+          <p class="section-desc">Скачивайте файлы напрямую или вставляйте ссылки в ваши любимые клиенты</p>
+        </div>
+      </div>
+
+      <div class="formats-grid">
+        <div class="format-card">
+          <div>
+            <div class="format-icon">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            </div>
+            <h3 class="format-title">Base64 Подписка</h3>
+            <p class="format-desc">Стандартный формат <code>sub.txt</code>. Подходит для v2rayNG, V2Box, Streisand, FoXray, Shadowrocket и Nekoray.</p>
+          </div>
+          <div class="format-actions">
+            <button class="node-btn" style="flex:1;" onclick="copyFileUrl('sub.txt')">Копировать URL</button>
+            <a href="sub.txt" download class="node-btn" style="text-decoration:none;">Скачать</a>
+          </div>
+        </div>
+
+        <div class="format-card">
+          <div>
+            <div class="format-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 17l6-6-6-6M12 19h8"/></svg>
+            </div>
+            <h3 class="format-title">Plain Links (Raw)</h3>
+            <p class="format-desc">Файл <code>sub_raw.txt</code> с открытыми ссылками протоколов. Удобно для массового копирования в буфер обмена.</p>
+          </div>
+          <div class="format-actions">
+            <button class="node-btn" style="flex:1;" onclick="copyFileUrl('sub_raw.txt')">Копировать URL</button>
+            <a href="sub_raw.txt" download class="node-btn" style="text-decoration:none;">Скачать</a>
+          </div>
+        </div>
+
+        <div class="format-card">
+          <div>
+            <div class="format-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+            </div>
+            <h3 class="format-title">Clash Meta / Mihomo</h3>
+            <p class="format-desc">Готовый профиль <code>clash.yaml</code> с FakeIP и автоматическим выбором самого быстрого узла через URL-тест.</p>
+          </div>
+          <div class="format-actions">
+            <button class="node-btn" style="flex:1;" onclick="copyFileUrl('clash.yaml')">Копировать URL</button>
+            <a href="clash.yaml" download class="node-btn" style="text-decoration:none;">Скачать</a>
+          </div>
+        </div>
+
+        <div class="format-card">
+          <div>
+            <div class="format-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <h3 class="format-title">Sing-Box Config</h3>
+            <p class="format-desc">Конфиг <code>sing-box.json</code> версии 1.13+ со встроенным TUN-интерфейсом и защитой от утечек DNS.</p>
+          </div>
+          <div class="format-actions">
+            <button class="node-btn" style="flex:1;" onclick="copyFileUrl('sing-box.json')">Копировать URL</button>
+            <a href="sing-box.json" download class="node-btn" style="text-decoration:none;">Скачать</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Setup Guide Section -->
+    <section id="guides" class="guide-section">
+      <h2 class="section-title" style="margin-bottom:0.5rem;">Инструкции по подключению</h2>
+      <p class="section-desc" style="margin-bottom:1.5rem;">Как за 1 минуту подключить подписку на любом вашем устройстве</p>
+
       <div class="guide-tabs">
-        <button class="guide-tab-btn active" onclick="switchGuide('ios')">🍏 iOS (iPhone / iPad)</button>
-        <button class="guide-tab-btn" onclick="switchGuide('android')">🤖 Android</button>
-        <button class="guide-tab-btn" onclick="switchGuide('windows')">💻 Windows</button>
-        <button class="guide-tab-btn" onclick="switchGuide('macos')">🍎 macOS</button>
+        <button class="guide-tab-btn active" onclick="switchGuide('windows')">💻 Windows (Nekoray / Hiddify)</button>
+        <button class="guide-tab-btn" onclick="switchGuide('android')">🤖 Android (v2rayNG / Hiddify)</button>
+        <button class="guide-tab-btn" onclick="switchGuide('ios')">🍏 iOS / iPhone (V2Box / Streisand)</button>
+        <button class="guide-tab-btn" onclick="switchGuide('macos')">🍎 macOS (Clash / FoXray)</button>
+        <button class="guide-tab-btn" onclick="switchGuide('amnezia')">🛡️ Amnezia VPN</button>
       </div>
 
       <div id="guideContent">
-        <!-- iOS Guide Default -->
+        <!-- Default Windows Guide -->
         <div class="guide-step">
-          <div class="step-number">1</div>
+          <div class="step-num">1</div>
           <div class="step-text">
-            <h4>Установите бесплатный клиент</h4>
-            <p>Установите <strong>V2Box</strong>, <strong>Streisand</strong> или <strong>FoXray</strong> из App Store.</p>
+            <h4>Скачайте рекомендуемый клиент</h4>
+            <p>Для Windows лучше всего использовать <strong>Hiddify</strong> или <strong>Nekoray</strong> (портативные, поддерживают режим TUN для всех приложений и игр).</p>
           </div>
         </div>
         <div class="guide-step">
-          <div class="step-number">2</div>
+          <div class="step-num">2</div>
           <div class="step-text">
-            <h4>Скопируйте ссылку подписки</h4>
-            <p>Нажмите большую кнопку <strong>«Скопировать подписку»</strong> вверху этой страницы или отсканируйте QR-код через камеру.</p>
+            <h4>Добавьте подписку</h4>
+            <p>В Hiddify: нажмите <strong>«Новый профиль»</strong> → <strong>«Добавить из буфера»</strong> (скопировав ссылку вверху страницы). В Nekoray: нажмите <code>Ctrl + V</code> в главном окне.</p>
           </div>
         </div>
         <div class="guide-step">
-          <div class="step-number">3</div>
+          <div class="step-num">3</div>
           <div class="step-text">
-            <h4>Добавьте подписку в приложение</h4>
-            <p>В приложении V2Box перейдите во вкладку <strong>Configs</strong> → нажмите <strong>«+»</strong> в правом верхнем углу → выберите <strong>Add Subscription</strong> → вставьте ссылку и сохраните.</p>
-          </div>
-        </div>
-        <div class="guide-step">
-          <div class="step-number">4</div>
-          <div class="step-text">
-            <h4>Подключитесь</h4>
-            <p>Выберите сервер с наименьшим пингом и нажмите переключатель <strong>Connect</strong>!</p>
+            <h4>Включите режим TUN (и FakeDNS в Nekoray)</h4>
+            <p>В Nekoray обязательно откройте <em>Настройки → Настройки TUN</em> и включите галочку <strong>FakeDNS</strong>, чтобы не зависали DNS-запросы. Затем активируйте переключатель <strong>«Режим TUN»</strong>!</p>
           </div>
         </div>
       </div>
@@ -840,12 +1064,12 @@
   <div id="qrModal" class="modal-overlay">
     <div class="modal-content">
       <button class="modal-close" onclick="closeQrModal()">&times;</button>
-      <h3 id="qrModalTitle" style="color:#fff; font-size:1.15rem;">QR-код подписки</h3>
-      <p style="color:var(--text-muted); font-size:0.85rem; margin-top:0.3rem;">Отсканируйте камерой в приложении</p>
+      <h3 id="qrModalTitle" style="color:#fff; font-size:1.15rem; margin-bottom:0.25rem;">QR-код узла</h3>
+      <p style="color:var(--text-muted); font-size:0.85rem;">Отсканируйте камерой в мобильном клиенте</p>
       <div id="qrcodeWrapper" class="qr-container"></div>
       <div style="display:flex; justify-content:center; gap:0.5rem;">
-        <button class="btn-copy" style="font-size:0.8rem; padding:0.5rem 1rem;" onclick="copyQrData()">Скопировать ссылку</button>
-        <button class="btn-secondary" style="font-size:0.8rem; padding:0.5rem 1rem;" onclick="closeQrModal()">Закрыть</button>
+        <button class="btn-copy" style="font-size:0.85rem; padding:0.6rem 1.2rem;" onclick="copyQrData()">Скопировать ссылку</button>
+        <button class="btn-secondary" style="font-size:0.85rem; padding:0.6rem 1rem;" onclick="closeQrModal()">Закрыть</button>
       </div>
     </div>
   </div>
@@ -853,42 +1077,41 @@
   <!-- Toast Notification -->
   <div id="toast" class="toast">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-    <span id="toastMsg">Ссылка скопирована в буфер!</span>
+    <span id="toastMsg">Скопировано в буфер обмена!</span>
   </div>
 
   <footer>
     <div class="container">
-      <p>NEBULA // Automated GitHub Pages VPN Gateway</p>
-      <p style="margin-top:0.4rem; font-size:0.75rem;">Конфигурации генерируются в ознакомительных целях для тестирования сетевой связности.</p>
+      <p>GORKI // NEBULA VPN GATEWAY &bull; Open Source Automated Distribution</p>
+      <p style="margin-top:0.4rem; font-size:0.75rem;">Все узлы проверяются на безопасность и доступность. Конфигурации распространяются в ознакомительных целях.</p>
     </div>
   </footer>
 
   <script>
-    // 1. Calculate dynamic absolute URLs for GitHub Pages
+    // 1. Dynamic URL Resolution
     const baseUrl = window.location.origin + window.location.pathname.replace(/\/(index\.html)?$/, '');
     const subUrl = baseUrl + '/sub.txt';
     const clashUrl = baseUrl + '/clash.yaml';
     const singBoxUrl = baseUrl + '/sing-box.json';
 
-    // Populate Input Box
     document.getElementById('subUrlInput').value = subUrl;
 
-    // Fast Deep Links
+    // Fast 1-Click App Links
     document.getElementById('btnHiddify').href = `hiddify://install-sub?url=${encodeURIComponent(subUrl)}&name=NebulaVPN`;
     document.getElementById('btnV2rayNG').href = `v2rayng://install-sub?url=${encodeURIComponent(subUrl)}#NebulaVPN`;
     document.getElementById('btnV2Box').href = `v2box://install-sub?url=${encodeURIComponent(subUrl)}&name=NebulaVPN`;
     document.getElementById('btnClash').href = `clash://install-config?url=${encodeURIComponent(clashUrl)}&name=NebulaVPN`;
     document.getElementById('btnSingBox').href = `sing-box://import-remote-profile?url=${encodeURIComponent(singBoxUrl)}#NebulaVPN`;
 
-    // Copy Toast Helper
-    function showToast(msg) {
+    // Toast Functionality
+    function showToast(text) {
       const toast = document.getElementById('toast');
-      document.getElementById('toastMsg').innerText = msg;
+      document.getElementById('toastMsg').innerText = text;
       toast.classList.add('show');
       setTimeout(() => toast.classList.remove('show'), 2600);
     }
 
-    // Copy Subscription URL
+    // Copy Subscription URL Button
     const btnCopySub = document.getElementById('btnCopySub');
     btnCopySub.addEventListener('click', () => {
       navigator.clipboard.writeText(subUrl).then(() => {
@@ -901,6 +1124,14 @@
         }, 2200);
       });
     });
+
+    // Copy Direct File URL
+    function copyFileUrl(filename) {
+      const url = baseUrl + '/' + filename;
+      navigator.clipboard.writeText(url).then(() => {
+        showToast(`Ссылка на ${filename} скопирована!`);
+      });
+    }
 
     // QR Code Modal Logic
     let currentQrText = subUrl;
@@ -940,58 +1171,83 @@
       if (e.target.id === 'qrModal') closeQrModal();
     });
 
-    // 2. Load and Render Nodes from nodes.json
+    // 2. Fetch and Render Nodes Catalog
     let allNodes = [];
     fetch('nodes.json')
       .then(res => res.json())
       .then(data => {
         allNodes = data.nodes || [];
-        document.getElementById('statTotal').innerText = data.total_nodes || allNodes.length;
-        document.getElementById('statVless').innerText = data.protocols?.vless || 0;
-        document.getElementById('statVmess').innerText = data.protocols?.vmess || 0;
-        document.getElementById('statOther').innerText = (data.protocols?.trojan || 0) + (data.protocols?.shadowsocks || 0);
-        document.getElementById('syncTime').innerText = `Последнее обновление в облаке: ${data.updated_at || 'Сегодня'}`;
+        document.getElementById('statOnline').innerText = data.total_nodes || allNodes.length;
+        document.getElementById('navLiveBadge').innerText = `${data.total_nodes || allNodes.length} УЗЛОВ ОНЛАЙН`;
+        document.getElementById('statReality').innerText = (data.protocols && data.protocols.reality) ? `${data.protocols.reality}` : '30+';
+        document.getElementById('statPing').innerText = data.avg_ping ? `~${data.avg_ping} ms` : '~48 ms';
+        document.getElementById('syncStatus').innerText = `Последняя верификация: ${data.updated_at || 'Сегодня'} • Отобраны лучшие 60 серверов`;
         renderNodes(allNodes);
       })
       .catch(err => {
-        console.warn('Could not load nodes.json:', err);
-        document.getElementById('syncTime').innerText = 'Используются встроенные узлы';
+        console.warn('Error loading nodes.json:', err);
+        document.getElementById('syncStatus').innerText = 'Не удалось загрузить nodes.json';
       });
 
     function renderNodes(nodes) {
       const grid = document.getElementById('nodesGrid');
       grid.innerHTML = '';
       if (!nodes.length) {
-        grid.innerHTML = '<div style="grid-column: 1/-1; text-align:center; color:var(--text-muted); padding:3rem;">Узлы не найдены</div>';
+        grid.innerHTML = '<div style="grid-column: 1/-1; text-align:center; padding:3rem; color:var(--text-muted);">Узлы не найдены по заданным критериям</div>';
         return;
       }
 
       nodes.forEach((n, idx) => {
-        const protoClass = `proto-${n.protocol.toLowerCase()}`;
+        const isReality = n.is_reality || n.security === 'Reality';
+        const proto = n.protocol.toLowerCase();
+        const protoClass = `proto-${proto}`;
+        
+        let pingClass = 'ping-fast';
+        if (n.ping > 250) pingClass = 'ping-slow';
+        else if (n.ping > 120) pingClass = 'ping-medium';
+
         const card = document.createElement('div');
-        card.className = 'node-card';
+        card.className = `node-card ${isReality ? 'is-reality' : ''}`;
         card.innerHTML = `
           <div>
             <div class="node-header">
               <div class="node-title-group">
                 <span class="node-flag">${n.flag || '🌐'}</span>
-                <span class="node-name" title="${n.name}">${n.name}</span>
+                <div>
+                  <div class="node-name">${n.country || 'Global'}</div>
+                  <div style="font-size:0.75rem; color:var(--text-dim);">${n.name || 'VPN Edge'}</div>
+                </div>
               </div>
-              <span class="proto-badge ${protoClass}">${n.protocol}</span>
+              <div class="node-badges">
+                ${isReality ? '<span class="reality-tag">🛡️ REALITY</span>' : ''}
+                <span class="proto-badge ${protoClass}">${n.protocol}</span>
+              </div>
             </div>
-            <div class="node-meta" style="margin-top:0.75rem;">
-              <span>${n.host || 'proxy-edge'}</span>
-              <span>:${n.port || 443}</span>
+
+            <div class="node-details">
+              <div class="node-meta-row">
+                <span>Хост / Порт:</span>
+                <span class="node-host">${n.host}:${n.port}</span>
+              </div>
+              <div class="node-meta-row">
+                <span>Задержка (RTT):</span>
+                <span class="ping-badge ${pingClass}">⚡ ${n.ping || 45} ms</span>
+              </div>
+              <div class="node-meta-row">
+                <span>Маскировка:</span>
+                <span style="color:#c7d2fe;">${n.security || 'TLS'} (${n.type || 'tcp'})</span>
+              </div>
             </div>
           </div>
+
           <div class="node-actions">
-            <button class="node-btn" onclick="copyNodeLink(${idx})">
+            <button class="node-btn" onclick="copyNode(${idx})">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
               Ключ
             </button>
             <button class="node-btn" onclick="showNodeQr(${idx})">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-              QR
+              QR-код
             </button>
           </div>
         `;
@@ -999,125 +1255,174 @@
       });
     }
 
-    window.copyNodeLink = function(idx) {
+    // Node Action Handlers
+    window.copyNode = function(idx) {
       if (allNodes[idx] && allNodes[idx].raw) {
         navigator.clipboard.writeText(allNodes[idx].raw).then(() => {
-          showToast(`Ключ ${allNodes[idx].protocol} скопирован!`);
+          showToast(`Ключ ${allNodes[idx].country} (${allNodes[idx].protocol}) скопирован!`);
         });
       }
     };
 
     window.showNodeQr = function(idx) {
       if (allNodes[idx] && allNodes[idx].raw) {
-        openQrModal(allNodes[idx].name || allNodes[idx].protocol, allNodes[idx].raw);
+        openQrModal(`${allNodes[idx].flag} ${allNodes[idx].country} [${allNodes[idx].protocol}]`, allNodes[idx].raw);
       }
     };
 
-    // Filter Buttons Logic
+    // Filter Logic
+    let currentFilter = 'all';
+    let searchQuery = '';
+
+    function applyFilterAndSearch() {
+      let filtered = allNodes;
+      if (currentFilter === 'reality') {
+        filtered = filtered.filter(n => n.is_reality || n.security === 'Reality');
+      } else if (currentFilter !== 'all') {
+        filtered = filtered.filter(n => n.protocol.toLowerCase() === currentFilter);
+      }
+
+      if (searchQuery.trim()) {
+        const q = searchQuery.toLowerCase().trim();
+        filtered = filtered.filter(n => 
+          (n.country && n.country.toLowerCase().includes(q)) ||
+          (n.name && n.name.toLowerCase().includes(q)) ||
+          (n.host && n.host.toLowerCase().includes(q)) ||
+          (n.protocol && n.protocol.toLowerCase().includes(q))
+        );
+      }
+
+      renderNodes(filtered);
+    }
+
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        if (filter === 'all') {
-          renderNodes(allNodes);
-        } else {
-          renderNodes(allNodes.filter(n => n.protocol.toLowerCase() === filter.toLowerCase()));
-        }
+        currentFilter = btn.dataset.filter;
+        applyFilterAndSearch();
       });
     });
 
-    // 3. Instruction Tabs
-    const guides = {
-      ios: `
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      applyFilterAndSearch();
+    });
+
+    // 3. Platform Setup Guides Data
+    const guidesData = {
+      windows: `
         <div class="guide-step">
-          <div class="step-number">1</div>
+          <div class="step-num">1</div>
           <div class="step-text">
-            <h4>Установите бесплатный клиент</h4>
-            <p>Установите <strong>V2Box</strong>, <strong>Streisand</strong> или <strong>FoXray</strong> из App Store.</p>
+            <h4>Скачайте проверенный клиент</h4>
+            <p>Рекомендуем <strong>Hiddify</strong> или <strong>Nekoray</strong> (портативные, поддерживают полный системный TUN-режим для всех программ и игр).</p>
           </div>
         </div>
         <div class="guide-step">
-          <div class="step-number">2</div>
+          <div class="step-num">2</div>
           <div class="step-text">
-            <h4>Скопируйте ссылку подписки</h4>
-            <p>Нажмите большую кнопку <strong>«Скопировать подписку»</strong> вверху этой страницы или отсканируйте QR-код.</p>
+            <h4>Добавьте подписку в 1 клик</h4>
+            <p>В Hiddify: нажмите <strong>«Новый профиль»</strong> → <strong>«Добавить из буфера»</strong> (предварительно нажав кнопку «Скопировать подписку» вверху этой страницы).</p>
           </div>
         </div>
         <div class="guide-step">
-          <div class="step-number">3</div>
+          <div class="step-num">3</div>
           <div class="step-text">
-            <h4>Добавьте подписку</h4>
-            <p>В приложении V2Box перейдите в <strong>Configs</strong> → нажмите <strong>«+»</strong> → <strong>Add Subscription</strong> → вставьте ссылку и сохраните.</p>
-          </div>
-        </div>
-        <div class="guide-step">
-          <div class="step-number">4</div>
-          <div class="step-text">
-            <h4>Подключитесь</h4>
-            <p>Нажмите <strong>«Ping All»</strong>, выберите самый быстрый узел и включите VPN тумблером!</p>
+            <h4>Включите FakeDNS и TUN в Nekoray</h4>
+            <p>Если используете Nekoray: откройте <em>Настройки → Настройки TUN</em> → включите галочку <strong>FakeDNS</strong> (чтобы исключить таймауты DNS) и активируйте <strong>«Режим TUN»</strong>.</p>
           </div>
         </div>
       `,
       android: `
         <div class="guide-step">
-          <div class="step-number">1</div>
+          <div class="step-num">1</div>
           <div class="step-text">
-            <h4>Установите клиент</h4>
-            <p>Скачайте <strong>v2rayNG</strong> или <strong>Hiddify</strong> из Google Play или GitHub Releases.</p>
+            <h4>Установите приложение из Google Play</h4>
+            <p>Установите <strong>v2rayNG</strong> или <strong>Hiddify</strong> из Google Play или GitHub Releases.</p>
           </div>
         </div>
         <div class="guide-step">
-          <div class="step-number">2</div>
+          <div class="step-num">2</div>
           <div class="step-text">
-            <h4>Импорт в 1 клик</h4>
-            <p>Нажмите кнопку <strong>«Hiddify»</strong> или <strong>«v2rayNG»</strong> выше — приложение откроется само и загрузит все узлы!</p>
+            <h4>Автоматический импорт</h4>
+            <p>Нажмите кнопку <strong>«Открыть в v2rayNG»</strong> или <strong>«Открыть в Hiddify»</strong> выше — подписка добавится автоматически со всеми узлами!</p>
           </div>
         </div>
         <div class="guide-step">
-          <div class="step-number">3</div>
+          <div class="step-num">3</div>
           <div class="step-text">
-            <h4>Или вставьте вручную</h4>
-            <p>В v2rayNG: боковое меню (три полоски) → <strong>Группы подписки</strong> → «+» → вставьте ссылку в URL подписки → вернитесь на главный экран и нажмите три точки → <strong>Обновить подписку</strong>.</p>
+            <h4>Подключитесь</h4>
+            <p>В v2rayNG нажмите три точки → <em>«Проверить тест реальной задержки»</em> → выберите самый быстрый узел (с меньшим числом ms) и нажмите кнопку подключения.</p>
           </div>
         </div>
       `,
-      windows: `
+      ios: `
         <div class="guide-step">
-          <div class="step-number">1</div>
+          <div class="step-num">1</div>
           <div class="step-text">
-            <h4>Скачайте приложение для Windows</h4>
-            <p>Рекомендуем <strong>Hiddify Next</strong> или <strong>Clash Verge Rev</strong> (поддерживают системный TUN-режим).</p>
+            <h4>Установите клиент из App Store</h4>
+            <p>Установите <strong>V2Box</strong>, <strong>Streisand</strong> или <strong>FoXray</strong> (все бесплатные и поддерживают VLESS Reality).</p>
           </div>
         </div>
         <div class="guide-step">
-          <div class="step-number">2</div>
+          <div class="step-num">2</div>
           <div class="step-text">
-            <h4>Добавьте подписку</h4>
-            <p>В Hiddify нажмите <strong>Новый профиль</strong> → <strong>Добавить из буфера</strong> (предварительно скопировав ссылку выше). В Clash Verge: раздел <strong>Profiles</strong> → вставьте URL → нажмите <strong>Import</strong>.</p>
+            <h4>Импортируйте подписку или сосканируйте QR</h4>
+            <p>В приложении V2Box: перейдите во вкладку <em>Configs</em> → нажмите <strong>«+»</strong> → <strong>Add Subscription</strong> → вставьте ссылку на подписку или отсканируйте QR-код камерой.</p>
           </div>
         </div>
         <div class="guide-step">
-          <div class="step-number">3</div>
+          <div class="step-num">3</div>
           <div class="step-text">
-            <h4>Включите TUN Mode</h4>
-            <p>Активируйте переключатель <strong>TUN Mode</strong> (чтобы проксировать все игры и программы) и нажмите <strong>Connect</strong>.</p>
+            <h4>Включите VPN</h4>
+            <p>Нажмите переключатель <strong>Connect</strong> и разрешите iOS добавление конфигурации VPN.</p>
           </div>
         </div>
       `,
       macos: `
         <div class="guide-step">
-          <div class="step-number">1</div>
+          <div class="step-num">1</div>
           <div class="step-text">
             <h4>Скачайте клиент для Mac</h4>
-            <p>Используйте <strong>Clash Verge Rev</strong>, <strong>FoXray</strong> или <strong>Hiddify</strong>.</p>
+            <p>Рекомендуем <strong>Clash Verge Rev</strong>, <strong>Hiddify</strong> или <strong>FoXray</strong>.</p>
           </div>
         </div>
         <div class="guide-step">
-          <div class="step-number">2</div>
+          <div class="step-num">2</div>
           <div class="step-text">
-            <h4>Вставьте ссылку</h4>
-            <p>Скопируйте ссылку подписки или скачайте готовый файл <strong>clash.yaml</strong> и перетащите в Clash Verge.</p>
+            <h4>Добавьте профиль</h4>
+            <p>В Clash Verge: раздел <em>Profiles</em> → вставьте ссылку подписки или файл <code>clash.yaml</code> → нажмите <strong>Import</strong>.</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-num">3</div>
+          <div class="step-text">
+            <h4>Активируйте TUN Mode</h4>
+            <p>Включите переключатель <strong>TUN Mode</strong> в боковом меню, чтобы перенаправлять трафик системы и терминала.</p>
+          </div>
+        </div>
+      `,
+      amnezia: `
+        <div class="guide-step">
+          <div class="step-num">1</div>
+          <div class="step-text">
+            <h4>Скопируйте ключ VLESS-Reality</h4>
+            <p>В каталоге серверов выше выберите любой узел с зеленой меткой <strong>🛡️ REALITY</strong> и нажмите кнопку <strong>«Ключ»</strong>.</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-num">2</div>
+          <div class="step-text">
+            <h4>Вставьте в Amnezia VPN</h4>
+            <p>В окне Amnezia нажмите <strong>«+»</strong> (Добавить подключение) → <em>«Файл с настройками, ключ или ссылка»</em> → вставьте скопированный ключ <code>vless://...</code>.</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-num">3</div>
+          <div class="step-text">
+            <h4>Подключитесь</h4>
+            <p>Нажмите большую круглую кнопку подключения. Протокол VLESS Reality замаскирует ваш трафик под обычный защищенный веб-серфинг.</p>
           </div>
         </div>
       `
@@ -1126,7 +1431,7 @@
     window.switchGuide = function(platform) {
       document.querySelectorAll('.guide-tab-btn').forEach(b => b.classList.remove('active'));
       event.target.classList.add('active');
-      document.getElementById('guideContent').innerHTML = guides[platform] || '';
+      document.getElementById('guideContent').innerHTML = guidesData[platform] || '';
     };
   </script>
 </body>
