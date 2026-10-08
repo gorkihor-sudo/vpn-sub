@@ -1,5 +1,5 @@
 # Nebula / GorkiVPN Clash Meta & Mihomo Configuration
-# Generated: 2026-10-08 12:29:59 UTC
+# Generated: 2026-10-08 22:40:03 UTC
 port: 7890
 socks-port: 7891
 allow-lan: false
@@ -17,66 +17,7 @@ dns:
     - https://dns.cloudflare.com/dns-query
 
 proxies:
-  - name: "🌐 Глобальный #1 [Reality]"
-    type: vless
-    server: "50.7.191.27"
-    port: 443
-    uuid: "d2519b5e-495e-462e-9703-bbf68011d2f3"
-    tls: true
-    skip-cert-verify: true
-    flow: "xtls-rprx-vision"
-    servername: "xn--80aqafkhej.xn----9sbekcigdcaa6cd7cafr7e.xn--p1ai"
-    client-fingerprint: "chrome"
-    reality-opts:
-      public-key: "8ENbaQRCWZk-wewSrdHq1_rVjJY4CrxqXUo_5vZNdi4"
-      short-id: "b2b44805"
-    udp: true
-
-  - name: "🌐 Глобальный #2 [Reality]"
-    type: vless
-    server: "103.244.145.144"
-    port: 443
-    uuid: "e75ad2eb-6c1f-45ce-8023-f5f10875df66"
-    tls: true
-    skip-cert-verify: true
-    flow: "xtls-rprx-vision"
-    servername: "zsde.eu-cdn294.com"
-    client-fingerprint: "chrome"
-    reality-opts:
-      public-key: "f4EJP55daJRlJkcZbbGsY-gFGGFGiXPPdfVxtNWQPCE"
-      short-id: "c8621ebb1e56abb3"
-    udp: true
-
-  - name: "🇩🇪 Германия #3 [Reality]"
-    type: vless
-    server: "kr2-r.link-t7.com"
-    port: 10047
-    uuid: "745A6079-6A61-423D-BDD9-B344C1D26E62"
-    tls: true
-    skip-cert-verify: true
-    servername: "s0.awsstatic.com"
-    client-fingerprint: "chrome"
-    reality-opts:
-      public-key: "wOu-BMrXvk9KX23JZrlpUlF4SMjDcejm0vNECdhy5xE"
-      short-id: "686c0ef0"
-    udp: true
-
-  - name: "🌐 Глобальный #4 [Reality]"
-    type: vless
-    server: "de2.srv.vbuste.ru"
-    port: 443
-    uuid: "318c935d-c195-41d3-99ad-9bbcfdab3386"
-    tls: true
-    skip-cert-verify: true
-    flow: "xtls-rprx-vision"
-    servername: "de2.srv.vbuste.ru"
-    client-fingerprint: "chrome"
-    reality-opts:
-      public-key: "0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08"
-      short-id: "4be4110078ebed4a"
-    udp: true
-
-  - name: "🇺🇸 США #5 [Reality]"
+  - name: "🇺🇸 США #1 [Reality]"
     type: vless
     server: "72.56.41.33"
     port: 40443
@@ -91,97 +32,22 @@ proxies:
       short-id: "ee33"
     udp: true
 
-  - name: "🇩🇪 Германия #6 [Reality]"
+  - name: "🌐 Глобальный #2 [Reality]"
     type: vless
-    server: "189.24.108.152"
-    port: 59719
-    uuid: "cd55b3ae-6833-4eff-be18-55bd92164071"
+    server: "205.237.110.254"
+    port: 443
+    uuid: "e75ad2eb-6c1f-45ce-8023-f5f10875df66"
     tls: true
     skip-cert-verify: true
     flow: "xtls-rprx-vision"
-    servername: "www.sony.lu"
+    servername: "zsit.eu-cdn294.com"
     client-fingerprint: "chrome"
     reality-opts:
-      public-key: "cWI4RpOZJqkX1HE9pQIZQ8eNeLWGX8UEzECyRehQnlQ"
-      short-id: "6e6f9fa5decc02"
+      public-key: "IG6lxrx_xkGOoBuo3DC8sgQoIFmqVgznIr0qOuNO0w4"
+      short-id: "cd2d53510b4df2a8"
     udp: true
 
-  - name: "🇩🇪 Германия #7 [Reality]"
-    type: vless
-    server: "157.228.128.59"
-    port: 443
-    uuid: "df53b6c2-8005-475c-9eb9-74e1be785dc8"
-    tls: true
-    skip-cert-verify: true
-    flow: "xtls-rprx-vision"
-    servername: "addons.mozilla.org"
-    client-fingerprint: "chrome"
-    reality-opts:
-      public-key: "QnxkyscHouhaLDJHT47beyenVd4LHi62yfJIeRV01Ws"
-      short-id: "06e00e7c"
-    udp: true
-
-  - name: "🇩🇪 Германия #8 [Reality]"
-    type: vless
-    server: "5.175.178.30"
-    port: 443
-    uuid: "8fc806fa-350b-4548-937a-2bf35f7fe7eb"
-    tls: true
-    skip-cert-verify: true
-    flow: "xtls-rprx-vision"
-    servername: "ee1.sky-vault.top"
-    client-fingerprint: "firefox"
-    reality-opts:
-      public-key: "_KTsOFhGnC0W28ZqO8_FApozMp7tJ9cVBTLKLAA_OR0"
-      short-id: "ae64c9b46bff174a"
-    udp: true
-
-  - name: "🇩🇪 Германия #9 [Reality]"
-    type: vless
-    server: "177.3.213.112"
-    port: 443
-    uuid: "f495298f-2bdb-4fd8-9ac9-5dd33d1b482a"
-    tls: true
-    skip-cert-verify: true
-    flow: "xtls-rprx-vision"
-    servername: "germanz.ruletka.study"
-    client-fingerprint: "chrome"
-    reality-opts:
-      public-key: "W-zf_ncm9sYALF5EqvUsxqTkYGdAw-tQczT2SqwVMGE"
-      short-id: "ff776ff77be48b88"
-    udp: true
-
-  - name: "🌐 Глобальный #10 [Reality]"
-    type: vless
-    server: "189.24.108.152"
-    port: 59719
-    uuid: "cd55b3ae-6833-4eff-be18-55bd92164071"
-    tls: true
-    skip-cert-verify: true
-    flow: "xtls-rprx-vision"
-    servername: "www.sony.lu"
-    client-fingerprint: "chrome"
-    reality-opts:
-      public-key: "cWI4RpOZJqkX1HE9pQIZQ8eNeLWGX8UEzECyRehQnlQ"
-      short-id: "6e6f9fa5decc02"
-    udp: true
-
-  - name: "🌐 Глобальный #11 [Reality]"
-    type: vless
-    server: "217.60.24.36"
-    port: 443
-    uuid: "40781fd4-c7df-4aeb-bd5a-ecfa3ba7b841"
-    tls: true
-    skip-cert-verify: true
-    flow: "xtls-rprx-vision"
-    servername: "cipher961.filebeam.website"
-    client-fingerprint: "firefox"
-    reality-opts:
-      public-key: "xcTXD3of3Yt5hHdIwYGZ1LjMBgiL6sqj5J33J4U4ozM"
-      short-id: "a7c31f92"
-    udp: true
-
-  - name: "🇩🇪 Германия #12 [Reality]"
+  - name: "🇩🇪 Германия #3 [Reality]"
     type: vless
     server: "216.173.71.43"
     port: 443
@@ -196,22 +62,81 @@ proxies:
       short-id: "0da7e14db353e7d0"
     udp: true
 
-  - name: "🌐 Глобальный #13 [Reality]"
+  - name: "🇩🇪 Германия #4 [Reality]"
     type: vless
-    server: "147.45.63.64"
+    server: "177.3.213.112"
     port: 443
-    uuid: "579b72a5-785a-4fb6-ac64-1de2f8c49601"
+    uuid: "f495298f-2bdb-4fd8-9ac9-5dd33d1b482a"
     tls: true
     skip-cert-verify: true
     flow: "xtls-rprx-vision"
-    servername: "cloudflare.com"
+    servername: "germanz.ruletka.study"
     client-fingerprint: "chrome"
     reality-opts:
-      public-key: "9J5SrrBYJ4Tz_zpSM3n-EWuin5jmUqEI8LJ5htsGZy8"
-      short-id: ""
+      public-key: "W-zf_ncm9sYALF5EqvUsxqTkYGdAw-tQczT2SqwVMGE"
+      short-id: "ff776ff77be48b88"
     udp: true
 
-  - name: "🌐 Глобальный #14 [Reality]"
+  - name: "🇩🇪 Германия #5 [Reality]"
+    type: vless
+    server: "31.59.210.26"
+    port: 2088
+    uuid: "5413edfb-08d6-4fba-b51c-809c04feb127"
+    tls: true
+    skip-cert-verify: true
+    servername: "www.yandex.ru"
+    client-fingerprint: "qq"
+    reality-opts:
+      public-key: "Eq3c19Y0WGB1APWMADQB-oxCvZFSVFAQxG5L6b8EkUg"
+      short-id: "b1ad165f903c62fe"
+    udp: true
+
+  - name: "🇩🇪 Германия #6 [Reality]"
+    type: vless
+    server: "5.175.178.30"
+    port: 443
+    uuid: "8fc806fa-350b-4548-937a-2bf35f7fe7eb"
+    tls: true
+    skip-cert-verify: true
+    flow: "xtls-rprx-vision"
+    servername: "ee1.sky-vault.top"
+    client-fingerprint: "firefox"
+    reality-opts:
+      public-key: "_KTsOFhGnC0W28ZqO8_FApozMp7tJ9cVBTLKLAA_OR0"
+      short-id: "ae64c9b46bff174a"
+    udp: true
+
+  - name: "🌐 Глобальный #7 [Reality]"
+    type: vless
+    server: "23.134.76.212"
+    port: 443
+    uuid: "3cd1770d-f285-4cf4-8979-e9dd8f4be36a"
+    tls: true
+    skip-cert-verify: true
+    flow: "xtls-rprx-vision"
+    servername: "us.dark-bit.cc"
+    client-fingerprint: "chrome"
+    reality-opts:
+      public-key: "cYmfBXsDs1sqQ2ZBW3xsFroB7JHV_ufFT5m7ab7STnU"
+      short-id: "9ab513f082d4c6e1"
+    udp: true
+
+  - name: "🌐 Глобальный #8 [Reality]"
+    type: vless
+    server: "217.60.24.36"
+    port: 443
+    uuid: "40781fd4-c7df-4aeb-bd5a-ecfa3ba7b841"
+    tls: true
+    skip-cert-verify: true
+    flow: "xtls-rprx-vision"
+    servername: "cipher961.filebeam.website"
+    client-fingerprint: "firefox"
+    reality-opts:
+      public-key: "xcTXD3of3Yt5hHdIwYGZ1LjMBgiL6sqj5J33J4U4ozM"
+      short-id: "a7c31f92"
+    udp: true
+
+  - name: "🌐 Глобальный #9 [Reality]"
     type: vless
     server: "de2.srv.vbuste.ru"
     port: 443
@@ -226,21 +151,52 @@ proxies:
       short-id: "4be4110078ebed4a"
     udp: true
 
-  - name: "🇩🇪 Германия #15 [Reality]"
+  - name: "🇩🇪 Германия #10 [Reality]"
     type: vless
-    server: "31.59.210.26"
-    port: 2088
-    uuid: "5413edfb-08d6-4fba-b51c-809c04feb127"
+    server: "157.228.128.59"
+    port: 443
+    uuid: "df53b6c2-8005-475c-9eb9-74e1be785dc8"
     tls: true
     skip-cert-verify: true
-    servername: "www.yandex.ru"
-    client-fingerprint: "qq"
+    flow: "xtls-rprx-vision"
+    servername: "addons.mozilla.org"
+    client-fingerprint: "chrome"
     reality-opts:
-      public-key: "Eq3c19Y0WGB1APWMADQB-oxCvZFSVFAQxG5L6b8EkUg"
-      short-id: "b1ad165f903c62fe"
+      public-key: "QnxkyscHouhaLDJHT47beyenVd4LHi62yfJIeRV01Ws"
+      short-id: "06e00e7c"
     udp: true
 
-  - name: "🌐 Глобальный #16 [None]"
+  - name: "🇩🇪 Германия #11 [Reality]"
+    type: vless
+    server: "157.228.160.166"
+    port: 443
+    uuid: "df53b6c2-8005-475c-9eb9-74e1be785dc8"
+    tls: true
+    skip-cert-verify: true
+    flow: "xtls-rprx-vision"
+    servername: "addons.mozilla.org"
+    client-fingerprint: "chrome"
+    reality-opts:
+      public-key: "NOw-idkk3OCn-N0IRS93leujH4ik-E749O2T5BYJQ0M"
+      short-id: "3cef317b"
+    udp: true
+
+  - name: "🌐 Глобальный #12 [Reality]"
+    type: vless
+    server: "147.45.63.64"
+    port: 443
+    uuid: "579b72a5-785a-4fb6-ac64-1de2f8c49601"
+    tls: true
+    skip-cert-verify: true
+    flow: "xtls-rprx-vision"
+    servername: "cloudflare.com"
+    client-fingerprint: "chrome"
+    reality-opts:
+      public-key: "9J5SrrBYJ4Tz_zpSM3n-EWuin5jmUqEI8LJ5htsGZy8"
+      short-id: ""
+    udp: true
+
+  - name: "🌐 Глобальный #13 [None]"
     type: vless
     server: "104.24.152.217"
     port: 80
@@ -255,7 +211,7 @@ proxies:
         Host: "auto-b94505.mmonn5771.workers.dev"
     udp: true
 
-  - name: "🌐 Глобальный #17 [None]"
+  - name: "🌐 Глобальный #14 [None]"
     type: vless
     server: "104.24.152.211"
     port: 8880
@@ -270,7 +226,7 @@ proxies:
         Host: "misty-hill-4b94.146-c18.workers.dev"
     udp: true
 
-  - name: "🌐 Глобальный #18 [None]"
+  - name: "🌐 Глобальный #15 [None]"
     type: vmess
     server: "104.21.82.183"
     port: 8880
@@ -287,7 +243,7 @@ proxies:
         Host: "server26.beheshtbaneh.com"
     udp: true
 
-  - name: "🇩🇪 Германия #19 [None]"
+  - name: "🇩🇪 Германия #16 [None]"
     type: vless
     server: "172.64.229.129"
     port: 2052
@@ -300,6 +256,51 @@ proxies:
       path: "/rain1226"
       headers:
         Host: "eu02.123450908.xyz"
+    udp: true
+
+  - name: "🇺🇸 США #17 [TLS]"
+    type: vless
+    server: "104.16.10.251"
+    port: 443
+    uuid: "c4edb87e-8544-4fa4-bd1c-b0cda9a34b46"
+    tls: true
+    skip-cert-verify: true
+    servername: "a.cwvps.eu.org"
+    network: ws
+    ws-opts:
+      path: "/ws"
+      headers:
+        Host: "a.cwvps.eu.org"
+    udp: true
+
+  - name: "🇩🇪 Германия #18 [TLS]"
+    type: vless
+    server: "170.114.52.22"
+    port: 443
+    uuid: "a853e120-3570-462b-aec1-e8f3d4f92d24"
+    tls: true
+    skip-cert-verify: true
+    servername: "asia.csmaster.site"
+    network: ws
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "asia.csmaster.site"
+    udp: true
+
+  - name: "🇺🇸 США #19 [TLS]"
+    type: vless
+    server: "104.17.154.214"
+    port: 443
+    uuid: "489f1717-d3c7-4940-ad68-bdbdbab857f4"
+    tls: true
+    skip-cert-verify: true
+    servername: "x.m-90.xyz"
+    network: ws
+    ws-opts:
+      path: "t.me/TEAMNETGRATISCOL"
+      headers:
+        Host: "x.m-90.xyz"
     udp: true
 
   - name: "🇩🇪 Германия #20 [TLS]"
@@ -319,22 +320,86 @@ proxies:
         Host: "guanwang.awsno.com"
     udp: true
 
-  - name: "🇩🇪 Германия #21 [TLS]"
+  - name: "🇺🇸 США #21 [TLS]"
     type: vless
-    server: "170.114.52.22"
+    server: "199.232.239.239"
     port: 443
-    uuid: "a853e120-3570-462b-aec1-e8f3d4f92d24"
+    uuid: "71a195c5-df47-47ad-81be-f4d3a3a21be3"
     tls: true
     skip-cert-verify: true
-    servername: "asia.csmaster.site"
-    network: ws
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "asia.csmaster.site"
+    servername: "ssl.fastly.com"
     udp: true
 
-  - name: "🇩🇪 Германия #22 [TLS]"
+  - name: "🇩🇪 Германия #22 [Standard]"
+    type: ss
+    server: "34.228.79.192"
+    port: 443
+    password: "amazonskr05"
+    cipher: "aes-256-cfb"
+    udp: true
+
+  - name: "🌐 Глобальный #23 [TLS]"
+    type: trojan
+    server: "104.18.35.86"
+    port: 8443
+    password: "trojan"
+    udp: true
+
+  - name: "🇩🇪 Германия #24 [Standard]"
+    type: ss
+    server: "107.21.80.138"
+    port: 443
+    password: "amazonskr05"
+    cipher: "aes-256-cfb"
+    udp: true
+
+  - name: "🇩🇪 Германия #25 [Standard]"
+    type: ss
+    server: "18.208.223.39"
+    port: 443
+    password: "amazonskr05"
+    cipher: "aes-256-cfb"
+    udp: true
+
+  - name: "🇺🇸 США #26 [TLS]"
+    type: vless
+    server: "bounded-crammed.video-streams.org"
+    port: 443
+    uuid: "476bdb75-0d9b-49f2-a492-4cd68f594d32"
+    tls: true
+    skip-cert-verify: true
+    servername: "bounded-crammed.video-streams.org"
+    network: ws
+    ws-opts:
+      path: "/ws"
+      headers:
+        Host: "bounded-crammed.video-streams.org"
+    udp: true
+
+  - name: "🇺🇸 США #27 [Standard]"
+    type: ss
+    server: "34.228.79.192"
+    port: 443
+    password: "amazonskr05"
+    cipher: "aes-256-cfb"
+    udp: true
+
+  - name: "🇺🇸 США #28 [TLS]"
+    type: vless
+    server: "162.159.193.1"
+    port: 443
+    uuid: "96b1b606-d069-42b7-a38f-a9ca3b8431e6"
+    tls: true
+    skip-cert-verify: true
+    servername: "cloudflare.com"
+    network: ws
+    ws-opts:
+      path: "/vless"
+      headers:
+        Host: "cloudflare.com"
+    udp: true
+
+  - name: "🇩🇪 Германия #29 [TLS]"
     type: vmess
     server: "guanwang.awsno.com"
     port: 443
@@ -351,14 +416,22 @@ proxies:
         Host: "guanwang.awsno.com"
     udp: true
 
-  - name: "🌐 Глобальный #23 [TLS]"
-    type: trojan
-    server: "104.18.35.86"
-    port: 8443
-    password: "trojan"
+  - name: "🇺🇸 США #30 [TLS]"
+    type: vless
+    server: "minimize-evenness.cdn-content.com"
+    port: 443
+    uuid: "9760fa51-423f-4000-9dd8-15eccf811982"
+    tls: true
+    skip-cert-verify: true
+    servername: "minimize-evenness.cdn-content.com"
+    network: ws
+    ws-opts:
+      path: "/ws"
+      headers:
+        Host: "minimize-evenness.cdn-content.com"
     udp: true
 
-  - name: "🇬🇧 Великобритания #24 [TLS]"
+  - name: "🇬🇧 Великобритания #31 [TLS]"
     type: vmess
     server: "gov.uk"
     port: 443
@@ -375,69 +448,52 @@ proxies:
         Host: "zheshiscp.com"
     udp: true
 
-  - name: "🇺🇸 США #25 [Standard]"
-    type: ss
-    server: "34.228.79.192"
-    port: 443
-    password: "amazonskr05"
-    cipher: "aes-256-cfb"
-    udp: true
-
-  - name: "🇩🇪 Германия #26 [Standard]"
-    type: ss
-    server: "34.228.79.192"
-    port: 443
-    password: "amazonskr05"
-    cipher: "aes-256-cfb"
-    udp: true
-
-  - name: "🇩🇪 Германия #27 [Standard]"
-    type: ss
-    server: "107.21.80.138"
-    port: 443
-    password: "amazonskr05"
-    cipher: "aes-256-cfb"
-    udp: true
-
-  - name: "🇩🇪 Германия #28 [Standard]"
-    type: ss
-    server: "18.208.223.39"
-    port: 443
-    password: "amazonskr05"
-    cipher: "aes-256-cfb"
-    udp: true
-
-  - name: "🇺🇸 США #29 [TLS]"
+  - name: "🌐 Глобальный #32 [TLS]"
     type: vless
-    server: "104.17.154.214"
+    server: "172.67.182.111"
     port: 443
-    uuid: "489f1717-d3c7-4940-ad68-bdbdbab857f4"
+    uuid: "d342d11e-d424-4583-b36e-524ab1f0afa4"
     tls: true
     skip-cert-verify: true
-    servername: "x.m-90.xyz"
-    network: ws
-    ws-opts:
-      path: "t.me/TEAMNETGRATISCOL"
-      headers:
-        Host: "x.m-90.xyz"
-    udp: true
-
-  - name: "🌐 Глобальный #30 [TLS]"
-    type: vless
-    server: "140.248.186.45"
-    port: 443
-    uuid: "XpnTeam-2"
-    tls: true
-    skip-cert-verify: true
-    servername: "ssl.fastly.com"
+    servername: "speed.cloudflare.com"
     network: ws
     ws-opts:
       path: "/"
       headers:
-        Host: "Appxdn.global.ssl.fastly.net"
+        Host: "speed.cloudflare.com"
     udp: true
 
-  - name: "🌐 Глобальный #31 [TLS]"
+  - name: "🇺🇸 США #33 [TLS]"
+    type: vless
+    server: "adheres-scruple.quick-cdn.net"
+    port: 443
+    uuid: "e12bb1dc-d315-47e3-9184-cb655afe6421"
+    tls: true
+    skip-cert-verify: true
+    servername: "adheres-scruple.quick-cdn.net"
+    network: ws
+    ws-opts:
+      path: "/ws"
+      headers:
+        Host: "adheres-scruple.quick-cdn.net"
+    udp: true
+
+  - name: "🇺🇸 США #34 [TLS]"
+    type: vless
+    server: "151.101.193.242"
+    port: 443
+    uuid: "b2aa6d03-4d3e-478d-98aa-2447f09d4cb1"
+    tls: true
+    skip-cert-verify: true
+    servername: "adheres-scruple.quick-cdn.net"
+    network: ws
+    ws-opts:
+      path: "/ws"
+      headers:
+        Host: "adheres-scruple.quick-cdn.net"
+    udp: true
+
+  - name: "🌐 Глобальный #35 [TLS]"
     type: vless
     server: "104.16.132.229"
     port: 443
@@ -452,47 +508,7 @@ proxies:
         Host: "speed.cloudflare.com"
     udp: true
 
-  - name: "🇺🇸 США #32 [TLS]"
-    type: vless
-    server: "199.232.239.239"
-    port: 443
-    uuid: "71a195c5-df47-47ad-81be-f4d3a3a21be3"
-    tls: true
-    skip-cert-verify: true
-    servername: "ssl.fastly.com"
-    udp: true
-
-  - name: "🌐 Глобальный #33 [TLS]"
-    type: vless
-    server: "199.232.78.187"
-    port: 443
-    uuid: "c326b0af-e926-4dc8-a8a3-e7790cc0bdec"
-    tls: true
-    skip-cert-verify: true
-    servername: "default.ssl.fastly.net"
-    network: ws
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "SEPAHA1.global.ssl.fastly.net"
-    udp: true
-
-  - name: "🇩🇪 Германия #34 [None]"
-    type: vless
-    server: "psf-3.weedly.top"
-    port: 80
-    uuid: "b0fae3b7-02de-4002-b8ca-b7159fe33841"
-    tls: false
-    skip-cert-verify: true
-    servername: "psf-3.weedly.top"
-    network: ws
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "machinemag.ir"
-    udp: true
-
-  - name: "🇺🇸 США #35 [TLS]"
+  - name: "🇺🇸 США #36 [TLS]"
     type: vmess
     server: "guanwang.awsno.com"
     port: 443
@@ -509,94 +525,37 @@ proxies:
         Host: "guanwang.awsno.com"
     udp: true
 
-  - name: "🇺🇸 США #36 [TLS]"
+  - name: "🇺🇸 США #37 [TLS]"
     type: vless
-    server: "104.16.10.251"
+    server: "grimness-backlogs.cdn-content.com"
     port: 443
-    uuid: "c4edb87e-8544-4fa4-bd1c-b0cda9a34b46"
+    uuid: "484af701-34a8-4957-bf61-0f7bc3891e59"
     tls: true
     skip-cert-verify: true
-    servername: "a.cwvps.eu.org"
+    servername: "grimness-backlogs.cdn-content.com"
     network: ws
     ws-opts:
       path: "/ws"
       headers:
-        Host: "a.cwvps.eu.org"
-    udp: true
-
-  - name: "🇺🇸 США #37 [TLS]"
-    type: vless
-    server: "172.64.229.14"
-    port: 443
-    uuid: "489f1717-d3c7-4940-ad68-bdbdbab857f4"
-    tls: true
-    skip-cert-verify: true
-    servername: "x.m-90.xyz"
-    network: ws
-    ws-opts:
-      path: "t.me/TEAMNETGRATISCOL"
-      headers:
-        Host: "x.m-90.xyz"
+        Host: "grimness-backlogs.cdn-content.com"
     udp: true
 
   - name: "🌐 Глобальный #38 [TLS]"
     type: vless
-    server: "172.67.182.111"
+    server: "140.248.186.45"
     port: 443
-    uuid: "d342d11e-d424-4583-b36e-524ab1f0afa4"
+    uuid: "XpnTeam-2"
     tls: true
     skip-cert-verify: true
-    servername: "speed.cloudflare.com"
+    servername: "ssl.fastly.com"
     network: ws
     ws-opts:
       path: "/"
       headers:
-        Host: "speed.cloudflare.com"
+        Host: "Appxdn.global.ssl.fastly.net"
     udp: true
 
-  - name: "🇺🇸 США #39 [TLS]"
-    type: vless
-    server: "piracy-android.video-streams.org"
-    port: 443
-    uuid: "c9ff358e-20c4-4979-bc14-acc3daaf1297"
-    tls: true
-    skip-cert-verify: true
-    servername: "piracy-android.video-streams.org"
-    network: ws
-    ws-opts:
-      path: "/ws"
-      headers:
-        Host: "piracy-android.video-streams.org"
-    udp: true
-
-  - name: "🇺🇸 США #40 [TLS]"
-    type: vless
-    server: "162.159.193.1"
-    port: 443
-    uuid: "96b1b606-d069-42b7-a38f-a9ca3b8431e6"
-    tls: true
-    skip-cert-verify: true
-    servername: "cloudflare.com"
-    network: ws
-    ws-opts:
-      path: "/vless"
-      headers:
-        Host: "cloudflare.com"
-    udp: true
-
-  - name: "🇩🇪 Германия #41 [None]"
-    type: vmess
-    server: "43.108.103.167"
-    port: 123
-    uuid: "35aa0fda-175a-4aec-c468-0231dee1a121"
-    cipher: "auto"
-    alterId: 0
-    tls: false
-    skip-cert-verify: true
-    servername: "43.108.103.167"
-    udp: true
-
-  - name: "🌐 Глобальный #42 [TLS]"
+  - name: "🌐 Глобальный #39 [TLS]"
     type: trojan
     server: "104.21.64.12"
     port: 443
@@ -608,108 +567,52 @@ proxies:
         Host: "speed.cloudflare.com"
     udp: true
 
-  - name: "🇯🇵 Япония #43 [TLS]"
+  - name: "🇺🇸 США #40 [TLS]"
     type: vless
-    server: "198.41.214.162"
+    server: "151.101.193.242"
     port: 443
-    uuid: "d342d11e-d424-4583-b36e-524ab1f0afa4"
+    uuid: "b0cf4078-96b8-4e11-80a8-0f9352565a16"
     tls: true
     skip-cert-verify: true
-    servername: "speed.cloudflare.com"
-    network: ws
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "speed.cloudflare.com"
-    udp: true
-
-  - name: "🇸🇬 Сингапур #44 [TLS]"
-    type: vless
-    server: "104.21.55.229"
-    port: 443
-    uuid: "3adac494-0eb1-4d89-a187-b2181691444d"
-    tls: true
-    skip-cert-verify: true
-    servername: "tiny-lake-bbf1.369-766.workers.dev"
-    network: ws
-    ws-opts:
-      path: "/pyip=ProxyIP.SG.CMLiussss.net"
-      headers:
-        Host: "tiny-lake-bbf1.369-766.workers.dev"
-    udp: true
-
-  - name: "🇺🇸 США #45 [TLS]"
-    type: vless
-    server: "minimize-evenness.cdn-content.com"
-    port: 443
-    uuid: "9760fa51-423f-4000-9dd8-15eccf811982"
-    tls: true
-    skip-cert-verify: true
-    servername: "minimize-evenness.cdn-content.com"
+    servername: "adheres-scruple.quick-cdn.net"
     network: ws
     ws-opts:
       path: "/ws"
       headers:
-        Host: "minimize-evenness.cdn-content.com"
+        Host: "adheres-scruple.quick-cdn.net"
     udp: true
 
-  - name: "🇩🇪 Германия #46 [Standard]"
-    type: ss
-    server: "13.36.241.80"
+  - name: "🌐 Глобальный #41 [TLS]"
+    type: vless
+    server: "199.232.78.187"
     port: 443
-    password: "amazonskr05"
-    cipher: "aes-256-cfb"
-    udp: true
-
-  - name: "🇩🇪 Германия #47 [Standard]"
-    type: ss
-    server: "13.36.178.160"
-    port: 443
-    password: "amazonskr05"
-    cipher: "aes-256-cfb"
-    udp: true
-
-  - name: "🌐 Глобальный #48 [None]"
-    type: vmess
-    server: "47.86.167.194"
-    port: 800
-    uuid: "f2c67cae-c09d-4739-947d-f5302d87a3c0"
-    cipher: "auto"
-    alterId: 0
-    tls: false
+    uuid: "c326b0af-e926-4dc8-a8a3-e7790cc0bdec"
+    tls: true
     skip-cert-verify: true
-    servername: "sjskendn.dingtalk.com"
+    servername: "default.ssl.fastly.net"
+    network: ws
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "SEPAHA1.global.ssl.fastly.net"
     udp: true
 
-  - name: "🌐 Глобальный #49 [None]"
-    type: vmess
-    server: "8.217.230.196"
-    port: 9999
-    uuid: "02dc4f5b-b87d-410d-b9d5-0c6f921d92f8"
-    cipher: "auto"
-    alterId: 0
-    tls: false
-    skip-cert-verify: true
-    servername: "down-cdn.dingtalk.com"
-    udp: true
-
-  - name: "🇩🇪 Германия #50 [Standard]"
-    type: ss
-    server: "63.177.230.112"
+  - name: "🇺🇸 США #42 [TLS]"
+    type: vless
+    server: "adheres-scruple.quick-cdn.net"
     port: 443
-    password: "amazonskr05"
-    cipher: "aes-256-cfb"
+    uuid: "0f0e6a6c-f448-4931-b5a3-0fcdcd6dacec"
+    tls: true
+    skip-cert-verify: true
+    servername: "adheres-scruple.quick-cdn.net"
+    network: ws
+    ws-opts:
+      path: "/ws"
+      headers:
+        Host: "adheres-scruple.quick-cdn.net"
     udp: true
 
-  - name: "🌐 Глобальный #51 [Standard]"
-    type: ss
-    server: "5.188.181.201"
-    port: 9019
-    password: "GA9KzeEgvfxNrgmM"
-    cipher: "aes-256-cfb"
-    udp: true
-
-  - name: "🇺🇸 США #52 [TLS]"
+  - name: "🇺🇸 США #43 [TLS]"
     type: vless
     server: "minimize-evenness.cdn-content.com"
     port: 443
@@ -724,7 +627,106 @@ proxies:
         Host: "minimize-evenness.cdn-content.com"
     udp: true
 
-  - name: "🌐 Глобальный #53 [Standard]"
+  - name: "🇩🇪 Германия #44 [None]"
+    type: vless
+    server: "psf-3.weedly.top"
+    port: 80
+    uuid: "b0fae3b7-02de-4002-b8ca-b7159fe33841"
+    tls: false
+    skip-cert-verify: true
+    servername: "psf-3.weedly.top"
+    network: ws
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "machinemag.ir"
+    udp: true
+
+  - name: "🇩🇪 Германия #45 [None]"
+    type: vmess
+    server: "43.108.103.167"
+    port: 123
+    uuid: "35aa0fda-175a-4aec-c468-0231dee1a121"
+    cipher: "auto"
+    alterId: 0
+    tls: false
+    skip-cert-verify: true
+    servername: "43.108.103.167"
+    udp: true
+
+  - name: "🇸🇬 Сингапур #46 [TLS]"
+    type: vless
+    server: "104.21.55.229"
+    port: 443
+    uuid: "3adac494-0eb1-4d89-a187-b2181691444d"
+    tls: true
+    skip-cert-verify: true
+    servername: "tiny-lake-bbf1.369-766.workers.dev"
+    network: ws
+    ws-opts:
+      path: "/pyip=ProxyIP.SG.CMLiussss.net"
+      headers:
+        Host: "tiny-lake-bbf1.369-766.workers.dev"
+    udp: true
+
+  - name: "🇯🇵 Япония #47 [TLS]"
+    type: vless
+    server: "198.41.214.162"
+    port: 443
+    uuid: "d342d11e-d424-4583-b36e-524ab1f0afa4"
+    tls: true
+    skip-cert-verify: true
+    servername: "speed.cloudflare.com"
+    network: ws
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "speed.cloudflare.com"
+    udp: true
+
+  - name: "🌐 Глобальный #48 [None]"
+    type: vmess
+    server: "47.86.167.194"
+    port: 800
+    uuid: "f2c67cae-c09d-4739-947d-f5302d87a3c0"
+    cipher: "auto"
+    alterId: 0
+    tls: false
+    skip-cert-verify: true
+    servername: "sjskendn.dingtalk.com"
+    udp: true
+
+  - name: "🇺🇸 США #49 [TLS]"
+    type: vless
+    server: "172.64.229.14"
+    port: 443
+    uuid: "489f1717-d3c7-4940-ad68-bdbdbab857f4"
+    tls: true
+    skip-cert-verify: true
+    servername: "x.m-90.xyz"
+    network: ws
+    ws-opts:
+      path: "t.me/TEAMNETGRATISCOL"
+      headers:
+        Host: "x.m-90.xyz"
+    udp: true
+
+  - name: "🇺🇸 США #50 [TLS]"
+    type: vless
+    server: "piracy-android.video-streams.org"
+    port: 443
+    uuid: "c9ff358e-20c4-4979-bc14-acc3daaf1297"
+    tls: true
+    skip-cert-verify: true
+    servername: "piracy-android.video-streams.org"
+    network: ws
+    ws-opts:
+      path: "/ws"
+      headers:
+        Host: "piracy-android.video-streams.org"
+    udp: true
+
+  - name: "🇩🇪 Германия #51 [Standard]"
     type: ss
     server: "13.36.241.80"
     port: 443
@@ -732,7 +734,7 @@ proxies:
     cipher: "aes-256-cfb"
     udp: true
 
-  - name: "🌐 Глобальный #54 [Standard]"
+  - name: "🌐 Глобальный #52 [Standard]"
     type: ss
     server: "3.75.231.76"
     port: 443
@@ -740,27 +742,47 @@ proxies:
     cipher: "aes-256-cfb"
     udp: true
 
-  - name: "🌐 Глобальный #55 [Standard]"
+  - name: "🇩🇪 Германия #53 [Standard]"
     type: ss
-    server: "13.36.178.160"
+    server: "63.177.230.112"
     port: 443
     password: "amazonskr05"
     cipher: "aes-256-cfb"
     udp: true
 
+  - name: "🌐 Глобальный #54 [Standard]"
+    type: ss
+    server: "13.36.241.80"
+    port: 443
+    password: "amazonskr05"
+    cipher: "aes-256-cfb"
+    udp: true
+
+  - name: "🌐 Глобальный #55 [None]"
+    type: vmess
+    server: "5.75.204.152"
+    port: 43462
+    uuid: "38dd079f-b778-44cf-8532-574c6ebc24d4"
+    cipher: "auto"
+    alterId: 0
+    tls: false
+    skip-cert-verify: true
+    servername: "5.75.204.152"
+    udp: true
+
   - name: "🇺🇸 США #56 [TLS]"
     type: vless
-    server: "adheres-scruple.quick-cdn.net"
+    server: "grimness-backlogs.cdn-content.com"
     port: 443
-    uuid: "e12bb1dc-d315-47e3-9184-cb655afe6421"
+    uuid: "0097844e-b939-4d50-93f3-591debdceb55"
     tls: true
     skip-cert-verify: true
-    servername: "adheres-scruple.quick-cdn.net"
+    servername: "grimness-backlogs.cdn-content.com"
     network: ws
     ws-opts:
       path: "/ws"
       headers:
-        Host: "adheres-scruple.quick-cdn.net"
+        Host: "grimness-backlogs.cdn-content.com"
     udp: true
 
   - name: "🌐 Глобальный #57 [None]"
@@ -775,34 +797,33 @@ proxies:
     servername: "112.132.215.108"
     udp: true
 
-  - name: "🇺🇸 США #58 [TLS]"
-    type: vless
-    server: "piracy-android.video-streams.org"
-    port: 443
-    uuid: "9b733a43-cf91-4ba0-bd76-6ca8b42e827a"
-    tls: true
+  - name: "🌐 Глобальный #58 [None]"
+    type: vmess
+    server: "39.108.113.127"
+    port: 10086
+    uuid: "fde10e39-48bb-4dcf-b3ba-71d711323a54"
+    cipher: "auto"
+    alterId: 0
+    tls: false
     skip-cert-verify: true
-    servername: "piracy-android.video-streams.org"
+    servername: "39.108.113.127"
     network: ws
     ws-opts:
-      path: "/ws"
+      path: "/"
       headers:
-        Host: "piracy-android.video-streams.org"
+        Host: "39.108.113.127"
     udp: true
 
-  - name: "🇺🇸 США #59 [TLS]"
-    type: vless
-    server: "151.101.193.242"
-    port: 443
-    uuid: "b0cf4078-96b8-4e11-80a8-0f9352565a16"
-    tls: true
+  - name: "🌐 Глобальный #59 [None]"
+    type: vmess
+    server: "v10.hdacd.com"
+    port: 30807
+    uuid: "cbb3f877-d1fb-344c-87a9-d153bffd5484"
+    cipher: "auto"
+    alterId: 2
+    tls: false
     skip-cert-verify: true
-    servername: "adheres-scruple.quick-cdn.net"
-    network: ws
-    ws-opts:
-      path: "/ws"
-      headers:
-        Host: "adheres-scruple.quick-cdn.net"
+    servername: "v10.hdacd.com"
     udp: true
 
   - name: "🇺🇸 США #60 [TLS]"
@@ -827,130 +848,130 @@ proxy-groups:
     interval: 300
     tolerance: 50
     proxies:
-      - "🌐 Глобальный #1 [Reality]"
+      - "🇺🇸 США #1 [Reality]"
       - "🌐 Глобальный #2 [Reality]"
       - "🇩🇪 Германия #3 [Reality]"
-      - "🌐 Глобальный #4 [Reality]"
-      - "🇺🇸 США #5 [Reality]"
+      - "🇩🇪 Германия #4 [Reality]"
+      - "🇩🇪 Германия #5 [Reality]"
       - "🇩🇪 Германия #6 [Reality]"
-      - "🇩🇪 Германия #7 [Reality]"
-      - "🇩🇪 Германия #8 [Reality]"
-      - "🇩🇪 Германия #9 [Reality]"
-      - "🌐 Глобальный #10 [Reality]"
-      - "🌐 Глобальный #11 [Reality]"
-      - "🇩🇪 Германия #12 [Reality]"
-      - "🌐 Глобальный #13 [Reality]"
-      - "🌐 Глобальный #14 [Reality]"
-      - "🇩🇪 Германия #15 [Reality]"
-      - "🌐 Глобальный #16 [None]"
-      - "🌐 Глобальный #17 [None]"
-      - "🌐 Глобальный #18 [None]"
-      - "🇩🇪 Германия #19 [None]"
+      - "🌐 Глобальный #7 [Reality]"
+      - "🌐 Глобальный #8 [Reality]"
+      - "🌐 Глобальный #9 [Reality]"
+      - "🇩🇪 Германия #10 [Reality]"
+      - "🇩🇪 Германия #11 [Reality]"
+      - "🌐 Глобальный #12 [Reality]"
+      - "🌐 Глобальный #13 [None]"
+      - "🌐 Глобальный #14 [None]"
+      - "🌐 Глобальный #15 [None]"
+      - "🇩🇪 Германия #16 [None]"
+      - "🇺🇸 США #17 [TLS]"
+      - "🇩🇪 Германия #18 [TLS]"
+      - "🇺🇸 США #19 [TLS]"
       - "🇩🇪 Германия #20 [TLS]"
-      - "🇩🇪 Германия #21 [TLS]"
-      - "🇩🇪 Германия #22 [TLS]"
+      - "🇺🇸 США #21 [TLS]"
+      - "🇩🇪 Германия #22 [Standard]"
       - "🌐 Глобальный #23 [TLS]"
-      - "🇬🇧 Великобритания #24 [TLS]"
-      - "🇺🇸 США #25 [Standard]"
-      - "🇩🇪 Германия #26 [Standard]"
-      - "🇩🇪 Германия #27 [Standard]"
-      - "🇩🇪 Германия #28 [Standard]"
-      - "🇺🇸 США #29 [TLS]"
-      - "🌐 Глобальный #30 [TLS]"
-      - "🌐 Глобальный #31 [TLS]"
-      - "🇺🇸 США #32 [TLS]"
-      - "🌐 Глобальный #33 [TLS]"
-      - "🇩🇪 Германия #34 [None]"
-      - "🇺🇸 США #35 [TLS]"
+      - "🇩🇪 Германия #24 [Standard]"
+      - "🇩🇪 Германия #25 [Standard]"
+      - "🇺🇸 США #26 [TLS]"
+      - "🇺🇸 США #27 [Standard]"
+      - "🇺🇸 США #28 [TLS]"
+      - "🇩🇪 Германия #29 [TLS]"
+      - "🇺🇸 США #30 [TLS]"
+      - "🇬🇧 Великобритания #31 [TLS]"
+      - "🌐 Глобальный #32 [TLS]"
+      - "🇺🇸 США #33 [TLS]"
+      - "🇺🇸 США #34 [TLS]"
+      - "🌐 Глобальный #35 [TLS]"
       - "🇺🇸 США #36 [TLS]"
       - "🇺🇸 США #37 [TLS]"
       - "🌐 Глобальный #38 [TLS]"
-      - "🇺🇸 США #39 [TLS]"
+      - "🌐 Глобальный #39 [TLS]"
       - "🇺🇸 США #40 [TLS]"
-      - "🇩🇪 Германия #41 [None]"
-      - "🌐 Глобальный #42 [TLS]"
-      - "🇯🇵 Япония #43 [TLS]"
-      - "🇸🇬 Сингапур #44 [TLS]"
-      - "🇺🇸 США #45 [TLS]"
-      - "🇩🇪 Германия #46 [Standard]"
-      - "🇩🇪 Германия #47 [Standard]"
+      - "🌐 Глобальный #41 [TLS]"
+      - "🇺🇸 США #42 [TLS]"
+      - "🇺🇸 США #43 [TLS]"
+      - "🇩🇪 Германия #44 [None]"
+      - "🇩🇪 Германия #45 [None]"
+      - "🇸🇬 Сингапур #46 [TLS]"
+      - "🇯🇵 Япония #47 [TLS]"
       - "🌐 Глобальный #48 [None]"
-      - "🌐 Глобальный #49 [None]"
-      - "🇩🇪 Германия #50 [Standard]"
-      - "🌐 Глобальный #51 [Standard]"
-      - "🇺🇸 США #52 [TLS]"
-      - "🌐 Глобальный #53 [Standard]"
+      - "🇺🇸 США #49 [TLS]"
+      - "🇺🇸 США #50 [TLS]"
+      - "🇩🇪 Германия #51 [Standard]"
+      - "🌐 Глобальный #52 [Standard]"
+      - "🇩🇪 Германия #53 [Standard]"
       - "🌐 Глобальный #54 [Standard]"
-      - "🌐 Глобальный #55 [Standard]"
+      - "🌐 Глобальный #55 [None]"
       - "🇺🇸 США #56 [TLS]"
       - "🌐 Глобальный #57 [None]"
-      - "🇺🇸 США #58 [TLS]"
-      - "🇺🇸 США #59 [TLS]"
+      - "🌐 Глобальный #58 [None]"
+      - "🌐 Глобальный #59 [None]"
       - "🇺🇸 США #60 [TLS]"
 
   - name: "🚀 Select Proxy"
     type: select
     proxies:
       - "⚡ Auto Best Latency"
-      - "🌐 Глобальный #1 [Reality]"
+      - "🇺🇸 США #1 [Reality]"
       - "🌐 Глобальный #2 [Reality]"
       - "🇩🇪 Германия #3 [Reality]"
-      - "🌐 Глобальный #4 [Reality]"
-      - "🇺🇸 США #5 [Reality]"
+      - "🇩🇪 Германия #4 [Reality]"
+      - "🇩🇪 Германия #5 [Reality]"
       - "🇩🇪 Германия #6 [Reality]"
-      - "🇩🇪 Германия #7 [Reality]"
-      - "🇩🇪 Германия #8 [Reality]"
-      - "🇩🇪 Германия #9 [Reality]"
-      - "🌐 Глобальный #10 [Reality]"
-      - "🌐 Глобальный #11 [Reality]"
-      - "🇩🇪 Германия #12 [Reality]"
-      - "🌐 Глобальный #13 [Reality]"
-      - "🌐 Глобальный #14 [Reality]"
-      - "🇩🇪 Германия #15 [Reality]"
-      - "🌐 Глобальный #16 [None]"
-      - "🌐 Глобальный #17 [None]"
-      - "🌐 Глобальный #18 [None]"
-      - "🇩🇪 Германия #19 [None]"
+      - "🌐 Глобальный #7 [Reality]"
+      - "🌐 Глобальный #8 [Reality]"
+      - "🌐 Глобальный #9 [Reality]"
+      - "🇩🇪 Германия #10 [Reality]"
+      - "🇩🇪 Германия #11 [Reality]"
+      - "🌐 Глобальный #12 [Reality]"
+      - "🌐 Глобальный #13 [None]"
+      - "🌐 Глобальный #14 [None]"
+      - "🌐 Глобальный #15 [None]"
+      - "🇩🇪 Германия #16 [None]"
+      - "🇺🇸 США #17 [TLS]"
+      - "🇩🇪 Германия #18 [TLS]"
+      - "🇺🇸 США #19 [TLS]"
       - "🇩🇪 Германия #20 [TLS]"
-      - "🇩🇪 Германия #21 [TLS]"
-      - "🇩🇪 Германия #22 [TLS]"
+      - "🇺🇸 США #21 [TLS]"
+      - "🇩🇪 Германия #22 [Standard]"
       - "🌐 Глобальный #23 [TLS]"
-      - "🇬🇧 Великобритания #24 [TLS]"
-      - "🇺🇸 США #25 [Standard]"
-      - "🇩🇪 Германия #26 [Standard]"
-      - "🇩🇪 Германия #27 [Standard]"
-      - "🇩🇪 Германия #28 [Standard]"
-      - "🇺🇸 США #29 [TLS]"
-      - "🌐 Глобальный #30 [TLS]"
-      - "🌐 Глобальный #31 [TLS]"
-      - "🇺🇸 США #32 [TLS]"
-      - "🌐 Глобальный #33 [TLS]"
-      - "🇩🇪 Германия #34 [None]"
-      - "🇺🇸 США #35 [TLS]"
+      - "🇩🇪 Германия #24 [Standard]"
+      - "🇩🇪 Германия #25 [Standard]"
+      - "🇺🇸 США #26 [TLS]"
+      - "🇺🇸 США #27 [Standard]"
+      - "🇺🇸 США #28 [TLS]"
+      - "🇩🇪 Германия #29 [TLS]"
+      - "🇺🇸 США #30 [TLS]"
+      - "🇬🇧 Великобритания #31 [TLS]"
+      - "🌐 Глобальный #32 [TLS]"
+      - "🇺🇸 США #33 [TLS]"
+      - "🇺🇸 США #34 [TLS]"
+      - "🌐 Глобальный #35 [TLS]"
       - "🇺🇸 США #36 [TLS]"
       - "🇺🇸 США #37 [TLS]"
       - "🌐 Глобальный #38 [TLS]"
-      - "🇺🇸 США #39 [TLS]"
+      - "🌐 Глобальный #39 [TLS]"
       - "🇺🇸 США #40 [TLS]"
-      - "🇩🇪 Германия #41 [None]"
-      - "🌐 Глобальный #42 [TLS]"
-      - "🇯🇵 Япония #43 [TLS]"
-      - "🇸🇬 Сингапур #44 [TLS]"
-      - "🇺🇸 США #45 [TLS]"
-      - "🇩🇪 Германия #46 [Standard]"
-      - "🇩🇪 Германия #47 [Standard]"
+      - "🌐 Глобальный #41 [TLS]"
+      - "🇺🇸 США #42 [TLS]"
+      - "🇺🇸 США #43 [TLS]"
+      - "🇩🇪 Германия #44 [None]"
+      - "🇩🇪 Германия #45 [None]"
+      - "🇸🇬 Сингапур #46 [TLS]"
+      - "🇯🇵 Япония #47 [TLS]"
       - "🌐 Глобальный #48 [None]"
-      - "🌐 Глобальный #49 [None]"
-      - "🇩🇪 Германия #50 [Standard]"
-      - "🌐 Глобальный #51 [Standard]"
-      - "🇺🇸 США #52 [TLS]"
-      - "🌐 Глобальный #53 [Standard]"
+      - "🇺🇸 США #49 [TLS]"
+      - "🇺🇸 США #50 [TLS]"
+      - "🇩🇪 Германия #51 [Standard]"
+      - "🌐 Глобальный #52 [Standard]"
+      - "🇩🇪 Германия #53 [Standard]"
       - "🌐 Глобальный #54 [Standard]"
-      - "🌐 Глобальный #55 [Standard]"
+      - "🌐 Глобальный #55 [None]"
       - "🇺🇸 США #56 [TLS]"
       - "🌐 Глобальный #57 [None]"
-      - "🇺🇸 США #58 [TLS]"
-      - "🇺🇸 США #59 [TLS]"
+      - "🌐 Глобальный #58 [None]"
+      - "🌐 Глобальный #59 [None]"
       - "🇺🇸 США #60 [TLS]"
       - DIRECT
 
