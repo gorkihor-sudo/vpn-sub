@@ -350,56 +350,155 @@ def parse_node(link: str):
         return None
     return None
 
-def check_node_health(node: dict, timeout=2.5) -> dict:
-    """
-    Validates genuine network responsiveness and measures TCP/TLS RTT.
-    Filters out dead servers and unreachable hosts.
-    """
+def find_sing_box_binary():
+    candidates = [
+        r"C:\Users\goga0\Desktop\vpnclient\bin\sing-box.exe",
+        "sing-box.exe",
+        "bin/sing-box.exe",
+        "/usr/local/bin/sing-box",
+        "./sing-box",
+        "sing-box"
+    ]
+    for c in candidates:
+        if os.path.exists(c):
+            return os.path.abspath(c)
+    import shutil
+    p = shutil.which("sing-box") or shutil.which("sing-box.exe")
+    if p:
+        return p
+    if sys.platform.startswith("linux"):
+        print("Downloading sing-box binary for Linux...")
+        try:
+            url = "https://github.com/SagerNet/sing-box/releases/download/v1.10.7/sing-box-1.10.7-linux-amd64.tar.gz"
+            tar_path = "/tmp/sing-box.tar.gz"
+            urllib.request.urlretrieve(url, tar_path)
+            import tarfile
+            with tarfile.open(tar_path, "r:gz") as tar:
+                for member in tar.getmembers():
+                    if member.name.endswith("/sing-box") or member.name == "sing-box":
+                        f = tar.extractfile(member)
+                        with open("./sing-box", "wb") as out:
+                            out.write(f.read())
+                        os.chmod("./sing-box", 0o755)
+                        return os.path.abspath("./sing-box")
+        except Exception as e:
+            print(f"Failed to auto-download sing-box: {e}")
+    return None
+
+def tcp_prefilter(node: dict, timeout=1.5):
+    """Fast TCP socket connect test to filter out dead hosts before launching sing-box."""
     host = node.get("host")
     port = node.get("port")
     if not host or not port or port <= 0 or port > 65535:
         return None
-        
-    # Exclude known broken / dead servers
-    EXCLUDED_HOSTS = ["45.130.125.158", "render.com", "www.darkroom.lol"]
-    if host in EXCLUDED_HOSTS or node.get("sni") == "www.ignitelimit.com":
-        return None
-        
-    # Drop plain unencrypted port 8080 (blocked by Russian TSPU/DPI)
-    if port == 8080 and not node.get("is_tls") and not node.get("is_reality"):
-        return None
-
-    start = time.time()
     try:
-        # 1. Resolve host
-        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        sock.settimeout(timeout)
-        
-        # 2. Measure TCP connect
-        t0 = time.time()
-        sock.connect((host, port))
-        tcp_ms = int((time.time() - t0) * 1000)
-        
-        # 3. If TLS / Reality, test TLS Handshake
-        if node.get("is_tls") or node.get("is_reality"):
-            context = ssl.create_default_context()
-            context.check_hostname = False
-            context.verify_mode = ssl.CERT_NONE
-            sni = node.get("sni") or host
-            ssock = context.wrap_socket(sock, server_hostname=sni)
-            ssock.settimeout(timeout)
-            tls_ms = int((time.time() - t0) * 1000)
-            ssock.close()
-            latency = tls_ms
-        else:
-            sock.close()
-            latency = tcp_ms
-            
-        node["ping"] = max(15, latency)
-        node["status"] = "online"
+        s = socket.create_connection((host, port), timeout=timeout)
+        s.close()
         return node
     except Exception:
         return None
+
+def probe_real_http(node: dict, port: int, sing_box_path: str, timeout=2.5) -> dict:
+    """
+    Spawns sing-box on a unique local port and performs a genuine HTTP 204 traffic probe.
+    Guarantees that the node actually passes data (matching Hiddify's own URL test).
+    """
+    import subprocess
+    proto = node["protocol"].lower()
+    outbound = {
+        "type": proto,
+        "tag": "proxy",
+        "server": node["host"],
+        "server_port": node["port"]
+    }
+    if proto == "vless":
+        outbound["uuid"] = node.get("uuid", "")
+        if node.get("flow"):
+            outbound["flow"] = node["flow"]
+        if node.get("is_tls") or node.get("is_reality"):
+            outbound["tls"] = {
+                "enabled": True,
+                "server_name": node.get("sni") or node["host"],
+                "utls": {"enabled": True, "fingerprint": node.get("fp") or "chrome"}
+            }
+            if node.get("is_reality"):
+                outbound["tls"]["reality"] = {
+                    "enabled": True,
+                    "public_key": node.get("pbk"),
+                    "short_id": node.get("sid") or ""
+                }
+        if node.get("type") == "ws":
+            outbound["transport"] = {
+                "type": "ws",
+                "path": node.get("ws_path") or "/",
+                "headers": {"Host": node.get("ws_host") or node["host"]}
+            }
+    elif proto == "vmess":
+        outbound["uuid"] = node.get("uuid", "")
+        outbound["security"] = node.get("cipher", "auto")
+        outbound["alter_id"] = node.get("alterId", 0)
+        if node.get("is_tls"):
+            outbound["tls"] = {"enabled": True, "server_name": node.get("sni") or node["host"], "insecure": True}
+        if node.get("type") == "ws":
+            outbound["transport"] = {
+                "type": "ws",
+                "path": node.get("ws_path") or "/",
+                "headers": {"Host": node.get("ws_host") or node["host"]}
+            }
+    elif proto == "trojan":
+        outbound["password"] = node.get("password", "")
+        outbound["tls"] = {"enabled": True, "server_name": node.get("sni") or node["host"], "insecure": True}
+        if node.get("type") == "ws":
+            outbound["transport"] = {
+                "type": "ws",
+                "path": node.get("ws_path") or "/",
+                "headers": {"Host": node.get("ws_host") or node["host"]}
+            }
+    elif proto == "shadowsocks":
+        outbound["method"] = node.get("cipher", "chacha20-ietf-poly1305")
+        outbound["password"] = node.get("password", "")
+    else:
+        return None
+
+    cfg = {
+        "log": {"level": "panic"},
+        "inbounds": [{"type": "mixed", "tag": "in", "listen": "127.0.0.1", "listen_port": port}],
+        "outbounds": [outbound],
+        "route": {"final": "proxy"}
+    }
+    
+    cfg_file = f"probe_{port}.json"
+    try:
+        with open(cfg_file, "w", encoding="utf-8") as f:
+            json.dump(cfg, f)
+            
+        proc = subprocess.Popen([sing_box_path, "run", "-c", cfg_file], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        time.sleep(0.35)
+        
+        t0 = time.time()
+        curl_cmd = ["curl.exe" if os.name == "nt" else "curl", "-x", f"socks5://127.0.0.1:{port}", "-s", "-m", str(timeout), "-i", "http://cp.cloudflare.com/generate_204"]
+        res = subprocess.run(curl_cmd, capture_output=True, text=True)
+        rtt = int((time.time() - t0) * 1000)
+        
+        proc.terminate()
+        try:
+            proc.wait(timeout=0.3)
+        except Exception:
+            proc.kill()
+            
+        if res.returncode == 0 and ("204" in res.stdout or "200" in res.stdout):
+            node["ping"] = rtt
+            node["status"] = "online"
+            return node
+    except Exception:
+        pass
+    finally:
+        try:
+            if os.path.exists(cfg_file):
+                os.unlink(cfg_file)
+        except Exception:
+            pass
+    return None
 
 def build_clash_yaml(nodes):
     proxies = []
@@ -729,6 +828,20 @@ def enrich_nodes_geoip(nodes):
         except Exception as e:
             print(f"  GeoIP notice: {e}")
 
+    KNOWN_IP_PREFIXES = {
+        '169.40.': ('США', '🇺🇸', 'Dallas'),
+        '159.89.': ('Германия', '🇩🇪', 'Frankfurt'),
+        '65.108.': ('Финляндия', '🇫🇮', 'Helsinki'),
+        '95.216.': ('Финляндия', '🇫🇮', 'Helsinki'),
+        '89.169.': ('Нидерланды', '🇳🇱', 'Amsterdam'),
+        '93.89.': ('Нидерланды', '🇳🇱', 'Amsterdam'),
+        '144.31.': ('Германия', '🇩🇪', 'Frankfurt'),
+        '78.135.': ('Турция', '🇹🇷', 'Istanbul'),
+        '13.143.': ('США', '🇺🇸', 'Virginia'),
+        '194.61.': ('Индия', '🇮🇳', 'Mumbai'),
+        '67.159.': ('Австрия', '🇦🇹', 'Vienna')
+    }
+
     for n in nodes:
         h = n.get("host")
         ip = host_to_ip.get(h, h)
@@ -740,6 +853,14 @@ def enrich_nodes_geoip(nodes):
                 n["country"] = c_name
                 n["flag"] = c_flag
                 n["city"] = geo.get("city") or ""
+        # Apply known prefix mapping if still unclassified
+        if n.get("country") == "Глобальный":
+            for pfx, (c_name, c_flag, c_city) in KNOWN_IP_PREFIXES.items():
+                if h.startswith(pfx) or ip.startswith(pfx):
+                    n["country"] = c_name
+                    n["flag"] = c_flag
+                    n["city"] = c_city
+                    break
         if "city" not in n:
             n["city"] = ""
 
@@ -784,18 +905,37 @@ def main():
         if p and p.get("host"):
             parsed_candidates.append(p)
             
-    print(f"Parsed {len(parsed_candidates)} valid candidate nodes. Starting live health test...")
-    
-    # Concurrent health check (test TCP/TLS response)
-    verified_nodes = []
+    # Step 1: Fast TCP reachability pre-filter
+    print(f"Running fast TCP reachability pre-filter on {len(parsed_candidates)} candidates...")
+    tcp_alive = []
     with ThreadPoolExecutor(max_workers=35) as executor:
-        futures = {executor.submit(check_node_health, n): n for n in parsed_candidates}
+        futures = {executor.submit(tcp_prefilter, n): n for n in parsed_candidates}
         for future in as_completed(futures):
             res = future.result()
             if res:
-                verified_nodes.append(res)
-                
-    print(f"\nHealth check finished: {len(verified_nodes)}/{len(parsed_candidates)} nodes online.")
+                tcp_alive.append(res)
+    print(f"TCP reachable: {len(tcp_alive)}/{len(parsed_candidates)} candidates.")
+
+    # Step 2: Genuine HTTP 204 traffic test via sing-box (guarantees zero red crosses in Hiddify)
+    sing_box_bin = find_sing_box_binary()
+    verified_nodes = []
+    if sing_box_bin:
+        print(f"Using sing-box engine at: {sing_box_bin}")
+        candidates_to_probe = tcp_alive[:160]
+        print(f"Running genuine HTTP 204 traffic probe in parallel on {len(candidates_to_probe)} hosts...")
+        with ThreadPoolExecutor(max_workers=18) as executor:
+            probe_futures = {
+                executor.submit(probe_real_http, node, 26000 + idx, sing_box_bin, 2.5): node
+                for idx, node in enumerate(candidates_to_probe)
+            }
+            for future in as_completed(probe_futures):
+                res = future.result()
+                if res:
+                    verified_nodes.append(res)
+        print(f"\nREAL HTTP TRAFFIC VERIFICATION COMPLETE: {len(verified_nodes)} nodes passed genuine data transfer!")
+    else:
+        print("Notice: sing-box binary not found, using TCP alive fallback.")
+        verified_nodes = tcp_alive
     
     # Enrich with GeoIP data for precise countries and cities
     enrich_nodes_geoip(verified_nodes)
