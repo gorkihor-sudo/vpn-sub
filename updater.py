@@ -51,7 +51,10 @@ VERIFIED_CORE_NODES = [
 
 # 2. Upstream Free Aggregator Subscriptions
 SOURCES = [
+    "https://raw.githubusercontent.com/Epodonios/v2ray-configs/main/Splitted-By-Protocol/vless.txt",
     "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/vless.txt",
+    "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge.txt",
+    "https://raw.githubusercontent.com/ts-sf/fly/main/v2",
     "https://raw.githubusercontent.com/hans-thomas/v2ray-subscription/refs/heads/master/servers.txt",
     "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/v2ray.txt",
     "https://raw.githubusercontent.com/freefq/free/master/v2",
@@ -75,7 +78,7 @@ ISO_TO_COUNTRY = {
     'IL': ('Израиль', '🇮🇱'), 'PT': ('Португалия', '🇵🇹'), 'GR': ('Греция', '🇬🇷'),
     'HU': ('Венгрия', '🇭🇺'), 'BG': ('Болгария', '🇧🇬'), 'IS': ('Исландия', '🇮🇸'),
     'AE': ('ОАЭ', '🇦🇪'), 'CY': ('Кипр', '🇨🇾'), 'AM': ('Армения', '🇦🇲'),
-    'GE': ('Грузия', '🇬🇪'), 'UZ': ('Узбекистан', '🇺🇿')
+    'GE': ('Грузия', '🇬🇪'), 'UZ': ('Узбекистан', '🇺🇿'), 'RU': ('Россия', '🇷🇺')
 }
 
 NAME_KEYWORDS = {
@@ -794,8 +797,36 @@ def build_sing_box_json(nodes):
     }
     return json.dumps(cfg, indent=2, ensure_ascii=False)
 
+def fetch_single_geoip(ip):
+    # 1. Try ip-api.com
+    try:
+        url = f"http://ip-api.com/json/{ip}?fields=query,country,countryCode,city"
+        req = urllib.request.Request(url, headers={"User-Agent": "curl/7.88.1"})
+        with urllib.request.urlopen(req, timeout=3.5) as r:
+            data = json.loads(r.read().decode("utf-8", errors="ignore"))
+            if data.get("countryCode"):
+                return ip, data
+    except Exception:
+        pass
+    # 2. Try ipwho.is fallback
+    try:
+        url = f"https://ipwho.is/{ip}"
+        req = urllib.request.Request(url, headers={"User-Agent": "curl/7.88.1"})
+        with urllib.request.urlopen(req, timeout=3.5) as r:
+            data = json.loads(r.read().decode("utf-8", errors="ignore"))
+            if data.get("country_code"):
+                return ip, {
+                    "query": ip,
+                    "country": data.get("country"),
+                    "countryCode": data.get("country_code"),
+                    "city": data.get("city")
+                }
+    except Exception:
+        pass
+    return ip, None
+
 def enrich_nodes_geoip(nodes):
-    print("Enriching node geo-locations with IP GeoIP batch lookup...")
+    print("Enriching node geo-locations with fast parallel GeoIP lookups...")
     host_to_ip = {}
     for n in nodes:
         h = n.get("host")
@@ -808,39 +839,11 @@ def enrich_nodes_geoip(nodes):
     unique_ips = list(set(host_to_ip.values()))
     ip_geo = {}
     
-    # Query in batches of 30
-    chunk_size = 30
-    for i in range(0, len(unique_ips), chunk_size):
-        chunk = unique_ips[i:i + chunk_size]
-        payload = [{"query": ip, "fields": "query,country,countryCode,city"} for ip in chunk]
-        try:
-            req = urllib.request.Request(
-                "http://ip-api.com/batch",
-                data=json.dumps(payload).encode("utf-8"),
-                headers={"Content-Type": "application/json"}
-            )
-            with urllib.request.urlopen(req, timeout=8) as resp:
-                data = json.loads(resp.read().decode("utf-8", errors="ignore"))
-                for item in data:
-                    ip = item.get("query")
-                    if ip:
-                        ip_geo[ip] = item
-        except Exception as e:
-            print(f"  GeoIP notice: {e}")
-
-    KNOWN_IP_PREFIXES = {
-        '169.40.': ('США', '🇺🇸', 'Dallas'),
-        '159.89.': ('Германия', '🇩🇪', 'Frankfurt'),
-        '65.108.': ('Финляндия', '🇫🇮', 'Helsinki'),
-        '95.216.': ('Финляндия', '🇫🇮', 'Helsinki'),
-        '89.169.': ('Нидерланды', '🇳🇱', 'Amsterdam'),
-        '93.89.': ('Нидерланды', '🇳🇱', 'Amsterdam'),
-        '144.31.': ('Германия', '🇩🇪', 'Frankfurt'),
-        '78.135.': ('Турция', '🇹🇷', 'Istanbul'),
-        '13.143.': ('США', '🇺🇸', 'Virginia'),
-        '194.61.': ('Индия', '🇮🇳', 'Mumbai'),
-        '67.159.': ('Австрия', '🇦🇹', 'Vienna')
-    }
+    with ThreadPoolExecutor(max_workers=10) as executor:
+        geo_results = list(executor.map(fetch_single_geoip, unique_ips))
+        for ip, geo in geo_results:
+            if geo:
+                ip_geo[ip] = geo
 
     for n in nodes:
         h = n.get("host")
@@ -853,14 +856,6 @@ def enrich_nodes_geoip(nodes):
                 n["country"] = c_name
                 n["flag"] = c_flag
                 n["city"] = geo.get("city") or ""
-        # Apply known prefix mapping if still unclassified
-        if n.get("country") == "Глобальный":
-            for pfx, (c_name, c_flag, c_city) in KNOWN_IP_PREFIXES.items():
-                if h.startswith(pfx) or ip.startswith(pfx):
-                    n["country"] = c_name
-                    n["flag"] = c_flag
-                    n["city"] = c_city
-                    break
         if "city" not in n:
             n["city"] = ""
 
@@ -874,7 +869,8 @@ def main():
         all_raw.extend(links)
         
     # Deduplicate raw links & prioritize Reality and distinct hosts
-    seen = set()
+    # Deduplicate raw links & diversify across distinct hosts
+    seen_links = set()
     core_candidates = []
     reality_candidates = []
     other_candidates = []
@@ -884,9 +880,9 @@ def main():
         if not link.startswith(("vless://", "vmess://", "trojan://", "ss://")):
             continue
         base = link.split("#")[0]
-        if base in seen:
+        if base in seen_links:
             continue
-        seen.add(base)
+        seen_links.add(base)
         if link in VERIFIED_CORE_NODES:
             core_candidates.append(link)
         elif "security=reality" in link:
@@ -894,9 +890,30 @@ def main():
         else:
             other_candidates.append(link)
             
-    # Sample up to 300 reality and 100 other candidate nodes across different hosts
-    candidate_links = core_candidates + reality_candidates[:300] + other_candidates[:100]
-    print(f"Selected {len(candidate_links)} prioritized candidate nodes to test ({len(core_candidates)} core, {min(300, len(reality_candidates))} reality, {min(100, len(other_candidates))} others)")
+    # Diversify: max 2 configs per host to ensure broad geographic diversity
+    host_count = {}
+    diversified_reality = []
+    for link in reality_candidates:
+        p = parse_node(link)
+        if not p or not p.get("host"):
+            continue
+        h = p["host"]
+        if host_count.get(h, 0) < 2:
+            host_count[h] = host_count.get(h, 0) + 1
+            diversified_reality.append(link)
+            
+    diversified_other = []
+    for link in other_candidates:
+        p = parse_node(link)
+        if not p or not p.get("host"):
+            continue
+        h = p["host"]
+        if host_count.get(h, 0) < 2:
+            host_count[h] = host_count.get(h, 0) + 1
+            diversified_other.append(link)
+
+    candidate_links = core_candidates + diversified_reality[:400] + diversified_other[:100]
+    print(f"Selected {len(candidate_links)} diversified candidates to test ({len(core_candidates)} core, {len(diversified_reality[:400])} reality, {len(diversified_other[:100])} others)")
     
     # Parse candidates
     parsed_candidates = []
@@ -908,7 +925,7 @@ def main():
     # Step 1: Fast TCP reachability pre-filter
     print(f"Running fast TCP reachability pre-filter on {len(parsed_candidates)} candidates...")
     tcp_alive = []
-    with ThreadPoolExecutor(max_workers=35) as executor:
+    with ThreadPoolExecutor(max_workers=50) as executor:
         futures = {executor.submit(tcp_prefilter, n): n for n in parsed_candidates}
         for future in as_completed(futures):
             res = future.result()
@@ -921,9 +938,9 @@ def main():
     verified_nodes = []
     if sing_box_bin:
         print(f"Using sing-box engine at: {sing_box_bin}")
-        candidates_to_probe = tcp_alive[:160]
+        candidates_to_probe = tcp_alive[:250]
         print(f"Running genuine HTTP 204 traffic probe in parallel on {len(candidates_to_probe)} hosts...")
-        with ThreadPoolExecutor(max_workers=18) as executor:
+        with ThreadPoolExecutor(max_workers=25) as executor:
             probe_futures = {
                 executor.submit(probe_real_http, node, 26000 + idx, sing_box_bin, 2.5): node
                 for idx, node in enumerate(candidates_to_probe)
@@ -940,8 +957,8 @@ def main():
     # Enrich with GeoIP data for precise countries and cities
     enrich_nodes_geoip(verified_nodes)
     
-    # Sort strictly by lowest ping (fastest latency) first, prioritizing Reality
-    verified_nodes.sort(key=lambda x: (0 if x.get("is_reality") else 1, x.get("ping", 9999)))
+    # Sort strictly by lowest ping (fastest latency) first
+    verified_nodes.sort(key=lambda x: (x.get("ping", 9999), 0 if x.get("is_reality") else 1))
     
     # Format clean titles with country flags, country names, city, and verified latency
     for idx, n in enumerate(verified_nodes):
