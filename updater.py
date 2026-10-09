@@ -51,70 +51,95 @@ VERIFIED_CORE_NODES = [
 
 # 2. Upstream Free Aggregator Subscriptions
 SOURCES = [
+    "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/vless.txt",
+    "https://raw.githubusercontent.com/hans-thomas/v2ray-subscription/refs/heads/master/servers.txt",
     "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/v2ray.txt",
     "https://raw.githubusercontent.com/freefq/free/master/v2",
     "https://raw.githubusercontent.com/ssrsub/ssr/master/v2ray",
     "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub"
 ]
 
-COUNTRY_MAP = {
-    "de": ("Германия", "🇩🇪"),
-    "germany": ("Германия", "🇩🇪"),
-    "frankfurt": ("Германия", "🇩🇪"),
-    "dusseldorf": ("Германия", "🇩🇪"),
-    "us": ("США", "🇺🇸"),
-    "usa": ("США", "🇺🇸"),
-    "united states": ("США", "🇺🇸"),
-    "miami": ("США", "🇺🇸"),
-    "new york": ("США", "🇺🇸"),
-    "california": ("США", "🇺🇸"),
-    "los angeles": ("США", "🇺🇸"),
-    "gb": ("Великобритания", "🇬🇧"),
-    "uk": ("Великобритания", "🇬🇧"),
-    "london": ("Великобритания", "🇬🇧"),
-    "nl": ("Нидерланды", "🇳🇱"),
-    "netherlands": ("Нидерланды", "🇳🇱"),
-    "amsterdam": ("Нидерланды", "🇳🇱"),
-    "fi": ("Финляндия", "🇫🇮"),
-    "finland": ("Финляндия", "🇫🇮"),
-    "helsinki": ("Финляндия", "🇫🇮"),
-    "se": ("Швеция", "🇸🇪"),
-    "sweden": ("Швеция", "🇸🇪"),
-    "fr": ("Франция", "🇫🇷"),
-    "france": ("Франция", "🇫🇷"),
-    "paris": ("Франция", "🇫🇷"),
-    "sg": ("Сингапур", "🇸🇬"),
-    "singapore": ("Сингапур", "🇸🇬"),
-    "jp": ("Япония", "🇯🇵"),
-    "japan": ("Япония", "🇯🇵"),
-    "tokyo": ("Япония", "🇯🇵"),
-    "kr": ("Корея", "🇰🇷"),
-    "korea": ("Корея", "🇰🇷"),
-    "pl": ("Польша", "🇵🇱"),
-    "poland": ("Польша", "🇵🇱"),
-    "tr": ("Турция", "🇹🇷"),
-    "turkey": ("Турция", "🇹🇷"),
-    "ca": ("Канада", "🇨🇦"),
-    "canada": ("Канада", "🇨🇦"),
-    "ch": ("Швейцария", "🇨🇭"),
-    "switzerland": ("Швейцария", "🇨🇭"),
-    "at": ("Австрия", "🇦🇹"),
-    "austria": ("Австрия", "🇦🇹"),
-    "cloudflare": ("Глобальный", "🌐"),
-    "warp": ("Глобальный", "🌐"),
-    "global": ("Глобальный", "🌐")
+ISO_TO_COUNTRY = {
+    'DE': ('Германия', '🇩🇪'), 'NL': ('Нидерланды', '🇳🇱'), 'US': ('США', '🇺🇸'),
+    'GB': ('Великобритания', '🇬🇧'), 'UK': ('Великобритания', '🇬🇧'), 'FR': ('Франция', '🇫🇷'),
+    'FI': ('Финляндия', '🇫🇮'), 'SE': ('Швеция', '🇸🇪'), 'PL': ('Польша', '🇵🇱'),
+    'CH': ('Швейцария', '🇨🇭'), 'AT': ('Австрия', '🇦🇹'), 'TR': ('Турция', '🇹🇷'),
+    'ES': ('Испания', '🇪🇸'), 'IT': ('Италия', '🇮🇹'), 'CA': ('Канада', '🇨🇦'),
+    'JP': ('Япония', '🇯🇵'), 'SG': ('Сингапур', '🇸🇬'), 'KR': ('Корея', '🇰🇷'),
+    'HK': ('Гонконг', '🇭🇰'), 'TW': ('Тайвань', '🇹🇼'), 'KZ': ('Казахстан', '🇰🇿'),
+    'DK': ('Дания', '🇩🇰'), 'NO': ('Норвегия', '🇳🇴'), 'CZ': ('Чехия', '🇨🇿'),
+    'BE': ('Бельгия', '🇧🇪'), 'LT': ('Литва', '🇱🇹'), 'LV': ('Латвия', '🇱🇻'),
+    'EE': ('Эстония', '🇪🇪'), 'IE': ('Ирландия', '🇮🇪'), 'AU': ('Австралия', '🇦🇺'),
+    'IN': ('Индия', '🇮🇳'), 'BR': ('Бразилия', '🇧🇷'), 'RO': ('Румыния', '🇷🇴'),
+    'UA': ('Украина', '🇺🇦'), 'MD': ('Молдова', '🇲🇩'), 'RS': ('Сербия', '🇷🇸'),
+    'IL': ('Израиль', '🇮🇱'), 'PT': ('Португалия', '🇵🇹'), 'GR': ('Греция', '🇬🇷'),
+    'HU': ('Венгрия', '🇭🇺'), 'BG': ('Болгария', '🇧🇬'), 'IS': ('Исландия', '🇮🇸'),
+    'AE': ('ОАЭ', '🇦🇪'), 'CY': ('Кипр', '🇨🇾'), 'AM': ('Армения', '🇦🇲'),
+    'GE': ('Грузия', '🇬🇪'), 'UZ': ('Узбекистан', '🇺🇿')
+}
+
+NAME_KEYWORDS = {
+    'де': 'DE', 'герман': 'DE', 'germany': 'DE', 'frankfurt': 'DE', 'berlin': 'DE', 'dusseldorf': 'DE', 'deu': 'DE',
+    'нидерланд': 'NL', 'netherlands': 'NL', 'holland': 'NL', 'amsterdam': 'NL', 'nld': 'NL',
+    'сша': 'US', 'usa': 'US', 'united states': 'US', 'america': 'US', 'new york': 'US', 'miami': 'US', 'los angeles': 'US',
+    'великобрит': 'GB', 'united kingdom': 'GB', 'england': 'GB', 'london': 'GB', 'gbr': 'GB',
+    'франц': 'FR', 'france': 'FR', 'paris': 'FR', 'fra': 'FR',
+    'финлянд': 'FI', 'finland': 'FI', 'helsinki': 'FI', 'fin': 'FI',
+    'швеци': 'SE', 'sweden': 'SE', 'stockholm': 'SE', 'swe': 'SE',
+    'польш': 'PL', 'poland': 'PL', 'warsaw': 'PL', 'pol': 'PL',
+    'швейцар': 'CH', 'switzerland': 'CH', 'zurich': 'CH', 'che': 'CH',
+    'австри': 'AT', 'austria': 'AT', 'vienna': 'AT', 'aut': 'AT',
+    'турци': 'TR', 'turkey': 'TR', 'istanbul': 'TR', 'tur': 'TR',
+    'испан': 'ES', 'spain': 'ES', 'madrid': 'ES', 'esp': 'ES',
+    'итали': 'IT', 'italy': 'IT', 'milan': 'IT', 'rome': 'IT', 'ita': 'IT',
+    'канад': 'CA', 'canada': 'CA', 'toronto': 'CA', 'can': 'CA',
+    'япон': 'JP', 'japan': 'JP', 'tokyo': 'JP', 'jpn': 'JP',
+    'сингапур': 'SG', 'singapore': 'SG', 'sgp': 'SG',
+    'коре': 'KR', 'korea': 'KR', 'seoul': 'KR', 'kor': 'KR',
+    'гонконг': 'HK', 'hong kong': 'HK', 'hkg': 'HK',
+    'тайван': 'TW', 'taiwan': 'TW', 'twn': 'TW',
+    'казахстан': 'KZ', 'kazakhstan': 'KZ', 'almaty': 'KZ', 'kaz': 'KZ',
+    'дани': 'DK', 'denmark': 'DK', 'copenhagen': 'DK', 'dnk': 'DK',
+    'норвег': 'NO', 'norway': 'NO', 'oslo': 'NO', 'nor': 'NO',
+    'бельги': 'BE', 'belgium': 'BE', 'brussels': 'BE', 'bel': 'BE',
+    'литв': 'LT', 'lithuania': 'LT', 'vilnius': 'LT', 'ltu': 'LT',
+    'латви': 'LV', 'latvia': 'LV', 'riga': 'LV', 'lva': 'LV',
+    'эстони': 'EE', 'estonia': 'EE', 'tallinn': 'EE', 'est': 'EE',
+    'ирланд': 'IE', 'ireland': 'IE', 'dublin': 'IE', 'irl': 'IE',
+    'чехи': 'CZ', 'czech': 'CZ', 'prague': 'CZ', 'cze': 'CZ',
+    'румыни': 'RO', 'romania': 'RO', 'bucharest': 'RO', 'rou': 'RO',
+    'украин': 'UA', 'ukraine': 'UA', 'kyiv': 'UA', 'ukr': 'UA',
+    'молдов': 'MD', 'moldova': 'MD', 'chisinau': 'MD', 'mda': 'MD',
+    'серби': 'RS', 'serbia': 'RS', 'belgrade': 'RS', 'srb': 'RS',
+    'австрали': 'AU', 'australia': 'AU', 'sydney': 'AU', 'aus': 'AU',
+    'инди': 'IN', 'india': 'IN', 'mumbai': 'IN', 'ind': 'IN',
+    'бразили': 'BR', 'brazil': 'BR', 'bra': 'BR',
+    'израиль': 'IL', 'israel': 'IL', 'tel aviv': 'IL', 'isr': 'IL'
 }
 
 def detect_country(name: str, host: str):
-    combined = (name + " " + host).lower()
-    for key, (country, flag) in COUNTRY_MAP.items():
-        pattern = r'\b' + re.escape(key) + r'\b'
-        if re.search(pattern, combined):
+    # 1. First priority: decode Unicode Regional Indicator Symbol emoji flags (e.g. 🇩🇰, 🇳🇱, 🇩🇪)
+    for i in range(len(name) - 1):
+        c1, c2 = ord(name[i]), ord(name[i+1])
+        if 0x1F1E6 <= c1 <= 0x1F1FF and 0x1F1E6 <= c2 <= 0x1F1FF:
+            code = chr(ord('A') + c1 - 0x1F1E6) + chr(ord('A') + c2 - 0x1F1E6)
+            if code in ISO_TO_COUNTRY:
+                return ISO_TO_COUNTRY[code]
+                
+    # 2. Clean out ad domains that cause false positives (e.g. dafei.de)
+    cleaned = re.sub(r'dafei\.de|v2nodes\.com', '', (name + ' ' + host).lower())
+    
+    # 3. Keyword matching (Russian, English, 3-letter ISO)
+    for kw, code in NAME_KEYWORDS.items():
+        pattern = r'(?:\b|_|-)' + re.escape(kw) + r'(?:\b|_|-|\d)'
+        if re.search(pattern, cleaned) or kw in cleaned:
+            return ISO_TO_COUNTRY[code]
+            
+    # 4. Two-letter country code check
+    for code, (country, flag) in ISO_TO_COUNTRY.items():
+        if re.search(r'\b' + code.lower() + r'\b', cleaned):
             return country, flag
-    if any(k in combined for k in ["germany", "de-", "de_"]):
-        return "Германия", "🇩🇪"
-    if any(k in combined for k in ["us-", "us_", "united states", "usa"]):
-        return "США", "🇺🇸"
+            
     return "Глобальный", "🌐"
 
 def clean_tag(raw: str, fallback="VPN Node") -> str:
@@ -670,6 +695,54 @@ def build_sing_box_json(nodes):
     }
     return json.dumps(cfg, indent=2, ensure_ascii=False)
 
+def enrich_nodes_geoip(nodes):
+    print("Enriching node geo-locations with IP GeoIP batch lookup...")
+    host_to_ip = {}
+    for n in nodes:
+        h = n.get("host")
+        if h and h not in host_to_ip:
+            try:
+                host_to_ip[h] = socket.gethostbyname(h)
+            except Exception:
+                host_to_ip[h] = h
+
+    unique_ips = list(set(host_to_ip.values()))
+    ip_geo = {}
+    
+    # Query in batches of 30
+    chunk_size = 30
+    for i in range(0, len(unique_ips), chunk_size):
+        chunk = unique_ips[i:i + chunk_size]
+        payload = [{"query": ip, "fields": "query,country,countryCode,city"} for ip in chunk]
+        try:
+            req = urllib.request.Request(
+                "http://ip-api.com/batch",
+                data=json.dumps(payload).encode("utf-8"),
+                headers={"Content-Type": "application/json"}
+            )
+            with urllib.request.urlopen(req, timeout=8) as resp:
+                data = json.loads(resp.read().decode("utf-8", errors="ignore"))
+                for item in data:
+                    ip = item.get("query")
+                    if ip:
+                        ip_geo[ip] = item
+        except Exception as e:
+            print(f"  GeoIP notice: {e}")
+
+    for n in nodes:
+        h = n.get("host")
+        ip = host_to_ip.get(h, h)
+        geo = ip_geo.get(ip)
+        if geo:
+            code = geo.get("countryCode", "")
+            if code in ISO_TO_COUNTRY:
+                c_name, c_flag = ISO_TO_COUNTRY[code]
+                n["country"] = c_name
+                n["flag"] = c_flag
+                n["city"] = geo.get("city") or ""
+        if "city" not in n:
+            n["city"] = ""
+
 def main():
     print("=== [NEBULA GATEWAY] Starting VPN Node Verification & Aggregation ===")
     all_raw = list(VERIFIED_CORE_NODES)
@@ -679,9 +752,12 @@ def main():
         links = fetch_source(src)
         all_raw.extend(links)
         
-    # Deduplicate raw links
+    # Deduplicate raw links & prioritize Reality and distinct hosts
     seen = set()
-    unique_candidates = []
+    core_candidates = []
+    reality_candidates = []
+    other_candidates = []
+    
     for link in all_raw:
         link = link.strip()
         if not link.startswith(("vless://", "vmess://", "trojan://", "ss://")):
@@ -690,13 +766,20 @@ def main():
         if base in seen:
             continue
         seen.add(base)
-        unique_candidates.append(link)
-        
-    print(f"Total unique candidates to test: {len(unique_candidates)}")
+        if link in VERIFIED_CORE_NODES:
+            core_candidates.append(link)
+        elif "security=reality" in link:
+            reality_candidates.append(link)
+        else:
+            other_candidates.append(link)
+            
+    # Sample up to 300 reality and 100 other candidate nodes across different hosts
+    candidate_links = core_candidates + reality_candidates[:300] + other_candidates[:100]
+    print(f"Selected {len(candidate_links)} prioritized candidate nodes to test ({len(core_candidates)} core, {min(300, len(reality_candidates))} reality, {min(100, len(other_candidates))} others)")
     
     # Parse candidates
     parsed_candidates = []
-    for l in unique_candidates:
+    for l in candidate_links:
         p = parse_node(l)
         if p and p.get("host"):
             parsed_candidates.append(p)
@@ -705,7 +788,7 @@ def main():
     
     # Concurrent health check (test TCP/TLS response)
     verified_nodes = []
-    with ThreadPoolExecutor(max_workers=30) as executor:
+    with ThreadPoolExecutor(max_workers=35) as executor:
         futures = {executor.submit(check_node_health, n): n for n in parsed_candidates}
         for future in as_completed(futures):
             res = future.result()
@@ -714,19 +797,43 @@ def main():
                 
     print(f"\nHealth check finished: {len(verified_nodes)}/{len(parsed_candidates)} nodes online.")
     
-    # Intelligent sorting:
-    # 1. VLESS-Reality nodes first (highest resistance to DPI/TSPU)
-    # 2. Lowest ping first
-    def sort_score(x):
-        is_r = 0 if x.get("is_reality") else 1
-        ping = x.get("ping", 9999)
-        return (is_r, ping)
-        
-    verified_nodes.sort(key=sort_score)
-    top_curated = verified_nodes[:60]
+    # Enrich with GeoIP data for precise countries and cities
+    enrich_nodes_geoip(verified_nodes)
     
-    # Generate clean links
-    clean_links = [n["raw"] for n in verified_nodes]
+    # Format clean titles with country flags, country names, city, and protocol tags
+    country_counters = {}
+    for n in verified_nodes:
+        c = n["country"]
+        country_counters[c] = country_counters.get(c, 0) + 1
+        idx = country_counters[c]
+        city_str = f" | {n['city']}" if n.get("city") else ""
+        sec_str = " [Reality]" if n.get("is_reality") else f" [{n['protocol']}]"
+        clean_title = f"{n['flag']} {n['country']}{city_str}{sec_str} #{idx}"
+        n["name"] = clean_title
+        base_link = n["raw"].split("#")[0]
+        n["raw"] = f"{base_link}#{urllib.parse.quote(clean_title)}"
+        
+    # Group verified nodes by country for round-robin diversity
+    by_country = {}
+    for n in verified_nodes:
+        c = n["country"]
+        if c not in by_country:
+            by_country[c] = []
+        by_country[c].append(n)
+        
+    for c in by_country:
+        by_country[c].sort(key=lambda x: (0 if x.get("is_reality") else 1, x.get("ping", 9999)))
+        
+    interleaved_nodes = []
+    max_count = max(len(v) for v in by_country.values()) if by_country else 0
+    # Put top 1 from each country first, then top 2 from each country, etc.
+    for round_idx in range(max_count):
+        for c in sorted(by_country.keys()):
+            if round_idx < len(by_country[c]):
+                interleaved_nodes.append(by_country[c][round_idx])
+                
+    clean_links = [n["raw"] for n in interleaved_nodes]
+    top_curated = interleaved_nodes[:80]
     
     # 1. sub_raw.txt
     with open("sub_raw.txt", "w", encoding="utf-8") as f:
@@ -744,6 +851,7 @@ def main():
     nodes_summary = {
         "updated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC"),
         "total_nodes": len(verified_nodes),
+        "total_countries": len(by_country),
         "avg_ping": int(sum(n["ping"] for n in top_curated) / max(1, len(top_curated))),
         "protocols": {
             "vless": sum(1 for n in verified_nodes if n["protocol"] == "VLESS"),
@@ -752,6 +860,7 @@ def main():
             "trojan": sum(1 for n in verified_nodes if n["protocol"] == "Trojan"),
             "shadowsocks": sum(1 for n in verified_nodes if n["protocol"] == "Shadowsocks")
         },
+        "countries": {c: len(nodes) for c, nodes in sorted(by_country.items(), key=lambda x: -len(x[1]))},
         "nodes": top_curated
     }
     with open("nodes.json", "w", encoding="utf-8") as f:
