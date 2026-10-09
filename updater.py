@@ -965,8 +965,10 @@ def main():
         city_str = f" | {n['city']}" if n.get("city") else ""
         ping_str = f" [{n['ping']}ms]"
         clean_title = f"{n['flag']} {n['country']}{city_str}{ping_str} #{idx + 1}"
-        n["name"] = clean_title
         base_link = n["raw"].split("#")[0]
+        # Sanitize parameters that trigger sing-box parser panics (like packetEncoding=none)
+        base_link = re.sub(r'[&?]packetEncoding=none', '', base_link)
+        base_link = re.sub(r'\?&', '?', base_link)
         n["raw"] = f"{base_link}#{urllib.parse.quote(clean_title)}"
         
     by_country = {}
