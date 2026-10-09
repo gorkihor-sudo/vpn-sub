@@ -940,40 +940,25 @@ def main():
     # Enrich with GeoIP data for precise countries and cities
     enrich_nodes_geoip(verified_nodes)
     
-    # Format clean titles with country flags, country names, city, and protocol tags
-    country_counters = {}
-    for n in verified_nodes:
-        c = n["country"]
-        country_counters[c] = country_counters.get(c, 0) + 1
-        idx = country_counters[c]
+    # Sort strictly by lowest ping (fastest latency) first, prioritizing Reality
+    verified_nodes.sort(key=lambda x: (0 if x.get("is_reality") else 1, x.get("ping", 9999)))
+    
+    # Format clean titles with country flags, country names, city, and verified latency
+    for idx, n in enumerate(verified_nodes):
         city_str = f" | {n['city']}" if n.get("city") else ""
-        sec_str = " [Reality]" if n.get("is_reality") else f" [{n['protocol']}]"
-        clean_title = f"{n['flag']} {n['country']}{city_str}{sec_str} #{idx}"
+        ping_str = f" [{n['ping']}ms]"
+        clean_title = f"{n['flag']} {n['country']}{city_str}{ping_str} #{idx + 1}"
         n["name"] = clean_title
         base_link = n["raw"].split("#")[0]
         n["raw"] = f"{base_link}#{urllib.parse.quote(clean_title)}"
         
-    # Group verified nodes by country for round-robin diversity
     by_country = {}
     for n in verified_nodes:
         c = n["country"]
-        if c not in by_country:
-            by_country[c] = []
-        by_country[c].append(n)
-        
-    for c in by_country:
-        by_country[c].sort(key=lambda x: (0 if x.get("is_reality") else 1, x.get("ping", 9999)))
-        
-    interleaved_nodes = []
-    max_count = max(len(v) for v in by_country.values()) if by_country else 0
-    # Put top 1 from each country first, then top 2 from each country, etc.
-    for round_idx in range(max_count):
-        for c in sorted(by_country.keys()):
-            if round_idx < len(by_country[c]):
-                interleaved_nodes.append(by_country[c][round_idx])
-                
-    clean_links = [n["raw"] for n in interleaved_nodes]
-    top_curated = interleaved_nodes[:80]
+        by_country[c] = by_country.get(c, 0) + 1
+
+    clean_links = [n["raw"] for n in verified_nodes]
+    top_curated = verified_nodes[:80]
     
     # 1. sub_raw.txt
     with open("sub_raw.txt", "w", encoding="utf-8") as f:
@@ -1000,7 +985,7 @@ def main():
             "trojan": sum(1 for n in verified_nodes if n["protocol"] == "Trojan"),
             "shadowsocks": sum(1 for n in verified_nodes if n["protocol"] == "Shadowsocks")
         },
-        "countries": {c: len(nodes) for c, nodes in sorted(by_country.items(), key=lambda x: -len(x[1]))},
+        "countries": dict(sorted(by_country.items(), key=lambda x: -x[1])),
         "nodes": top_curated
     }
     with open("nodes.json", "w", encoding="utf-8") as f:
