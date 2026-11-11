@@ -1,5 +1,5 @@
 # Nebula / GorkiVPN Clash Meta & Mihomo Configuration
-# Generated: 2026-11-10 22:40:10 UTC
+# Generated: 2026-11-11 03:50:50 UTC
 port: 7890
 socks-port: 7891
 allow-lan: false
@@ -19,79 +19,35 @@ dns:
 proxies:
   - name: "🇺🇸 США #1 [Reality]"
     type: vless
-    server: "148.135.86.162"
-    port: 10000
-    uuid: "327b1113-049e-4256-8d72-8815643dbb65"
+    server: "47.253.226.114"
+    port: 443
+    uuid: "055a1ce8-2a16-4a0d-a2c2-22826c9b2413"
     tls: true
     skip-cert-verify: true
     flow: "xtls-rprx-vision"
-    servername: "addons.mozilla.org"
+    servername: "www.cloudflare.com"
     client-fingerprint: "chrome"
     reality-opts:
-      public-key: "DCbnS4mIPc1W2-wI0MGHhykwzf2nVuZvBadErSE6MxU"
-      short-id: "a1b2c3d4"
+      public-key: "Svl81isn16RPAFnjtmYw7A6TPnsEPLHuYYaJht65Rzc"
+      short-id: ""
     udp: true
 
   - name: "🇺🇸 США #2 [Reality]"
     type: vless
-    server: "148.135.86.162"
-    port: 10000
-    uuid: "327b1113-049e-4256-8d72-8815643dbb65"
+    server: "47.253.226.114"
+    port: 443
+    uuid: "055a1ce8-2a16-4a0d-a2c2-22826c9b2413"
     tls: true
     skip-cert-verify: true
     flow: "xtls-rprx-vision"
-    servername: "addons.mozilla.org"
+    servername: "www.cloudflare.com"
     client-fingerprint: "chrome"
     reality-opts:
-      public-key: "DCbnS4mIPc1W2-wI0MGHhykwzf2nVuZvBadErSE6MxU"
-      short-id: "a1b2c3d4"
+      public-key: "Svl81isn16RPAFnjtmYw7A6TPnsEPLHuYYaJht65Rzc"
+      short-id: ""
     udp: true
 
   - name: "🇺🇸 США #3 [Reality]"
-    type: vless
-    server: "107.173.237.146"
-    port: 8443
-    uuid: "1d39f715-2740-4d99-bc3b-197cc48dcee7"
-    tls: true
-    skip-cert-verify: true
-    servername: "updates.cdn-apple.com"
-    client-fingerprint: "chrome"
-    reality-opts:
-      public-key: "D3ojIs3AUKP_tV0E4TEjh90HBVJp24Nq3qMfdxD30kc"
-      short-id: "df8611c07d"
-    udp: true
-
-  - name: "🇺🇸 США #4 [Reality]"
-    type: vless
-    server: "47.253.226.114"
-    port: 443
-    uuid: "055a1ce8-2a16-4a0d-a2c2-22826c9b2413"
-    tls: true
-    skip-cert-verify: true
-    flow: "xtls-rprx-vision"
-    servername: "www.cloudflare.com"
-    client-fingerprint: "chrome"
-    reality-opts:
-      public-key: "Svl81isn16RPAFnjtmYw7A6TPnsEPLHuYYaJht65Rzc"
-      short-id: ""
-    udp: true
-
-  - name: "🇺🇸 США #5 [Reality]"
-    type: vless
-    server: "47.253.226.114"
-    port: 443
-    uuid: "055a1ce8-2a16-4a0d-a2c2-22826c9b2413"
-    tls: true
-    skip-cert-verify: true
-    flow: "xtls-rprx-vision"
-    servername: "www.cloudflare.com"
-    client-fingerprint: "chrome"
-    reality-opts:
-      public-key: "Svl81isn16RPAFnjtmYw7A6TPnsEPLHuYYaJht65Rzc"
-      short-id: ""
-    udp: true
-
-  - name: "🇺🇸 США #6 [Reality]"
     type: vless
     server: "159.89.87.21"
     port: 28190
@@ -106,22 +62,51 @@ proxies:
       short-id: ""
     udp: true
 
-  - name: "🇺🇸 США #7 [Reality]"
+  - name: "🇺🇸 США #4 [Reality]"
     type: vless
-    server: "167.17.69.171"
-    port: 443
-    uuid: "00144519-7e0d-476b-8d28-435576af9262"
+    server: "159.89.87.21"
+    port: 28190
+    uuid: "14c80e0e-f7ce-4991-94fc-99a1db4a9b1e"
     tls: true
     skip-cert-verify: true
     flow: "xtls-rprx-vision"
-    servername: "www.cloudflare.com"
+    servername: "aws.amazon.com"
     client-fingerprint: "chrome"
     reality-opts:
-      public-key: "ALT8hIGeZEhi0sQFbXP_ntBg8Xo-v7i0YCLrqTnBxRk"
-      short-id: "0990d22f"
+      public-key: "ZJRnFU-1s1JOnO8E9uZ7b00l1fPEh63fGRbdBANFRno"
+      short-id: ""
     udp: true
 
-  - name: "🇺🇸 США #8 [Reality]"
+  - name: "🇺🇸 США #5 [Reality]"
+    type: vless
+    server: "148.135.86.162"
+    port: 10000
+    uuid: "327b1113-049e-4256-8d72-8815643dbb65"
+    tls: true
+    skip-cert-verify: true
+    flow: "xtls-rprx-vision"
+    servername: "addons.mozilla.org"
+    client-fingerprint: "chrome"
+    reality-opts:
+      public-key: "DCbnS4mIPc1W2-wI0MGHhykwzf2nVuZvBadErSE6MxU"
+      short-id: "a1b2c3d4"
+    udp: true
+
+  - name: "🇺🇸 США #6 [Reality]"
+    type: vless
+    server: "107.173.237.146"
+    port: 8443
+    uuid: "1d39f715-2740-4d99-bc3b-197cc48dcee7"
+    tls: true
+    skip-cert-verify: true
+    servername: "updates.cdn-apple.com"
+    client-fingerprint: "chrome"
+    reality-opts:
+      public-key: "D3ojIs3AUKP_tV0E4TEjh90HBVJp24Nq3qMfdxD30kc"
+      short-id: "df8611c07d"
+    udp: true
+
+  - name: "🇺🇸 США #7 [Reality]"
     type: vless
     server: "136.176.65.251"
     port: 443
@@ -134,6 +119,21 @@ proxies:
     reality-opts:
       public-key: "O5NcKiTtNcJZiLMJhxT5d0Pn8KjVBvXGmztGd4_D-RI"
       short-id: "cdac1a856b81390f"
+    udp: true
+
+  - name: "🇺🇸 США #8 [Reality]"
+    type: vless
+    server: "167.17.69.171"
+    port: 443
+    uuid: "00144519-7e0d-476b-8d28-435576af9262"
+    tls: true
+    skip-cert-verify: true
+    flow: "xtls-rprx-vision"
+    servername: "www.cloudflare.com"
+    client-fingerprint: "chrome"
+    reality-opts:
+      public-key: "ALT8hIGeZEhi0sQFbXP_ntBg8Xo-v7i0YCLrqTnBxRk"
+      short-id: "0990d22f"
     udp: true
 
   - name: "🇺🇸 США #9 [Reality]"
@@ -153,35 +153,20 @@ proxies:
 
   - name: "🇺🇸 США #10 [Reality]"
     type: vless
-    server: "159.89.87.21"
-    port: 28190
-    uuid: "14c80e0e-f7ce-4991-94fc-99a1db4a9b1e"
+    server: "23.95.222.127"
+    port: 8443
+    uuid: "352ff568-f971-4613-bf48-92997a5d44ed"
     tls: true
     skip-cert-verify: true
     flow: "xtls-rprx-vision"
-    servername: "aws.amazon.com"
+    servername: "www.apple.com"
     client-fingerprint: "chrome"
     reality-opts:
-      public-key: "ZJRnFU-1s1JOnO8E9uZ7b00l1fPEh63fGRbdBANFRno"
-      short-id: ""
+      public-key: "ribQDOlZ69PzvZ1EDF0EcmMvbq_T5RQrVRBSGUU2riU"
+      short-id: "35cd899f8de04801"
     udp: true
 
   - name: "🇺🇸 США #11 [Reality]"
-    type: vless
-    server: "23.95.115.116"
-    port: 2053
-    uuid: "2739258b-a278-4bed-bc5d-f88830824dce"
-    tls: true
-    skip-cert-verify: true
-    flow: "xtls-rprx-vision"
-    servername: "www.cloudflare.com"
-    client-fingerprint: "chrome"
-    reality-opts:
-      public-key: "plwyjJZIVDt1OtwDAxfcLjDsR7dseVCe9Ia3HceIKEg"
-      short-id: "a1b2c3d4"
-    udp: true
-
-  - name: "🇺🇸 США #12 [Reality]"
     type: vless
     server: "167.17.69.171"
     port: 443
@@ -196,7 +181,7 @@ proxies:
       short-id: "0990d22f"
     udp: true
 
-  - name: "🇺🇸 США #13 [Reality]"
+  - name: "🇺🇸 США #12 [Reality]"
     type: vless
     server: "23.95.222.127"
     port: 8443
@@ -211,52 +196,7 @@ proxies:
       short-id: "35cd899f8de04801"
     udp: true
 
-  - name: "🇺🇸 США #14 [Reality]"
-    type: vless
-    server: "xray1-direct-mci1-fs-ce.freesocks.work"
-    port: 443
-    uuid: "094b1f17-49e6-43a2-a5ee-414dac3c0bb6"
-    tls: true
-    skip-cert-verify: true
-    flow: "xtls-rprx-vision"
-    servername: "dl.google.com"
-    client-fingerprint: "chrome"
-    reality-opts:
-      public-key: "7j3hmlHrEDk3Kjx-dFG3E3jf0c6PZF45trIPFsuKWmI"
-      short-id: ""
-    udp: true
-
-  - name: "🌐 Глобальный #15 [Reality]"
-    type: vless
-    server: "147.78.1.253"
-    port: 443
-    uuid: "39a390af-1f90-4c0e-89e4-4e2023732e4b"
-    tls: true
-    skip-cert-verify: true
-    flow: "xtls-rprx-vision"
-    servername: "www.apple.com"
-    client-fingerprint: "chrome"
-    reality-opts:
-      public-key: "TefL2KtNcNLPmUY8TKlu5pA7ffipqgmbBN6gpyzyklk"
-      short-id: ""
-    udp: true
-
-  - name: "🇺🇸 США #16 [Reality]"
-    type: vless
-    server: "23.95.222.127"
-    port: 8443
-    uuid: "352ff568-f971-4613-bf48-92997a5d44ed"
-    tls: true
-    skip-cert-verify: true
-    flow: "xtls-rprx-vision"
-    servername: "www.apple.com"
-    client-fingerprint: "chrome"
-    reality-opts:
-      public-key: "ribQDOlZ69PzvZ1EDF0EcmMvbq_T5RQrVRBSGUU2riU"
-      short-id: "35cd899f8de04801"
-    udp: true
-
-  - name: "🇫🇷 Франция #17 [Reality]"
+  - name: "🇫🇷 Франция #13 [Reality]"
     type: vless
     server: "138.124.251.98"
     port: 443
@@ -271,7 +211,36 @@ proxies:
       short-id: "8f3c6e2a1b5d4f09"
     udp: true
 
-  - name: "🇳🇱 Нидерланды #18 [Reality]"
+  - name: "🇺🇸 США #14 [Reality]"
+    type: vless
+    server: "201.58.139.66"
+    port: 443
+    uuid: "056405e8-de9f-4d0d-8145-956f13cc34da"
+    tls: true
+    skip-cert-verify: true
+    servername: "57aac2t.pl7.h1clayd.click"
+    client-fingerprint: "chrome"
+    reality-opts:
+      public-key: "LY0H47MWx87_L_JBzxFAuTzKZB53U7MrZQK8-dNnMxM"
+      short-id: "6c5c7900406a1ae7"
+    udp: true
+
+  - name: "🇨🇭 Швейцария #15 [Reality]"
+    type: vless
+    server: "45.90.59.15"
+    port: 443
+    uuid: "3950b45e-740d-4dca-ac95-505ec8534592"
+    tls: true
+    skip-cert-verify: true
+    flow: "xtls-rprx-vision"
+    servername: "www.cloudflare.com"
+    client-fingerprint: "chrome"
+    reality-opts:
+      public-key: "P7S4UPFlQbmiBr4txyy8NZIMTrmO3UdxyH16WBU-YzY"
+      short-id: "19253fae84102271"
+    udp: true
+
+  - name: "🇳🇱 Нидерланды #16 [Reality]"
     type: vless
     server: "2.59.183.167"
     port: 443
@@ -285,22 +254,7 @@ proxies:
       short-id: "a1b2c3d4"
     udp: true
 
-  - name: "🇳🇱 Нидерланды #19 [Reality]"
-    type: vless
-    server: "150.251.143.253"
-    port: 443
-    uuid: "4201786b-d99b-4147-a5f0-20d47acddb81"
-    tls: true
-    skip-cert-verify: true
-    flow: "xtls-rprx-vision"
-    servername: "4935e4t.de25.h1clayd.click"
-    client-fingerprint: "chrome"
-    reality-opts:
-      public-key: "MzgB17ZFbKqs8pbC3EscTzHid_ENc-k_Cp6nXl-2knw"
-      short-id: "6976d670818644cc"
-    udp: true
-
-  - name: "🇧🇬 Болгария #20 [Reality]"
+  - name: "🇧🇬 Болгария #17 [Reality]"
     type: vless
     server: "131.123.43.103"
     port: 443
@@ -315,7 +269,7 @@ proxies:
       short-id: "1f8bab7ad81089f2"
     udp: true
 
-  - name: "🇵🇱 Польша #21 [Reality]"
+  - name: "🇵🇱 Польша #18 [Reality]"
     type: vless
     server: "82.118.22.161"
     port: 443
@@ -328,6 +282,51 @@ proxies:
     reality-opts:
       public-key: "xY1KpNxaIGmi6jfeudYQ_aaLGQqWK_uHStnwUFd2_2E"
       short-id: "fa3ea655619a3e78"
+    udp: true
+
+  - name: "🇵🇱 Польша #19 [Reality]"
+    type: vless
+    server: "82.118.22.161"
+    port: 443
+    uuid: "05488656-d4bf-4634-8b2e-e4ff5a56c7e2"
+    tls: true
+    skip-cert-verify: true
+    flow: "xtls-rprx-vision"
+    servername: "www.cloudflare.com"
+    client-fingerprint: "chrome"
+    reality-opts:
+      public-key: "xY1KpNxaIGmi6jfeudYQ_aaLGQqWK_uHStnwUFd2_2E"
+      short-id: "fa3ea655619a3e78"
+    udp: true
+
+  - name: "🇺🇸 США #20 [Reality]"
+    type: vless
+    server: "46.29.255.123"
+    port: 59539
+    uuid: "30572b57-f5ab-4eb8-82d4-a24d399b99f6"
+    tls: true
+    skip-cert-verify: true
+    flow: "xtls-rprx-vision"
+    servername: "cloudflare-dns.com"
+    client-fingerprint: "chrome"
+    reality-opts:
+      public-key: "R6mPqCsjZMWauci4LHw7Qp1LGKmBd-sxMXplyOn9bSQ"
+      short-id: ""
+    udp: true
+
+  - name: "🇧🇬 Болгария #21 [Reality]"
+    type: vless
+    server: "131.123.43.103"
+    port: 443
+    uuid: "3f5e89d5-591f-4ac9-b071-b05680b573c3"
+    tls: true
+    skip-cert-verify: true
+    flow: "xtls-rprx-vision"
+    servername: "bg2.gacvpn.site"
+    client-fingerprint: "chrome"
+    reality-opts:
+      public-key: "SgFQg7srP1xgjWhnSU9lpUMDRlsoLIXlw6nX-mfOdlg"
+      short-id: "1f8bab7ad81089f2"
     udp: true
 
   - name: "🇧🇬 Болгария #22 [Reality]"
@@ -347,21 +346,6 @@ proxies:
 
   - name: "🇧🇬 Болгария #23 [Reality]"
     type: vless
-    server: "131.123.43.103"
-    port: 443
-    uuid: "3f5e89d5-591f-4ac9-b071-b05680b573c3"
-    tls: true
-    skip-cert-verify: true
-    flow: "xtls-rprx-vision"
-    servername: "bg2.gacvpn.site"
-    client-fingerprint: "chrome"
-    reality-opts:
-      public-key: "SgFQg7srP1xgjWhnSU9lpUMDRlsoLIXlw6nX-mfOdlg"
-      short-id: "1f8bab7ad81089f2"
-    udp: true
-
-  - name: "🇧🇬 Болгария #24 [Reality]"
-    type: vless
     server: "bg2.gacvpn.site"
     port: 443
     uuid: "3f5e89d5-591f-4ac9-b071-b05680b573c3"
@@ -375,67 +359,36 @@ proxies:
       short-id: "1f8bab7ad81089f2"
     udp: true
 
-  - name: "🇳🇱 Нидерланды #25 [Reality]"
+  - name: "🇹🇷 Турция #24 [Reality]"
     type: vless
-    server: "150.251.143.253"
-    port: 443
-    uuid: "4201786b-d99b-4147-a5f0-20d47acddb81"
+    server: "151.241.226.201"
+    port: 2053
+    uuid: "0eed6293-8cf1-4e77-ac10-9c3d50d0b2f8"
     tls: true
     skip-cert-verify: true
-    flow: "xtls-rprx-vision"
-    servername: "4935e4t.de25.h1clayd.click"
-    client-fingerprint: "chrome"
-    reality-opts:
-      public-key: "MzgB17ZFbKqs8pbC3EscTzHid_ENc-k_Cp6nXl-2knw"
-      short-id: "6976d670818644cc"
-    udp: true
-
-  - name: "🇭🇰 Гонконг #26 [Reality]"
-    type: vless
-    server: "156.226.168.221"
-    port: 35193
-    uuid: "35cbae61-ee10-4cb9-abb8-4950b35e9851"
-    tls: true
-    skip-cert-verify: true
-    flow: "xtls-rprx-vision"
     servername: "www.apple.com"
     client-fingerprint: "chrome"
     reality-opts:
-      public-key: "d_pn_DMaIxhCkNh80h0Mc7nP94hrlN--I8liOIREDxE"
-      short-id: "e8daed2d"
+      public-key: "bYW_MmB_CUHrsyoCAUKviI2LZdHf63yY2yOPXbih104"
+      short-id: "9e419c0759b54d6f"
     udp: true
 
-  - name: "🇸🇪 Швеция #27 [Reality]"
+  - name: "🇳🇱 Нидерланды #25 [Reality]"
     type: vless
-    server: "150.241.79.124"
+    server: "89.125.48.218"
     port: 443
-    uuid: "1fe01c8a-ab37-4e95-bbfc-95d4a608931e"
+    uuid: "3f5e89d5-591f-4ac9-b071-b05680b573c3"
     tls: true
     skip-cert-verify: true
     flow: "xtls-rprx-vision"
-    servername: "de1.waspnest.space"
+    servername: "nl3-edge.gacvpn.site"
     client-fingerprint: "chrome"
     reality-opts:
-      public-key: "dlhvkjq7Sj-TT__FLwUJzFLMDCk8bgi85Uz4qDU-5FM"
-      short-id: "5212dad2aa9723d7"
+      public-key: "Caj4X3VjnHfdRQzWLmjFCiG_CGw0scYYni6UxVfBs38"
+      short-id: "db6a4219fb"
     udp: true
 
-  - name: "🇷🇺 Россия #28 [TLS]"
-    type: vless
-    server: "ndfst11.neuroblur.top"
-    port: 14443
-    uuid: "010be6fa-ab5f-404a-9edf-ab2db1f09f0c"
-    tls: true
-    skip-cert-verify: true
-    servername: "ndfst11.neuroblur.top"
-    network: ws
-    ws-opts:
-      path: "/api/generate"
-      headers:
-        Host: "ndfst11.neuroblur.top"
-    udp: true
-
-  - name: "🇷🇴 Румыния #29 [TLS]"
+  - name: "🇷🇴 Румыния #26 [TLS]"
     type: vless
     server: "82.152.132.74"
     port: 443
@@ -450,7 +403,7 @@ proxies:
         Host: "82.152.132.74"
     udp: true
 
-  - name: "🇫🇷 Франция #30 [Reality]"
+  - name: "🇫🇷 Франция #27 [Reality]"
     type: vless
     server: "ai.smrtai.top"
     port: 443
@@ -464,7 +417,35 @@ proxies:
       short-id: "086bf957"
     udp: true
 
-  - name: "🇸🇪 Швеция #31 [Reality]"
+  - name: "🇫🇷 Франция #28 [Reality]"
+    type: vless
+    server: "161.97.66.16"
+    port: 443
+    uuid: "086bf957-9cd0-4e55-8280-bbef10435b41"
+    tls: true
+    skip-cert-verify: true
+    servername: "www.cloudflare.com"
+    client-fingerprint: "chrome"
+    reality-opts:
+      public-key: "R-w7BpNgtryZRBMyRoHx81OnjzAwrKhVtV1EUKLFJzc"
+      short-id: "086bf957"
+    udp: true
+
+  - name: "🇫🇷 Франция #29 [Reality]"
+    type: vless
+    server: "161.97.66.16"
+    port: 443
+    uuid: "086bf957-9cd0-4e55-8280-bbef10435b41"
+    tls: true
+    skip-cert-verify: true
+    servername: "www.cloudflare.com"
+    client-fingerprint: "chrome"
+    reality-opts:
+      public-key: "R-w7BpNgtryZRBMyRoHx81OnjzAwrKhVtV1EUKLFJzc"
+      short-id: "086bf957"
+    udp: true
+
+  - name: "🇸🇪 Швеция #30 [Reality]"
     type: vless
     server: "150.241.79.124"
     port: 443
@@ -479,19 +460,33 @@ proxies:
       short-id: "5212dad2aa9723d7"
     udp: true
 
-  - name: "🇩🇪 Германия #32 [Reality]"
+  - name: "🇫🇷 Франция #31 [Reality]"
     type: vless
-    server: "music.3apes.online"
+    server: "ai.smrtai.top"
     port: 443
-    uuid: "12776e55-6230-48b9-b069-1bb8a04b4237"
+    uuid: "086bf957-9cd0-4e55-8280-bbef10435b41"
+    tls: true
+    skip-cert-verify: true
+    servername: "www.cloudflare.com"
+    client-fingerprint: "chrome"
+    reality-opts:
+      public-key: "R-w7BpNgtryZRBMyRoHx81OnjzAwrKhVtV1EUKLFJzc"
+      short-id: "086bf957"
+    udp: true
+
+  - name: "🇳🇱 Нидерланды #32 [Reality]"
+    type: vless
+    server: "150.251.143.253"
+    port: 443
+    uuid: "4201786b-d99b-4147-a5f0-20d47acddb81"
     tls: true
     skip-cert-verify: true
     flow: "xtls-rprx-vision"
-    servername: "music.3apes.online"
+    servername: "4935e4t.de25.h1clayd.click"
     client-fingerprint: "chrome"
     reality-opts:
-      public-key: "q4_o7NvD6vQg4hYsyO29Q6PVufjTJHDUbQTqstre9EQ"
-      short-id: ""
+      public-key: "MzgB17ZFbKqs8pbC3EscTzHid_ENc-k_Cp6nXl-2knw"
+      short-id: "6976d670818644cc"
     udp: true
 
   - name: "🇳🇱 Нидерланды #33 [Reality]"
@@ -509,65 +504,37 @@ proxies:
       short-id: "db6a4219fb"
     udp: true
 
-  - name: "🇺🇸 США #34 [Reality]"
+  - name: "🇩🇪 Германия #34 [Reality]"
     type: vless
-    server: "46.29.255.123"
-    port: 59539
-    uuid: "30572b57-f5ab-4eb8-82d4-a24d399b99f6"
+    server: "music.3apes.online"
+    port: 443
+    uuid: "12776e55-6230-48b9-b069-1bb8a04b4237"
     tls: true
     skip-cert-verify: true
     flow: "xtls-rprx-vision"
-    servername: "cloudflare-dns.com"
+    servername: "music.3apes.online"
     client-fingerprint: "chrome"
     reality-opts:
-      public-key: "R6mPqCsjZMWauci4LHw7Qp1LGKmBd-sxMXplyOn9bSQ"
+      public-key: "q4_o7NvD6vQg4hYsyO29Q6PVufjTJHDUbQTqstre9EQ"
       short-id: ""
     udp: true
 
-  - name: "🇫🇷 Франция #35 [Reality]"
+  - name: "🇺🇸 США #35 [Reality]"
     type: vless
-    server: "161.97.66.16"
+    server: "47.251.25.74"
     port: 443
-    uuid: "086bf957-9cd0-4e55-8280-bbef10435b41"
-    tls: true
-    skip-cert-verify: true
-    servername: "www.cloudflare.com"
-    client-fingerprint: "chrome"
-    reality-opts:
-      public-key: "R-w7BpNgtryZRBMyRoHx81OnjzAwrKhVtV1EUKLFJzc"
-      short-id: "086bf957"
-    udp: true
-
-  - name: "🇺🇸 США #36 [Reality]"
-    type: vless
-    server: "46.29.255.123"
-    port: 59539
-    uuid: "30572b57-f5ab-4eb8-82d4-a24d399b99f6"
+    uuid: "18805ff3-b420-45de-af18-93be14024ae8"
     tls: true
     skip-cert-verify: true
     flow: "xtls-rprx-vision"
-    servername: "cloudflare-dns.com"
+    servername: "www.amazon.com"
     client-fingerprint: "chrome"
     reality-opts:
-      public-key: "R6mPqCsjZMWauci4LHw7Qp1LGKmBd-sxMXplyOn9bSQ"
+      public-key: "H56cOJhw0xw76lDEpt7IuJJmVGemK6_CK34KtHwDMX8"
       short-id: ""
     udp: true
 
-  - name: "🇫🇷 Франция #37 [Reality]"
-    type: vless
-    server: "ai.smrtai.top"
-    port: 443
-    uuid: "086bf957-9cd0-4e55-8280-bbef10435b41"
-    tls: true
-    skip-cert-verify: true
-    servername: "www.cloudflare.com"
-    client-fingerprint: "chrome"
-    reality-opts:
-      public-key: "R-w7BpNgtryZRBMyRoHx81OnjzAwrKhVtV1EUKLFJzc"
-      short-id: "086bf957"
-    udp: true
-
-  - name: "🇩🇪 Германия #38 [Reality]"
+  - name: "🇩🇪 Германия #36 [Reality]"
     type: vless
     server: "147.45.66.60"
     port: 43000
@@ -580,6 +547,21 @@ proxies:
     reality-opts:
       public-key: "DbL9RJFvJrnxBu6fFhWkHF8nsD6cK_DKMuMV00RmlWg"
       short-id: "4d3d8e15"
+    udp: true
+
+  - name: "🇸🇪 Швеция #37 [Reality]"
+    type: vless
+    server: "150.241.79.124"
+    port: 443
+    uuid: "1fe01c8a-ab37-4e95-bbfc-95d4a608931e"
+    tls: true
+    skip-cert-verify: true
+    flow: "xtls-rprx-vision"
+    servername: "de1.waspnest.space"
+    client-fingerprint: "chrome"
+    reality-opts:
+      public-key: "dlhvkjq7Sj-TT__FLwUJzFLMDCk8bgi85Uz4qDU-5FM"
+      short-id: "5212dad2aa9723d7"
     udp: true
 
 proxy-groups:
@@ -601,32 +583,31 @@ proxy-groups:
       - "🇺🇸 США #10 [Reality]"
       - "🇺🇸 США #11 [Reality]"
       - "🇺🇸 США #12 [Reality]"
-      - "🇺🇸 США #13 [Reality]"
+      - "🇫🇷 Франция #13 [Reality]"
       - "🇺🇸 США #14 [Reality]"
-      - "🌐 Глобальный #15 [Reality]"
-      - "🇺🇸 США #16 [Reality]"
-      - "🇫🇷 Франция #17 [Reality]"
-      - "🇳🇱 Нидерланды #18 [Reality]"
-      - "🇳🇱 Нидерланды #19 [Reality]"
-      - "🇧🇬 Болгария #20 [Reality]"
-      - "🇵🇱 Польша #21 [Reality]"
+      - "🇨🇭 Швейцария #15 [Reality]"
+      - "🇳🇱 Нидерланды #16 [Reality]"
+      - "🇧🇬 Болгария #17 [Reality]"
+      - "🇵🇱 Польша #18 [Reality]"
+      - "🇵🇱 Польша #19 [Reality]"
+      - "🇺🇸 США #20 [Reality]"
+      - "🇧🇬 Болгария #21 [Reality]"
       - "🇧🇬 Болгария #22 [Reality]"
       - "🇧🇬 Болгария #23 [Reality]"
-      - "🇧🇬 Болгария #24 [Reality]"
+      - "🇹🇷 Турция #24 [Reality]"
       - "🇳🇱 Нидерланды #25 [Reality]"
-      - "🇭🇰 Гонконг #26 [Reality]"
-      - "🇸🇪 Швеция #27 [Reality]"
-      - "🇷🇺 Россия #28 [TLS]"
-      - "🇷🇴 Румыния #29 [TLS]"
-      - "🇫🇷 Франция #30 [Reality]"
-      - "🇸🇪 Швеция #31 [Reality]"
-      - "🇩🇪 Германия #32 [Reality]"
+      - "🇷🇴 Румыния #26 [TLS]"
+      - "🇫🇷 Франция #27 [Reality]"
+      - "🇫🇷 Франция #28 [Reality]"
+      - "🇫🇷 Франция #29 [Reality]"
+      - "🇸🇪 Швеция #30 [Reality]"
+      - "🇫🇷 Франция #31 [Reality]"
+      - "🇳🇱 Нидерланды #32 [Reality]"
       - "🇳🇱 Нидерланды #33 [Reality]"
-      - "🇺🇸 США #34 [Reality]"
-      - "🇫🇷 Франция #35 [Reality]"
-      - "🇺🇸 США #36 [Reality]"
-      - "🇫🇷 Франция #37 [Reality]"
-      - "🇩🇪 Германия #38 [Reality]"
+      - "🇩🇪 Германия #34 [Reality]"
+      - "🇺🇸 США #35 [Reality]"
+      - "🇩🇪 Германия #36 [Reality]"
+      - "🇸🇪 Швеция #37 [Reality]"
 
   - name: "🚀 Select Proxy"
     type: select
@@ -644,32 +625,31 @@ proxy-groups:
       - "🇺🇸 США #10 [Reality]"
       - "🇺🇸 США #11 [Reality]"
       - "🇺🇸 США #12 [Reality]"
-      - "🇺🇸 США #13 [Reality]"
+      - "🇫🇷 Франция #13 [Reality]"
       - "🇺🇸 США #14 [Reality]"
-      - "🌐 Глобальный #15 [Reality]"
-      - "🇺🇸 США #16 [Reality]"
-      - "🇫🇷 Франция #17 [Reality]"
-      - "🇳🇱 Нидерланды #18 [Reality]"
-      - "🇳🇱 Нидерланды #19 [Reality]"
-      - "🇧🇬 Болгария #20 [Reality]"
-      - "🇵🇱 Польша #21 [Reality]"
+      - "🇨🇭 Швейцария #15 [Reality]"
+      - "🇳🇱 Нидерланды #16 [Reality]"
+      - "🇧🇬 Болгария #17 [Reality]"
+      - "🇵🇱 Польша #18 [Reality]"
+      - "🇵🇱 Польша #19 [Reality]"
+      - "🇺🇸 США #20 [Reality]"
+      - "🇧🇬 Болгария #21 [Reality]"
       - "🇧🇬 Болгария #22 [Reality]"
       - "🇧🇬 Болгария #23 [Reality]"
-      - "🇧🇬 Болгария #24 [Reality]"
+      - "🇹🇷 Турция #24 [Reality]"
       - "🇳🇱 Нидерланды #25 [Reality]"
-      - "🇭🇰 Гонконг #26 [Reality]"
-      - "🇸🇪 Швеция #27 [Reality]"
-      - "🇷🇺 Россия #28 [TLS]"
-      - "🇷🇴 Румыния #29 [TLS]"
-      - "🇫🇷 Франция #30 [Reality]"
-      - "🇸🇪 Швеция #31 [Reality]"
-      - "🇩🇪 Германия #32 [Reality]"
+      - "🇷🇴 Румыния #26 [TLS]"
+      - "🇫🇷 Франция #27 [Reality]"
+      - "🇫🇷 Франция #28 [Reality]"
+      - "🇫🇷 Франция #29 [Reality]"
+      - "🇸🇪 Швеция #30 [Reality]"
+      - "🇫🇷 Франция #31 [Reality]"
+      - "🇳🇱 Нидерланды #32 [Reality]"
       - "🇳🇱 Нидерланды #33 [Reality]"
-      - "🇺🇸 США #34 [Reality]"
-      - "🇫🇷 Франция #35 [Reality]"
-      - "🇺🇸 США #36 [Reality]"
-      - "🇫🇷 Франция #37 [Reality]"
-      - "🇩🇪 Германия #38 [Reality]"
+      - "🇩🇪 Германия #34 [Reality]"
+      - "🇺🇸 США #35 [Reality]"
+      - "🇩🇪 Германия #36 [Reality]"
+      - "🇸🇪 Швеция #37 [Reality]"
       - DIRECT
 
 rules:
